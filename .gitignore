@@ -8,6 +8,7 @@ out/
 *.war
 *.ear
 .idea/
-.gradle/**
+gradle/
+.gradle/
 build/
 
