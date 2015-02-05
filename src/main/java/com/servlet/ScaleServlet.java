@@ -14,9 +14,7 @@ import java.net.URL;
 public class ScaleServlet extends HttpServlet {
 
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         String url=request.getParameter("url");
