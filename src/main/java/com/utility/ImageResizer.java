@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class ImageResizer {
-    public BufferedImage resize(String sourceFile,
+    public static BufferedImage resize(String sourceFile,
                                        int targetWidth, int targetHeight) throws Exception {
         try {
             BufferedImage image = ImageIO.read(new URL(sourceFile));
@@ -76,7 +76,7 @@ public class ImageResizer {
 
     }
 
-    public BufferedImage scaleImage(BufferedImage orig, int type, Object hint, int width, int height) {
+    public static BufferedImage  scaleImage(BufferedImage orig, int type, Object hint, int width, int height) {
         BufferedImage tmp = new BufferedImage(width, height, type);
         Graphics2D graphics = tmp.createGraphics();
         graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, hint);
@@ -85,7 +85,7 @@ public class ImageResizer {
         return tmp;
     }
 
-    public void interp(BufferedImage image1, BufferedImage image2, int weight1, int weight2) {
+    public static void  interp(BufferedImage image1, BufferedImage image2, int weight1, int weight2) {
         float alpha = weight1;
         alpha /= (weight1 + weight2);
         Graphics2D graphics = image1.createGraphics();

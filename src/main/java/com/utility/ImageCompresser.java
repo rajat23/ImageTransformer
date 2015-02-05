@@ -9,7 +9,7 @@ import javax.imageio.*;
 import javax.imageio.stream.ImageOutputStream;
 import java.net.URL;
 
-public class CompressImage {
+public class ImageCompresser {
 
     public  static BufferedImage getCompressImage(String url,float factor) throws IOException {
 

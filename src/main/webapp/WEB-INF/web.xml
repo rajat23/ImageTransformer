@@ -4,49 +4,29 @@
 
 <web-app>
 
-    <!-- Here we're defining list of application servlets -->
-    <servlet>
-        <servlet-name>scaleservlet</servlet-name>
-        <servlet-class>com.servlet.ScaleServlet</servlet-class>
 
+    <servlet>
+        <servlet-name>scaleServlet</servlet-name>
+        <servlet-class>com.servlet.ScaleServlet</servlet-class>
     </servlet>
 
-
-
-    <!-- Here we're defining URL mapping to each previously defined servlets -->
-
-
     <servlet-mapping>
-        <servlet-name>scaleservlet</servlet-name>
+        <servlet-name>scaleServlet</servlet-name>
         <url-pattern>/image/scale/*</url-pattern>
     </servlet-mapping>
 
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>
-
 
 
     <servlet>
-        <servlet-name>compressservlet</servlet-name>
-        <servlet-class> com.servlet.ServletCompress</servlet-class>
+        <servlet-name>compressServlet</servlet-name>
+        <servlet-class>com.servlet.CompressServlet</servlet-class>
 
     </servlet>
 
-
-
-    <!-- Here we're defining URL mapping to each previously defined servlets -->
-
-
     <servlet-mapping>
-        <servlet-name>compressservlet</servlet-name>
-        <url-pattern>/compress/*</url-pattern>
+        <servlet-name>compressServlet</servlet-name>
+        <url-pattern>/image/compress/*</url-pattern>
     </servlet-mapping>
-
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>
-
 
 
 </web-app>

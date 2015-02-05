@@ -1,6 +1,5 @@
 package com.servlet;
 
-import com.utility.ImageScale;
 import com.utility.ImageResizer;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
 
 public class ScaleServlet extends HttpServlet {
 

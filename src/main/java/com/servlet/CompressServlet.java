@@ -2,7 +2,7 @@ package com.servlet;
 
 
 
-import com.utility.CompressImage;
+import com.utility.ImageCompresser;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
 
-public class ServletCompress extends HttpServlet {
+public class CompressServlet extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request,
@@ -24,7 +23,7 @@ public class ServletCompress extends HttpServlet {
         BufferedImage image = null;
 
         try {
-            image = CompressImage.getCompressImage(url,factor);
+            image = ImageCompresser.getCompressImage(url, factor);
         } catch (Exception e) {
             e.printStackTrace();
         }
