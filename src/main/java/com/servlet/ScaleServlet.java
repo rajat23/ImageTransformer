@@ -1,7 +1,7 @@
 package com.servlet;
 
 import com.utility.ImageScale;
-
+import com.utility.ImageResizer;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +18,11 @@ public class ScaleServlet extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException {
         int width = Integer.parseInt(request.getParameter("width"));
+        int height = Integer.parseInt(request.getParameter("height"));
         String url=request.getParameter("url");
         BufferedImage image = null;
         try {
-            image = ImageScale.getScaledImage(url,width);
+            image = ImageResizer.resize(url,width,height);
         } catch (Exception e) {
             e.printStackTrace();
         }
