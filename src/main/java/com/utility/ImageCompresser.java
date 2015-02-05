@@ -14,7 +14,7 @@ public class ImageCompresser {
     public  static BufferedImage getCompressImage(String url,float quality) throws IOException {
 
 
-        BufferedImage image = ImageIO.read(new URL(url));
+        BufferedImage inputImage = ImageIO.read(new URL(url));
 
         File compressedImageFile = new File("compress.jpg");
         OutputStream os =new FileOutputStream(compressedImageFile);
@@ -29,12 +29,13 @@ public class ImageCompresser {
 
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         param.setCompressionQuality(quality);
-        writer.write(null, new IIOImage(image, null, null), param);
+        writer.write(null, new IIOImage(inputImage, null, null), param);
 
         os.close();
         ios.close();
         writer.dispose();
-        BufferedImage image1 =ImageIO.read(compressedImageFile);
-        return image1;
+        BufferedImage CompressedImage=ImageIO.read(compressedImageFile);
+        compressedImageFile.delete();
+        return CompressedImage;
     }
 }
