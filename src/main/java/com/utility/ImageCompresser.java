@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class ImageCompresser {
 
-    public  static BufferedImage getCompressImage(String url,float factor) throws IOException {
+    public  static BufferedImage getCompressImage(String url,float quality) throws IOException {
 
 
         BufferedImage image = ImageIO.read(new URL(url));
@@ -28,7 +28,7 @@ public class ImageCompresser {
         ImageWriteParam param = writer.getDefaultWriteParam();
 
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        param.setCompressionQuality(factor);
+        param.setCompressionQuality(quality);
         writer.write(null, new IIOImage(image, null, null), param);
 
         os.close();

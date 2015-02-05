@@ -19,11 +19,11 @@ public class CompressServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String url=request.getParameter("url");
-        float factor = Float.parseFloat(request.getParameter("factor"));
+        float quality = Float.parseFloat(request.getParameter("quality"));
         BufferedImage image = null;
 
         try {
-            image = ImageCompresser.getCompressImage(url, factor);
+            image = ImageCompresser.getCompressImage(url, quality);
         } catch (Exception e) {
             e.printStackTrace();
         }

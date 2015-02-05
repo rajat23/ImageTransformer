@@ -29,4 +29,16 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>cropServlet</servlet-name>
+        <servlet-class>com.servlet.CropServlet</servlet-class>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>cropServlet</servlet-name>
+        <url-pattern>/image/crop/*</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
