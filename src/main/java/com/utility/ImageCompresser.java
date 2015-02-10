@@ -12,13 +12,9 @@ import javax.imageio.stream.ImageOutputStream;
 import java.net.URL;
 
 public class ImageCompresser {
-
-
-<<<<<<< HEAD
+    
     public BufferedImage getCompressImage(String url, float quality) throws IOException {
-=======
-    public  static BufferedImage getCompressImage(String url,float quality,String extension) throws IOException {
->>>>>>> added new class FileUrl for extracting extension and added support for all image format
+
 
 
         BufferedImage inputImage = ImageIO.read(new URL(url));
