@@ -2,7 +2,6 @@ package com.utility;
 
 
 import com.helper.FileUrl;
-
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
@@ -14,14 +13,20 @@ public class ImageCompresser {
 
     public BufferedImage getCompressImage(String url, float quality) throws IOException {
 
-        BufferedImage inputImage = ImageIO.read(new URL(url));
+        BufferedImage inputImage = ImageIO.read(new URL(url).openStream());
         String extension = getFileExtension(url);
-        BufferedImage jpegImage = convertToJpegImage(inputImage);
+
+        File jpegImageFile= convertToJpegImage(inputImage);
+        BufferedImage jpegImage = ImageIO.read(jpegImageFile);
+        jpegImageFile.delete();
 
         File compressedImageFile = compressFile(quality, jpegImage);
 
         BufferedImage compressedImage = ImageIO.read(compressedImageFile);
-        compressedImage = convertToRequiredFormat(compressedImage, extension);
+        compressedImageFile.delete();
+        compressedImageFile = convertToRequiredFormat(compressedImage, extension);
+        compressedImage = ImageIO.read(compressedImageFile);
+
         compressedImageFile.delete();
 
         return compressedImage;
@@ -49,20 +54,16 @@ public class ImageCompresser {
         return compressedImageFile;
     }
 
-    private BufferedImage convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
+    private File convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
         File temporaryFile = new File("image." + extension);
         ImageIO.write(compressedImage, extension, temporaryFile);
-        compressedImage = ImageIO.read(new File("image." + extension));
-        temporaryFile.delete();
-        return compressedImage;
+        return temporaryFile;
     }
 
-    private BufferedImage convertToJpegImage(BufferedImage inputImage) throws IOException {
+    private File convertToJpegImage(BufferedImage inputImage) throws IOException {
         File temporaryFile = new File("image.jpg");
         ImageIO.write(inputImage, "jpg", temporaryFile);
-        BufferedImage jpegImage = ImageIO.read(temporaryFile);
-        temporaryFile.delete();
-        return jpegImage;
+        return temporaryFile;
     }
 
     private String getFileExtension(String url) {

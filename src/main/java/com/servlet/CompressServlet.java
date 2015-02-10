@@ -32,7 +32,7 @@ public class CompressServlet extends HttpServlet {
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter=response.getWriter();
-            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            printWriter.write("<html><body>"+ioException.getMessage()+"</body><html>");
             return;
         }
 
