@@ -9,7 +9,9 @@ version = '1.0'
 repositories {
     mavenCentral()
 }
-
+task getHomeDir << {
+    println gradle.gradleHomeDir
+}
 jettyRun{
     contextPath="";
 }

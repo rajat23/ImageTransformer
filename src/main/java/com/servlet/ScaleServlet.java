@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class ScaleServlet extends HttpServlet {
 
-
+    ImageScaler imageScaler=null;
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,8 +26,8 @@ public class ScaleServlet extends HttpServlet {
         BufferedImage image = null;
 
         try {
-
-            image = ImageScaler.resizeImage(url, width, height);
+            imageScaler=new ImageScaler();
+            image = imageScaler.resizeImage(url, width, height);
 
         } catch (Exception e) {
             e.printStackTrace();
