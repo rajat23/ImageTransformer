@@ -27,7 +27,7 @@ public class CompressServlet extends HttpServlet {
         FileUrl fileUrl=new FileUrl();
         String extension=fileUrl.getFileExtension(url);
         try {
-            image = ImageCompresser.getCompressImage(url,quality,extension);
+            image = imageCompresser.getCompressImage(url,quality,extension);
         } catch (Exception e) {
             e.printStackTrace();
         }

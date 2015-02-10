@@ -12,8 +12,8 @@ import javax.imageio.stream.ImageOutputStream;
 import java.net.URL;
 
 public class ImageCompresser {
-    
-    public BufferedImage getCompressImage(String url, float quality) throws IOException {
+
+    public BufferedImage getCompressImage(String url, float quality,String extension) throws IOException {
 
 
 
