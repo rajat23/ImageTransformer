@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 
 public class ScaleServlet extends HttpServlet {
 
-    ImageScaler imageScaler=null;
+
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class ScaleServlet extends HttpServlet {
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         BufferedImage image=null;
-
+        ImageScaler imageScaler=null;
         try {
             imageScaler=new ImageScaler();
             image = imageScaler.resizeImage(url, width, height);
