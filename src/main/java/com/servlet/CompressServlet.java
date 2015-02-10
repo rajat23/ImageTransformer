@@ -1,8 +1,8 @@
 package com.servlet;
 
 
-
 import com.utility.ImageCompresser;
+
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,7 @@ public class CompressServlet extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException {
 
-        String url=request.getParameter("url");
+        String url = request.getParameter("url");
         float quality = Float.parseFloat(request.getParameter("quality"));
         BufferedImage image = null;
 

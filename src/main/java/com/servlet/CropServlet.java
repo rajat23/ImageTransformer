@@ -15,11 +15,11 @@ import java.io.IOException;
  */
 public class CropServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int xCoordinate=Integer.parseInt(request.getParameter("x"));
-        int yCoordinate=Integer.parseInt(request.getParameter("y"));
+        int xCoordinate = Integer.parseInt(request.getParameter("x"));
+        int yCoordinate = Integer.parseInt(request.getParameter("y"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
-        String url=request.getParameter("url");
+        String url = request.getParameter("url");
         BufferedImage image = null;
         try {
             image = ImageCropper.getCroppedImage(url, xCoordinate, yCoordinate, width, height);
