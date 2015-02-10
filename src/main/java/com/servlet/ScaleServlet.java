@@ -1,6 +1,8 @@
 package com.servlet;
 
-import com.utility.ImageResizer;
+
+import com.utility.ImageScaler;
+
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -23,7 +25,9 @@ public class ScaleServlet extends HttpServlet {
         BufferedImage image = null;
 
         try {
-            image = ImageResizer.resizeImage(url, width, height);
+
+            image = ImageScaler.resizeImage(url, width, height);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
