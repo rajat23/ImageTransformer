@@ -14,11 +14,18 @@ import java.net.URL;
 public class ImageCompresser {
 
 
+<<<<<<< HEAD
     public BufferedImage getCompressImage(String url, float quality) throws IOException {
+=======
+    public  static BufferedImage getCompressImage(String url,float quality,String extension) throws IOException {
+>>>>>>> added new class FileUrl for extracting extension and added support for all image format
 
 
         BufferedImage inputImage = ImageIO.read(new URL(url));
-
+        File temporaryFile=new File("image.jpg");
+        ImageIO.write(inputImage,"jpg",temporaryFile);
+        inputImage=ImageIO.read(temporaryFile);
+        temporaryFile.delete();
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
 
@@ -37,8 +44,13 @@ public class ImageCompresser {
         os.close();
         ios.close();
         writer.dispose();
-        BufferedImage CompressedImage = ImageIO.read(compressedImageFile);
+
+        BufferedImage CompressedImage=ImageIO.read(compressedImageFile);
+        temporaryFile=new File("image."+extension);
+        ImageIO.write(CompressedImage,extension,temporaryFile);
+        inputImage=ImageIO.read(new File("image."+extension));
         compressedImageFile.delete();
-        return CompressedImage;
+        temporaryFile.delete();
+        return inputImage;
     }
 }

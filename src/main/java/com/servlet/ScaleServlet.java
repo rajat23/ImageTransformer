@@ -1,6 +1,7 @@
 package com.servlet;
 
 
+import com.helper.FileUrl;
 import com.utility.ImageScaler;
 
 
@@ -31,8 +32,10 @@ public class ScaleServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.setContentType("image/jpeg");
-        ImageIO.write(image, "jpg", response.getOutputStream());
+        FileUrl fileUrl=new FileUrl();
+        String extension=fileUrl.getFileExtension(url);
+        response.setContentType("image/"+extension);
+        ImageIO.write(image, extension, response.getOutputStream());
     }
 
     public void destroy() {
