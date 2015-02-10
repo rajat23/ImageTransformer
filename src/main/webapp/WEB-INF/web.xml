@@ -43,7 +43,7 @@
 
     <servlet>
         <servlet-name>scaleServlet2</servlet-name>
-        <servlet-class>com.servlet.ScaleServlet2</servlet-class>
+        <servlet-class>com.servlet.ScaleServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

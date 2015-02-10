@@ -1,6 +1,6 @@
 package com.servlet;
 
-import com.utility.ImageResizer2;
+import com.utility.ImageResizer;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class ScaleServlet2 extends HttpServlet {
+public class ScaleServlet extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request,
@@ -23,7 +23,7 @@ public class ScaleServlet2 extends HttpServlet {
         BufferedImage image = null;
 
         try {
-            image = ImageResizer2.resizeImage(url, width, height);
+            image = ImageResizer.resizeImage(url, width, height);
         } catch (Exception e) {
             e.printStackTrace();
         }

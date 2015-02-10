@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 
-public class ImageResizer2 {
+public class ImageResizer {
 
     public static BufferedImage resizeImage(String url, int width, int height) throws IOException {
         BufferedImage image = ImageIO.read(new URL(url));
