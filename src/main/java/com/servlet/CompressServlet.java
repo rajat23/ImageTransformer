@@ -22,7 +22,7 @@ public class CompressServlet extends HttpServlet {
         BufferedImage image = null;
 
         try {
-            image = ImageCompresser.getCompressImage(url,"jpg",quality);
+            image = ImageCompresser.getCompressImage(url,quality);
         } catch (Exception e) {
             e.printStackTrace();
         }
