@@ -1,6 +1,5 @@
 package com.servlet;
 
-
 import com.utility.ImageCompresser;
 
 import javax.imageio.ImageIO;
@@ -23,11 +22,12 @@ public class CompressServlet extends HttpServlet {
         BufferedImage image = null;
 
         try {
-            image = ImageCompresser.getCompressImage(url, quality);
+            image = ImageCompresser.getCompressImage(url,"jpg",quality);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.setContentType("image/jpeg");
+        String contentType="image/jpeg";
+        response.setContentType(contentType);
         ImageIO.write(image, "jpg", response.getOutputStream());
     }
 
