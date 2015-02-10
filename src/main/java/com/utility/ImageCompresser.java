@@ -2,12 +2,19 @@ package com.utility;
 
 
 import com.helper.FileUrl;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.*;
-import javax.imageio.*;
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
+import java.util.Iterator;
 
 public class ImageCompresser {
 
@@ -32,7 +39,7 @@ public class ImageCompresser {
         return compressedImage;
     }
 
-    private File compressFile(float quality, BufferedImage jpegImage) throws IOException {
+    public File compressFile(float quality, BufferedImage jpegImage) throws IOException {
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
 
@@ -54,13 +61,13 @@ public class ImageCompresser {
         return compressedImageFile;
     }
 
-    private File convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
+    public File convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
         File temporaryFile = new File("image." + extension);
         ImageIO.write(compressedImage, extension, temporaryFile);
         return temporaryFile;
     }
 
-    private File convertToJpegImage(BufferedImage inputImage) throws IOException {
+    public File convertToJpegImage(BufferedImage inputImage) throws IOException {
         File temporaryFile = new File("image.jpg");
         ImageIO.write(inputImage, "jpg", temporaryFile);
         return temporaryFile;
