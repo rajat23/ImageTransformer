@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-/**
- * Created by akshaysinghyaduvanshi on 2/5/15.
- */
+
 public class CropServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int xCoordinate = Integer.parseInt(request.getParameter("x"));
@@ -21,8 +19,9 @@ public class CropServlet extends HttpServlet {
         int height = Integer.parseInt(request.getParameter("height"));
         String url = request.getParameter("url");
         BufferedImage image = null;
+        ImageCropper imageCropper=new ImageCropper();
         try {
-            image = ImageCropper.getCroppedImage(url, xCoordinate, yCoordinate, width, height);
+            image = imageCropper.getCroppedImage(url, xCoordinate, yCoordinate, width, height);
         } catch (Exception e) {
             e.printStackTrace();
         }
