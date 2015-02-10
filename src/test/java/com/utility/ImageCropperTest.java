@@ -1,11 +1,8 @@
 package com.utility;
 
 import org.junit.Test;
-
 import java.awt.image.BufferedImage;
-
 import static org.junit.Assert.*;
-
 public class ImageCropperTest {
 
     @Test
