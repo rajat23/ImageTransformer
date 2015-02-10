@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class ImageCropper {
 
-    public BufferedImage getCroppedImage(String url,int xCoordinate,int yCoordinate,int width,int height)throws IOException{
+    public BufferedImage getCroppedImage(String url, int xCoordinate, int yCoordinate, int width, int height) throws IOException {
         BufferedImage image = ImageIO.read(new URL(url));
         return image.getSubimage(xCoordinate, yCoordinate, width, height);
     }

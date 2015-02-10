@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class CompressServlet extends HttpServlet {
 
@@ -28,8 +29,11 @@ public class CompressServlet extends HttpServlet {
         String extension=fileUrl.getFileExtension(url);
         try {
             image = imageCompresser.getCompressImage(url,quality);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            response.setContentType("text/html");
+            PrintWriter printWriter=response.getWriter();
+            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            return;
         }
 
         response.setContentType("image/"+extension);

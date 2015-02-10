@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 public class CropServlet extends HttpServlet {
@@ -23,8 +24,11 @@ public class CropServlet extends HttpServlet {
         ImageCropper imageCropper=new ImageCropper();
         try {
             image = imageCropper.getCroppedImage(url, xCoordinate, yCoordinate, width, height);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            response.setContentType("text/html");
+            PrintWriter printWriter=response.getWriter();
+            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            return;
         }
         FileUrl fileUrl=new FileUrl();
         String extension=fileUrl.getFileExtension(url);

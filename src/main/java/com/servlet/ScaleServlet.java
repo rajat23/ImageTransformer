@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class ScaleServlet extends HttpServlet {
 
@@ -23,14 +24,17 @@ public class ScaleServlet extends HttpServlet {
         String url = request.getParameter("url");
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
-        BufferedImage image = null;
+        BufferedImage image=null;
 
         try {
             imageScaler=new ImageScaler();
             image = imageScaler.resizeImage(url, width, height);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            response.setContentType("text/html");
+            PrintWriter printWriter=response.getWriter();
+            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            return;
         }
         FileUrl fileUrl=new FileUrl();
         String extension=fileUrl.getFileExtension(url);

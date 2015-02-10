@@ -2,6 +2,7 @@ package com.utility;
 
 
 import com.helper.FileUrl;
+
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
@@ -19,8 +20,8 @@ public class ImageCompresser {
 
         File compressedImageFile = compressFile(quality, jpegImage);
 
-        BufferedImage compressedImage=ImageIO.read(compressedImageFile);
-        compressedImage=convertToRequiredFormat(compressedImage,extension);
+        BufferedImage compressedImage = ImageIO.read(compressedImageFile);
+        compressedImage = convertToRequiredFormat(compressedImage, extension);
         compressedImageFile.delete();
 
         return compressedImage;
@@ -48,24 +49,24 @@ public class ImageCompresser {
         return compressedImageFile;
     }
 
-    private BufferedImage convertToRequiredFormat(BufferedImage compressedImage,String extension) throws IOException{
-        File temporaryFile=new File("image."+extension);
-        ImageIO.write(compressedImage,extension,temporaryFile);
-        compressedImage=ImageIO.read(new File("image."+extension));
+    private BufferedImage convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
+        File temporaryFile = new File("image." + extension);
+        ImageIO.write(compressedImage, extension, temporaryFile);
+        compressedImage = ImageIO.read(new File("image." + extension));
         temporaryFile.delete();
         return compressedImage;
     }
 
     private BufferedImage convertToJpegImage(BufferedImage inputImage) throws IOException {
-        File temporaryFile=new File("image.jpg");
+        File temporaryFile = new File("image.jpg");
         ImageIO.write(inputImage, "jpg", temporaryFile);
-        BufferedImage jpegImage=ImageIO.read(temporaryFile);
+        BufferedImage jpegImage = ImageIO.read(temporaryFile);
         temporaryFile.delete();
         return jpegImage;
     }
 
     private String getFileExtension(String url) {
-        FileUrl fileUrl=new FileUrl();
+        FileUrl fileUrl = new FileUrl();
         return fileUrl.getFileExtension(url);
     }
 }
