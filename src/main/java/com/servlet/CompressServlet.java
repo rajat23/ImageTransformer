@@ -20,13 +20,14 @@ public class CompressServlet extends HttpServlet {
         String url = request.getParameter("url");
         float quality = Float.parseFloat(request.getParameter("quality"));
         BufferedImage image = null;
+        ImageCompresser imageCompresser = new ImageCompresser();
 
         try {
-            image = ImageCompresser.getCompressImage(url,"jpg",quality);
+            image = imageCompresser.getCompressImage(url, quality);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String contentType="image/jpeg";
+        String contentType = "image/jpeg";
         response.setContentType(contentType);
         ImageIO.write(image, "jpg", response.getOutputStream());
     }

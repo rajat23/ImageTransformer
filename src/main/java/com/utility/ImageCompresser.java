@@ -3,7 +3,7 @@ package com.utility;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.file.Files;
+
 import java.util.*;
 import java.awt.image.*;
 
@@ -14,15 +14,15 @@ import java.net.URL;
 public class ImageCompresser {
 
 
-    public  static BufferedImage getCompressImage(String url,float quality) throws IOException {
+    public BufferedImage getCompressImage(String url, float quality) throws IOException {
 
 
         BufferedImage inputImage = ImageIO.read(new URL(url));
 
         File compressedImageFile = new File("compress.jpg");
-        OutputStream os =new FileOutputStream(compressedImageFile);
+        OutputStream os = new FileOutputStream(compressedImageFile);
 
-        Iterator<ImageWriter>writers =  ImageIO.getImageWritersByFormatName("jpg");
+        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
         ImageWriter writer = (ImageWriter) writers.next();
 
         ImageOutputStream ios = ImageIO.createImageOutputStream(os);
@@ -37,7 +37,7 @@ public class ImageCompresser {
         os.close();
         ios.close();
         writer.dispose();
-        BufferedImage CompressedImage=ImageIO.read(compressedImageFile);
+        BufferedImage CompressedImage = ImageIO.read(compressedImageFile);
         compressedImageFile.delete();
         return CompressedImage;
     }
