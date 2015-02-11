@@ -1,6 +1,8 @@
 package com.servlet;
 
 import com.helper.FileUrl;
+import com.helper.ImageReader;
+import com.helper.Response;
 import com.utility.ImageCropper;
 
 import javax.imageio.ImageIO;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 
 public class CropServlet extends HttpServlet {
@@ -20,20 +23,21 @@ public class CropServlet extends HttpServlet {
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         String url = request.getParameter("url");
-        BufferedImage image = null;
-        ImageCropper imageCropper=new ImageCropper();
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image;
         try {
-            image = imageCropper.getCroppedImage(url, xCoordinate, yCoordinate, width, height);
+            image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter=response.getWriter();
             printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
             return;
         }
-        FileUrl fileUrl=new FileUrl();
-        String extension=fileUrl.getFileExtension(url);
-        response.setContentType("image/"+extension);
-        ImageIO.write(image, extension, response.getOutputStream());
+        ImageCropper imageCropper=new ImageCropper();
+        image = imageCropper.getCroppedImage(image, xCoordinate, yCoordinate, width, height);
+
+        Response servletResponse=new Response();
+        servletResponse.setResponse(response, image, url);
     }
 
     public void destroy() {

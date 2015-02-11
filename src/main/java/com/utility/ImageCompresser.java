@@ -14,15 +14,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URL;
 import java.util.Iterator;
 
 public class ImageCompresser {
 
-    public BufferedImage getCompressImage(String url, float quality) throws IOException {
+    public BufferedImage getCompressImage(BufferedImage inputImage, float quality,String extension) throws IOException {
 
-        BufferedImage inputImage = ImageIO.read(new URL(url).openStream());
-        String extension = getFileExtension(url);
         ImageFormatConverter imageFormatConverter=new ImageFormatConverter();
         BufferedImage jpegImage = imageFormatConverter.convertToRequiredFormat(inputImage, "jpg");
         BufferedImage compressedImage = compressJpegFile(jpegImage, quality);
@@ -54,11 +51,4 @@ public class ImageCompresser {
         return compressedJpegImage;
     }
 
-
-
-
-    private String getFileExtension(String url) {
-        FileUrl fileUrl = new FileUrl();
-        return fileUrl.getFileExtension(url);
-    }
 }

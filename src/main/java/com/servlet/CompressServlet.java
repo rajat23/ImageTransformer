@@ -1,6 +1,8 @@
 package com.servlet;
 
 import com.helper.FileUrl;
+import com.helper.ImageReader;
+import com.helper.Response;
 import com.utility.ImageCompresser;
 
 import javax.imageio.ImageIO;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 public class CompressServlet extends HttpServlet {
 
@@ -21,14 +24,11 @@ public class CompressServlet extends HttpServlet {
 
         String url = request.getParameter("url");
         float quality = Float.parseFloat(request.getParameter("quality"));
-        BufferedImage image = null;
-        ImageCompresser imageCompresser = new ImageCompresser();
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image;
 
-
-        FileUrl fileUrl=new FileUrl();
-        String extension=fileUrl.getFileExtension(url);
         try {
-            image = imageCompresser.getCompressImage(url,quality);
+            image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter=response.getWriter();
@@ -36,8 +36,12 @@ public class CompressServlet extends HttpServlet {
             return;
         }
 
-        response.setContentType("image/"+extension);
-        ImageIO.write(image, extension, response.getOutputStream());
+        ImageCompresser imageCompresser = new ImageCompresser();
+        image = imageCompresser.getCompressImage(image,quality,new FileUrl().getFileExtension(url));
+
+        Response servletResponse=new Response();
+        servletResponse.setResponse(response,image,url);
+
     }
 
     public void destroy() {
