@@ -2,6 +2,7 @@ package com.utility;
 
 
 import com.helper.FileUrl;
+import com.helper.ImageFormatConverter;
 
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
@@ -22,24 +23,14 @@ public class ImageCompresser {
 
         BufferedImage inputImage = ImageIO.read(new URL(url).openStream());
         String extension = getFileExtension(url);
-
-        File jpegImageFile= convertToJpegImage(inputImage);
-        BufferedImage jpegImage = ImageIO.read(jpegImageFile);
-        jpegImageFile.delete();
-
-        File compressedImageFile = compressFile(quality, jpegImage);
-
-        BufferedImage compressedImage = ImageIO.read(compressedImageFile);
-        compressedImageFile.delete();
-        compressedImageFile = convertToRequiredFormat(compressedImage, extension);
-        compressedImage = ImageIO.read(compressedImageFile);
-
-        compressedImageFile.delete();
-
+        ImageFormatConverter imageFormatConverter=new ImageFormatConverter();
+        BufferedImage jpegImage = imageFormatConverter.convertToRequiredFormat(inputImage, "jpg");
+        BufferedImage compressedImage = compressJpegFile(jpegImage, quality);
+        compressedImage = imageFormatConverter.convertToRequiredFormat(compressedImage, extension);
         return compressedImage;
     }
 
-    public File compressFile(float quality, BufferedImage jpegImage) throws IOException {
+    public BufferedImage compressJpegFile(BufferedImage jpegImage,float quality) throws IOException {
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
 
@@ -58,20 +49,13 @@ public class ImageCompresser {
         os.close();
         ios.close();
         writer.dispose();
-        return compressedImageFile;
+        BufferedImage compressedJpegImage=ImageIO.read(compressedImageFile);
+        compressedImageFile.delete();
+        return compressedJpegImage;
     }
 
-    public File convertToRequiredFormat(BufferedImage compressedImage, String extension) throws IOException {
-        File temporaryFile = new File("image." + extension);
-        ImageIO.write(compressedImage, extension, temporaryFile);
-        return temporaryFile;
-    }
 
-    public File convertToJpegImage(BufferedImage inputImage) throws IOException {
-        File temporaryFile = new File("image.jpg");
-        ImageIO.write(inputImage, "jpg", temporaryFile);
-        return temporaryFile;
-    }
+
 
     private String getFileExtension(String url) {
         FileUrl fileUrl = new FileUrl();
