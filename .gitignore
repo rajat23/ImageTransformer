@@ -11,3 +11,4 @@ out/
 gradle/
 .gradle/
 build/
+upload/

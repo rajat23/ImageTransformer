@@ -10,27 +10,50 @@ import static org.junit.Assert.assertEquals;
 
 public class ImageScalerTest {
     @Test
-    public void testResizeImage() throws Exception {
-        //action
-        String url="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/4/11/1397210130748/Spring-Lamb.-Image-shot-2-011.jpg";
+    public void testResizeImageForJpeg() throws Exception {
         int width=800;
         int height=800;
+        String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(new URL(url));
-
-        //call
+        BufferedImage image=imageReader.readImage(name);
 
         ImageScaler imageScaler=new ImageScaler();
         BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
 
-        //test
-        
         assertEquals(resizedImage.getHeight(),height);
         assertEquals(resizedImage.getWidth(),width);
 
-        
-
     }
 
+    @Test
+    public void testResizeImageForPng() throws Exception {
+        int width=800;
+        int height=800;
+        String name="PngImage.png";
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image=imageReader.readImage(name);
+
+        ImageScaler imageScaler=new ImageScaler();
+        BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
+
+        assertEquals(resizedImage.getHeight(),height);
+        assertEquals(resizedImage.getWidth(),width);
+
+    }
+    @Test
+    public void testResizeImageForGif() throws Exception {
+        int width=800;
+        int height=800;
+        String name="GifImage.gif";
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image=imageReader.readImage(name);
+
+        ImageScaler imageScaler=new ImageScaler();
+        BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
+
+        assertEquals(resizedImage.getHeight(),height);
+        assertEquals(resizedImage.getWidth(),width);
+
+    }
 
 }
