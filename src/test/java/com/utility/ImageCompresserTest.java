@@ -20,6 +20,7 @@ public class ImageCompresserTest {
 
         File file= imageCompresser.convertToRequiredFormat(bufferedImage,"png");
         assertEquals("png", new FileUrl().getFileExtension(file.getName()));
+        file.delete();
 
     }
 
@@ -31,6 +32,7 @@ public class ImageCompresserTest {
 
         File file= imageCompresser.convertToJpegImage(bufferedImage);
         assertEquals("jpg", new FileUrl().getFileExtension(file.getName()));
+        file.delete();
 
     }
 }
