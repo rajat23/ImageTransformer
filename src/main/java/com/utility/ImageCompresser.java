@@ -1,7 +1,6 @@
 package com.utility;
 
 
-import com.helper.FileUrl;
 import com.helper.ImageFormatConverter;
 
 import javax.imageio.IIOImage;
@@ -17,29 +16,41 @@ import java.io.OutputStream;
 import java.util.Iterator;
 
 public class ImageCompresser {
+    private ImageWriteParam param;
 
     public BufferedImage getCompressImage(BufferedImage inputImage, float quality,String extension) throws IOException {
 
+        ImageFormatConverter imageFormatConverter=new ImageFormatConverter();
+        BufferedImage jpegImage = imageFormatConverter.convertToRequiredFormat(inputImage, "jpg");
+        BufferedImage compressedImage = compressJpegFile(jpegImage, quality);
+        compressedImage = imageFormatConverter.convertToRequiredFormat(compressedImage, extension);
+        return compressedImage;
+    }
+
+    public BufferedImage compressJpegFile(BufferedImage jpegImage,float quality) throws IOException {
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
 
-        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(extension);
+        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
         ImageWriter writer = (ImageWriter) writers.next();
 
         ImageOutputStream ios = ImageIO.createImageOutputStream(os);
         writer.setOutput(ios);
 
-        ImageWriteParam param = writer.getDefaultWriteParam();
+        param = writer.getDefaultWriteParam();
+
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         param.setCompressionQuality(quality);
-        writer.write(null, new IIOImage(inputImage, null, null), param);
-        BufferedImage compressedImage=ImageIO.read(compressedImageFile);
-        compressedImageFile.delete();
+        writer.write(null, new IIOImage(jpegImage, null, null), param);
+
         os.close();
         ios.close();
         writer.dispose();
-
-        return compressedImage;
+        BufferedImage compressedJpegImage=ImageIO.read(compressedImageFile);
+        compressedImageFile.delete();
+        return compressedJpegImage;
     }
-
+    public float getQuality(){
+       return param.getCompressionQuality();
+    }
 }
