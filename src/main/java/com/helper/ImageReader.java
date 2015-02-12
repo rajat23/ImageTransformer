@@ -8,8 +8,7 @@ import java.net.URL;
 
 public class ImageReader {
     public BufferedImage readImage(URL url) throws IOException{
-        BufferedImage image = ImageIO.read(url.openStream());
-        return image;
+        return ImageIO.read(url.openStream());
     }
     public BufferedImage readImage(String name) throws IOException{
         return ImageIO.read(new File(System.getProperty("user.dir")+"/upload/"+name));

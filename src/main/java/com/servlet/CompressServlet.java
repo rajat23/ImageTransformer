@@ -43,6 +43,5 @@ public class CompressServlet extends HttpServlet {
 
     }
 
-    public void destroy() {
-    }
+
 }

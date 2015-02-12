@@ -45,7 +45,6 @@ public class ScaleServlet extends HttpServlet {
         servletResponse.setResponse(response, image, url);
     }
 
-    public void destroy() {
-    }
+
 
 }

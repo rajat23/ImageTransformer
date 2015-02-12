@@ -18,7 +18,7 @@ jettyRun{
 dependencies {
     compile 'javax.servlet:javax.servlet-api:3.1.0'
     testCompile 'junit:junit:4.11'
-    compile 'org.imgscalr:imgscalr-lib:4.2'
+
 }
 jettyRun{
     contextPath= ""
