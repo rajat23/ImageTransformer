@@ -10,7 +10,7 @@ public class ImageCompresserTest {
     public void testgetCompressImage() throws Exception {
 
         ImageCompresser imageCompresser=new ImageCompresser();
-        String name="JpegImage.jpg";
+        String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
         BufferedImage image= imageReader.readImage(name);
         imageCompresser.getCompressImage(image,0.05f);
