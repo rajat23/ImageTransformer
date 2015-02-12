@@ -18,16 +18,8 @@ import java.util.Iterator;
 public class ImageCompresser {
     private ImageWriteParam param;
 
-    public BufferedImage getCompressImage(BufferedImage inputImage, float quality,String extension) throws IOException {
+    public BufferedImage getCompressImage(BufferedImage inputImage, float quality) throws IOException {
 
-        ImageFormatConverter imageFormatConverter=new ImageFormatConverter();
-        BufferedImage jpegImage = imageFormatConverter.convertToRequiredFormat(inputImage, "jpg");
-        BufferedImage compressedImage = compressJpegFile(jpegImage, quality);
-        compressedImage = imageFormatConverter.convertToRequiredFormat(compressedImage, extension);
-        return compressedImage;
-    }
-
-    public BufferedImage compressJpegFile(BufferedImage jpegImage,float quality) throws IOException {
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
 
@@ -41,15 +33,15 @@ public class ImageCompresser {
 
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         param.setCompressionQuality(quality);
-        writer.write(null, new IIOImage(jpegImage, null, null), param);
-
+        writer.write(null, new IIOImage(inputImage, null, null), param);
+        BufferedImage compressedImage=ImageIO.read(compressedImageFile);
+        compressedImageFile.delete();
         os.close();
         ios.close();
         writer.dispose();
-        BufferedImage compressedJpegImage=ImageIO.read(compressedImageFile);
-        compressedImageFile.delete();
-        return compressedJpegImage;
+        return compressedImage;
     }
+
     public float getQuality(){
        return param.getCompressionQuality();
     }

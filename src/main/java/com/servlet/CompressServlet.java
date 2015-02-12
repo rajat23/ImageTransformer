@@ -37,7 +37,7 @@ public class CompressServlet extends HttpServlet {
         }
 
         ImageCompresser imageCompresser = new ImageCompresser();
-        image = imageCompresser.getCompressImage(image,quality,new FileUrl().getFileExtension(url));
+        image = imageCompresser.getCompressImage(image,quality);
 
         Response servletResponse=new Response();
         servletResponse.setResponse(response,image,url);
