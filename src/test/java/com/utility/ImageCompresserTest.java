@@ -61,7 +61,6 @@ public class ImageCompresserTest {
     }
     @Test
     public void testgetCompressImageGif() throws Exception {
-
         ImageCompresser imageCompresser = new ImageCompresser();
         String name = "GifImage.gif";
 
