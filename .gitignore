@@ -6,6 +6,5 @@ out/
 *.class
 *.ear
 .idea/
-gradle/
 .gradle/
 build/
