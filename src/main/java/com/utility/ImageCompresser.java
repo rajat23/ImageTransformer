@@ -1,8 +1,5 @@
 package com.utility;
 
-
-import com.helper.ImageFormatConverter;
-
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -22,15 +19,11 @@ public class ImageCompresser {
 
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
-
         Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
         ImageWriter writer = (ImageWriter) writers.next();
-
         ImageOutputStream ios = ImageIO.createImageOutputStream(os);
         writer.setOutput(ios);
-
         param = writer.getDefaultWriteParam();
-
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         param.setCompressionQuality(quality);
         writer.write(null, new IIOImage(inputImage, null, null), param);

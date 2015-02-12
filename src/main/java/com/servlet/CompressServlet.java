@@ -1,6 +1,5 @@
 package com.servlet;
 
-import com.helper.FileUrl;
 import com.helper.ImageReader;
 import com.helper.Response;
 import com.utility.ImageCompresser;
@@ -39,8 +38,8 @@ public class CompressServlet extends HttpServlet {
         ImageCompresser imageCompresser = new ImageCompresser();
         image = imageCompresser.getCompressImage(image,quality);
 
-        Response servletResponse=new Response();
-        servletResponse.setResponse(response,image,url);
+        response.setContentType("image/jpeg");
+        ImageIO.write(image,"jpg", response.getOutputStream());
 
     }
 

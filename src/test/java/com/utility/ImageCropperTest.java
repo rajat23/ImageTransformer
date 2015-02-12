@@ -3,7 +3,6 @@ package com.utility;
 import com.helper.ImageReader;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
-import java.net.URL;
 
 import static org.junit.Assert.*;
 public class ImageCropperTest {
