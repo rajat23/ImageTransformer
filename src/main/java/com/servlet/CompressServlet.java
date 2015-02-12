@@ -17,29 +17,27 @@ import java.net.URL;
 public class CompressServlet extends HttpServlet {
 
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String url = request.getParameter("url");
         float quality = Float.parseFloat(request.getParameter("quality"));
-        ImageReader imageReader=new ImageReader();
+        ImageReader imageReader = new ImageReader();
         BufferedImage image;
 
         try {
             image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
-            PrintWriter printWriter=response.getWriter();
-            printWriter.write("<html><body>"+ioException.getMessage()+"</body><html>");
+            PrintWriter printWriter = response.getWriter();
+            printWriter.write("<html><body>" + ioException.getMessage() + "</body><html>");
             return;
         }
 
         ImageCompresser imageCompresser = new ImageCompresser();
-        image = imageCompresser.getCompressImage(image,quality);
+        image = imageCompresser.getCompressImage(image, quality);
 
         response.setContentType("image/jpeg");
-        ImageIO.write(image,"jpg", response.getOutputStream());
+        ImageIO.write(image, "jpg", response.getOutputStream());
 
     }
 

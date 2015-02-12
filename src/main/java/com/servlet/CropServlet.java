@@ -23,20 +23,20 @@ public class CropServlet extends HttpServlet {
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         String url = request.getParameter("url");
-        ImageReader imageReader=new ImageReader();
+        ImageReader imageReader = new ImageReader();
         BufferedImage image;
         try {
             image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
-            PrintWriter printWriter=response.getWriter();
-            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            PrintWriter printWriter = response.getWriter();
+            printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        ImageCropper imageCropper=new ImageCropper();
+        ImageCropper imageCropper = new ImageCropper();
         image = imageCropper.getCroppedImage(image, xCoordinate, yCoordinate, width, height);
 
-        Response servletResponse=new Response();
+        Response servletResponse = new Response();
         servletResponse.setResponse(response, image, url);
     }
 

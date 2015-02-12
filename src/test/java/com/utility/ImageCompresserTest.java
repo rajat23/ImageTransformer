@@ -22,10 +22,48 @@ public class ImageCompresserTest {
     }
 
     @Test
-    public void testgetCompressImageOnSize() throws Exception {
+    public void testgetCompressImageJpeg() throws Exception {
 
         ImageCompresser imageCompresser = new ImageCompresser();
         String name = "JpgImage.jpg";
+
+        ImageReader imageReader = new ImageReader();
+        BufferedImage image = imageReader.readImage(name);
+        File originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);
+        ImageIO.write(image,"jpg",originalImageFile);
+
+        BufferedImage compressedImage = imageCompresser.getCompressImage(image, 0.05f);
+        File commpressedImageFile=new File("compressedImage.jpg");
+        ImageIO.write(compressedImage,"jpg",commpressedImageFile);
+
+        assertTrue(commpressedImageFile.length()<=originalImageFile.length());
+        commpressedImageFile.delete();
+
+    }
+    @Test
+    public void testgetCompressImagePng() throws Exception {
+
+        ImageCompresser imageCompresser = new ImageCompresser();
+        String name = "PngImage.png";
+
+        ImageReader imageReader = new ImageReader();
+        BufferedImage image = imageReader.readImage(name);
+        File originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);
+        ImageIO.write(image,"jpg",originalImageFile);
+
+        BufferedImage compressedImage = imageCompresser.getCompressImage(image, 0.05f);
+        File commpressedImageFile=new File("compressedImage.jpg");
+        ImageIO.write(compressedImage,"jpg",commpressedImageFile);
+
+        assertTrue(commpressedImageFile.length()<=originalImageFile.length());
+        commpressedImageFile.delete();
+
+    }
+    @Test
+    public void testgetCompressImageGif() throws Exception {
+
+        ImageCompresser imageCompresser = new ImageCompresser();
+        String name = "GifImage.gif";
 
         ImageReader imageReader = new ImageReader();
         BufferedImage image = imageReader.readImage(name);

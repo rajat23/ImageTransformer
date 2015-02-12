@@ -20,28 +20,24 @@ import java.net.URL;
 public class ScaleServlet extends HttpServlet {
 
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String url = request.getParameter("url");
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
-        ImageReader imageReader=new ImageReader();
+        ImageReader imageReader = new ImageReader();
         BufferedImage image;
-
         try {
             image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
-            PrintWriter printWriter=response.getWriter();
-            printWriter.write("<html><body>"+ioException.getStackTrace()+"</body><html>");
+            PrintWriter printWriter = response.getWriter();
+            printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        ImageScaler imageScaler=new ImageScaler();;
+        ImageScaler imageScaler = new ImageScaler();
         image = imageScaler.resizeImage(image, width, height);
-
-        Response servletResponse=new Response();
+        Response servletResponse = new Response();
         servletResponse.setResponse(response, image, url);
     }
 
