@@ -4,8 +4,6 @@
 *.iws
 out/
 *.class
-*.jar
-*.war
 *.ear
 .idea/
 gradle/
