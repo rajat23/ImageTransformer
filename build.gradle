@@ -14,6 +14,7 @@ dependencies {
     testCompile 'junit:junit:4.11'
 
 }
+task stage (dependsOn: ["clean", "jar"])
 jettyRun{
     contextPath= ""
 }
