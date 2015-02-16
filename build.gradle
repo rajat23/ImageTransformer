@@ -1,7 +1,7 @@
 apply plugin:'java'
 apply plugin:'application'
 apply plugin: 'idea'
-
+apply plugin: 'eclipse'
 mainClassName = "StartFile"
 applicationName = "app"
 
@@ -10,7 +10,8 @@ repositories {
 }
 
 dependencies {
-    compile 'org.eclipse.jetty:jetty-servlet:7.5.3.v20111011'
+    compile 'org.eclipse.jetty:jetty-server:9.0.0.RC2'
+    compile 'org.eclipse.jetty:jetty-servlet:9.0.0.RC2'
     compile 'javax.servlet:servlet-api:2.5'
     testCompile 'junit:junit:4.11'
 

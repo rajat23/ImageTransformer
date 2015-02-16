@@ -1,6 +1,3 @@
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
 
 import com.servlet.CompressServlet;
 import com.servlet.CropServlet;
@@ -8,13 +5,8 @@ import com.servlet.ScaleServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
 
-public class StartFile extends HttpServlet {
+public class StartFile  {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        resp.getWriter().print("Hello from Java built with Gradle!\n");
-    }
 
     public static void main(String[] args) throws Exception{
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
