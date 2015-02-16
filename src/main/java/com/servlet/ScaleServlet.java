@@ -28,7 +28,7 @@ public class ScaleServlet extends HttpServlet {
         ImageReader imageReader = new ImageReader();
         BufferedImage image;
         try {
-            image = imageReader.readImage(url);
+            image = imageReader.readImage(new URL(url));
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter = response.getWriter();
