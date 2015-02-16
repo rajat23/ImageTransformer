@@ -1,10 +1,14 @@
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+
+import com.servlet.CompressServlet;
+import com.servlet.CropServlet;
+import com.servlet.ScaleServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
 
-public class HelloWorld extends HttpServlet {
+public class StartFile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -17,7 +21,9 @@ public class HelloWorld extends HttpServlet {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new HelloWorld()),"/abc");
+        context.addServlet(new ServletHolder(new ScaleServlet()),"/image/scale/*");
+        context.addServlet(new ServletHolder(new CropServlet()),"/image/crop/*");
+        context.addServlet(new ServletHolder(new CompressServlet()),"/image/compress/*");
         server.start();
         server.join();   
     }
