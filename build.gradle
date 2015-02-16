@@ -2,7 +2,10 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'jetty'
+apply plugin: 'application'
 
+mainClassName = "ScaleServlet"
+applicationName = "app"
 
 repositories {
     mavenCentral()
@@ -17,3 +20,4 @@ dependencies {
 jettyRun{
     contextPath= ""
 }
+task stage(dependsOn: ['clean', 'installApp'])
