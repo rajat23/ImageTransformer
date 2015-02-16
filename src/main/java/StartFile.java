@@ -1,4 +1,3 @@
-
 import com.servlet.CompressServlet;
 import com.servlet.CropServlet;
 import com.servlet.ScaleServlet;
