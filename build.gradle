@@ -1,24 +1,19 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'war'
-apply plugin: 'jetty'
-apply plugin: 'application'
+apply plugin:'java'
+apply plugin:'application'
 
-mainClassName = "ScaleServlet"
-applicationName = "app"
+mainClassName = "HelloWorld"
+applicationName = "ImageServer"
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'org.eclipse.jetty:jetty-servlet:7.5.3.v20111011'
+    compile 'javax.servlet:servlet-api:2.5'
     testCompile 'junit:junit:4.11'
 
 }
 
-jettyRun{
-    contextPath= ""
-}
+task stage(dependsOn: ['clean', 'installApp'])
 
