@@ -7,10 +7,19 @@ import java.io.IOException;
 import java.net.URL;
 
 public class ImageReader {
-    public BufferedImage readImage(URL url) throws IOException{
-        return ImageIO.read(url.openStream());
-    }
-    public BufferedImage readImage(String name) throws IOException{
-        return ImageIO.read(new File(System.getProperty("user.dir")+"/upload/"+name));
+    public BufferedImage readImage(String path) throws IOException{
+
+        BufferedImage returnImage;
+        try{
+            URL url=new URL(path);
+            returnImage=ImageIO.read(url.openStream());
+            return returnImage;
+        }
+        catch(Exception exception){
+
+        }
+
+        returnImage=ImageIO.read(new File(System.getProperty("user.dir")+"/upload/"+path));
+        return returnImage;
     }
 }

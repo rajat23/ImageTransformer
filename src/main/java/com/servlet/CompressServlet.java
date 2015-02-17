@@ -19,13 +19,13 @@ public class CompressServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = request.getParameter("url");
+        String path = request.getParameter("path");
         float quality = Float.parseFloat(request.getParameter("quality"));
         ImageReader imageReader = new ImageReader();
         BufferedImage image;
 
         try {
-            image = imageReader.readImage(new URL(url));
+            image = imageReader.readImage(path);
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter = response.getWriter();

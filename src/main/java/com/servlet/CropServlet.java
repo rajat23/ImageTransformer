@@ -22,11 +22,11 @@ public class CropServlet extends HttpServlet {
         int yCoordinate = Integer.parseInt(request.getParameter("y"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
-        String url = request.getParameter("url");
+        String path = request.getParameter("url");
         ImageReader imageReader = new ImageReader();
         BufferedImage image;
         try {
-            image = imageReader.readImage(new URL(url));
+            image = imageReader.readImage(path);
         } catch (IOException ioException) {
             response.setContentType("text/html");
             PrintWriter printWriter = response.getWriter();
@@ -37,7 +37,7 @@ public class CropServlet extends HttpServlet {
         image = imageCropper.getCroppedImage(image, xCoordinate, yCoordinate, width, height);
 
         Response servletResponse = new Response();
-        servletResponse.setResponse(response, image, url);
+        servletResponse.setResponse(response, image, path);
     }
 
 
