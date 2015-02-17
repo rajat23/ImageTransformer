@@ -8,6 +8,6 @@ public class ModeFactory {
         else if(mode.equals("fit")) {
             return new FitMode();
         }
-
+        return null;
     }
 }
