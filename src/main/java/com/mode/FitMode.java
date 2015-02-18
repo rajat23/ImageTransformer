@@ -1,16 +1,21 @@
 package com.mode;
 
+import com.utility.ImageScaler;
 import com.utility.RequestStructure;
-
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class FitMode implements Mode {
-    public RequestStructure getDimensions(BufferedImage image, RequestStructure requestStructure) {
-        int originalHeight = image.getHeight();
-        int originalWidth = image.getWidth();
+
+    public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
+
+        BufferedImage image=requestStructure.getImage();
+        int originalHeight = requestStructure.getImage().getHeight();
+        int originalWidth = requestStructure.getImage().getWidth();
         float originalAspectRatio = (float) originalWidth / (float) originalHeight;
         int height = requestStructure.getHeight();
         int width = requestStructure.getWidth();
+
         if (height == 0) {
             height = (int) (width / originalAspectRatio);
 
@@ -24,8 +29,7 @@ public class FitMode implements Mode {
                 width = (int) (height * originalAspectRatio);
         }
 
-        return new RequestStructure(0, 0, width, height);
-
+        return new ImageScaler().resizeImage(image,width,height);
 
     }
 }
