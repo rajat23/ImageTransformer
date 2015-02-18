@@ -1,6 +1,8 @@
 package com.utility;
 
 
+import com.helper.MyColor;
+
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -57,7 +59,7 @@ public class RequestStructure {
             height=Integer.parseInt(request.getParameter("height"));
         else return;
         if(parameterString.contains("color"))
-            color=MyColor.getColor(request.getParameter("color"));
+            color= MyColor.getColor(request.getParameter("color"));
         if(parameterString.contains("mode"))
             mode=request.getParameter("mode");
         if(parameterString.contains("orientation"))
