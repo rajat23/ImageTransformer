@@ -5,6 +5,8 @@ import com.helper.RequestStructure;
 import org.junit.Test;
 
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -13,16 +15,20 @@ public class LimitModeTest {
     @Test
     public void testGetDimensionsForBoth() throws Exception {
 
+        String name="PngImage.png";
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image=imageReader.readImage(name);
 
-            String name="PngImage.png";
-            ImageReader imageReader=new ImageReader();
-            BufferedImage image=imageReader.readImage(name);
+        RequestStructure requestStructure =new RequestStructure(image);
+        Map<String,String[]> map=new HashMap<String, String[]>();
+        map.put("height",new String[]{"300"});
+        map.put("width",new String[]{"400"});
 
-            RequestStructure requestStructure =new RequestStructure(0,0,800,700);
-            ModeFactory modeFactory=new ModeFactory();
-            Mode fitMode=modeFactory.create("limit");
-            RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
-            assertEquals(600, requestStructure1.getHeight());
+        requestStructure.setParameters(map);
+        ModeFactory modeFactory=new ModeFactory();
+        Mode limitMode=modeFactory.create("limit");
+        BufferedImage scaledImage=limitMode.getScaledImage(requestStructure);
+        assertEquals(300, scaledImage.getHeight());
 
     }
 
@@ -34,11 +40,15 @@ public class LimitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure(0,0,400,0);
+        RequestStructure requestStructure =new RequestStructure(image);
+        Map<String,String[]> map=new HashMap<String, String[]>();
+
+        map.put("width",new String[]{"400"});
+        requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
-        Mode fitMode=modeFactory.create("limit");
-        RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
-        assertEquals(300, requestStructure1.getHeight());
+        Mode limitMode=modeFactory.create("limit");
+        BufferedImage scaledImage=limitMode.getScaledImage(requestStructure);
+        assertEquals(300, scaledImage.getHeight());
 
     }
 
