@@ -1,10 +1,8 @@
 package com.mode;
 
-import apple.awt.CImage;
 import com.utility.ImageScaler;
 import com.utility.RequestStructure;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
