@@ -21,11 +21,11 @@ public class RequestStructure {
     public RequestStructure(BufferedImage image) {
 
         this.image = image;
-        height=0;
-        width=0;
-        color=Color.WHITE;
-        mode="default";
-        orientation="center";
+        height = 0;
+        width = 0;
+        color = Color.WHITE;
+        mode = "default";
+        orientation = "center";
     }
 
     public BufferedImage getImage() {
@@ -54,17 +54,33 @@ public class RequestStructure {
 
     public void setParameters(Map map) {
 
-        if(map.containsKey("width"))
-            width=Integer.parseInt(((String [])map.get("width"))[0]);
-        if(map.containsKey("height"))
-            height=Integer.parseInt(((String [])map.get("height"))[0]);
-        if(map.containsKey("color"))
-            color= MyColor.getColor(((String [])map.get("color"))[0]);
-        if(map.containsKey("mode"))
-            mode=((String [])map.get("mode"))[0];
-        if(map.containsKey("orientation"))
-            orientation=((String [])map.get("orientation"))[0];
+        if (map.containsKey("width"))
+            width = Integer.parseInt(((String[]) map.get("width"))[0]);
+        if (map.containsKey("height"))
+            height = Integer.parseInt(((String[]) map.get("height"))[0]);
+        float aspectRatio = (float) image.getWidth() / (float) image.getHeight();
+        if(height==0)
+            height=getProportionalHeight(width,aspectRatio);
+        if(width==0)
+            width=getProportionalWidth(height,aspectRatio);
+        if (map.containsKey("color"))
+            color = MyColor.getColor(((String[]) map.get("color"))[0]);
+        if (map.containsKey("mode"))
+            mode = ((String[]) map.get("mode"))[0];
+        if (map.containsKey("orientation"))
+            orientation = ((String[]) map.get("orientation"))[0];
 
     }
+
+    public int getProportionalHeight(int width,float aspectRatio) {
+        return (int) (width / aspectRatio);
+
+    }
+    public int getProportionalWidth(int height,float aspectRatio) {
+        return (int) (height* aspectRatio);
+
+
+    }
+
 
 }

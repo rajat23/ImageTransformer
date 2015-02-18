@@ -15,11 +15,8 @@ public class FillMode implements Mode {
         double aspectRatio = (double)image.getWidth() / image.getHeight();
         int width = requestStructure.getWidth();
         int height = requestStructure.getHeight();
-        if (width == 0)
-            width = (int) Math.ceil(height * aspectRatio);
-        else if (height == 0)
-            height = (int) Math.ceil(width / aspectRatio);
-        else if ((width / height) != aspectRatio) {
+
+         if ((width / height) != aspectRatio) {
             if (height > width)
                 width = (int) ((double)height * aspectRatio);
             else
