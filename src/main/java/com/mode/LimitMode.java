@@ -1,7 +1,7 @@
 package com.mode;
 
 import com.utility.ImageScaler;
-import com.utility.RequestStructure;
+import com.helper.RequestStructure;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class LimitMode implements Mode {
         }
 
 
-        return new ImageScaler().resizeImage(image,width,height);
+        return new ImageScaler().resizeImage(image, width, height);
     }
 }
 

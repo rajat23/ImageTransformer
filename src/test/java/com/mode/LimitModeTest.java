@@ -1,7 +1,7 @@
 package com.mode;
 
 import com.helper.ImageReader;
-import com.utility.RequestStructure;
+import com.helper.RequestStructure;
 import org.junit.Test;
 
 import java.awt.image.BufferedImage;
