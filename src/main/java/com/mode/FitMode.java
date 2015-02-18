@@ -11,8 +11,8 @@ public class FitMode implements Mode {
     public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
 
         BufferedImage image = requestStructure.getImage();
-        int originalHeight = requestStructure.getImage().getHeight();
-        int originalWidth = requestStructure.getImage().getWidth();
+        int originalHeight = image.getHeight();
+        int originalWidth = image.getWidth();
         float originalAspectRatio = (float) originalWidth / (float) originalHeight;
         int height = requestStructure.getHeight();
         int width = requestStructure.getWidth();
