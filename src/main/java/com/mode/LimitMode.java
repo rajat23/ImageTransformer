@@ -2,6 +2,7 @@ package com.mode;
 
 import com.utility.ImageScaler;
 import com.helper.RequestStructure;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
