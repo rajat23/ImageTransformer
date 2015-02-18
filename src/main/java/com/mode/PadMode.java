@@ -23,10 +23,9 @@ public class PadMode implements Mode {
                 width = (int) (height * originalAspectRatio);
         }
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
-        Coordinates coordinates = coordinateCalculator.getCoordinates(image.getWidth(), image.getHeight(), width, height, requestStructure.getOrientation());
+        Coordinates coordinates = coordinateCalculator.getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), width, height, requestStructure.getOrientation());
         BufferedImage paddedImage = new BufferedImage(requestStructure.getWidth(), requestStructure.getHeight(), image.getType());
         Graphics graphics = paddedImage.getGraphics();
-
         graphics.setColor(requestStructure.getColor());
         graphics.fillRect(0, 0, requestStructure.getWidth(), requestStructure.getHeight());
         image=new ImageScaler().resizeImage(image,width,height);
