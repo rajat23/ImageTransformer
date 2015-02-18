@@ -15,7 +15,8 @@ public class PadMode implements Mode {
         double originalAspectRatio = (double) image.getWidth() / image.getHeight();
         int height = requestStructure.getHeight();
         int width = requestStructure.getWidth();
-         if ((width / height) != originalAspectRatio) {
+
+        if ((width / height) != originalAspectRatio) {
             if (height > width)
                 height = (int) (width / originalAspectRatio);
             else
