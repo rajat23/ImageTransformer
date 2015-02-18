@@ -25,7 +25,7 @@ public class FillMode implements Mode {
         image= new ImageScaler().resizeImage(image,width,height);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
 
-        Coordinates coordinates = coordinateCalculator.getCoordinates(image.getWidth(), image.getHeight(), width, height, requestStructure.getOrientation());
+        Coordinates coordinates = coordinateCalculator.getCoordinates(image.getWidth(), image.getHeight(),requestStructure.getWidth(), requestStructure.getHeight(), requestStructure.getOrientation());
         ImageCropper imageCropper = new ImageCropper();
         return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(),requestStructure.getWidth(), requestStructure.getHeight());
     }
