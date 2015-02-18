@@ -6,7 +6,8 @@ public class ModeFactory {
             return new LimitMode();
         } else if (mode.equals("fit")) {
             return new FitMode();
-        }
+        } else if(mode.equals("fill"))
+            return new FillMode();
         return null;
     }
 }

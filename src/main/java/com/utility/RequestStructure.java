@@ -55,9 +55,8 @@ public class RequestStructure {
         String parameterString=parameterNames.toString();
         if(parameterString.contains("width"))
             width=Integer.parseInt(request.getParameter("width"));
-        else if(parameterString.contains("Height"))
+        if(parameterString.contains("Height"))
             height=Integer.parseInt(request.getParameter("height"));
-        else return;
         if(parameterString.contains("color"))
             color= MyColor.getColor(request.getParameter("color"));
         if(parameterString.contains("mode"))
