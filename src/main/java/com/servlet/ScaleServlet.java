@@ -4,8 +4,11 @@ package com.servlet;
 
 import com.helper.ImageReader;
 import com.helper.Response;
+import com.mode.Mode;
 import com.mode.ModeFactory;
 import com.utility.ImageScaler;
+import com.utility.RequestStructure;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

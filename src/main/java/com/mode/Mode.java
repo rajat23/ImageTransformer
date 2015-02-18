@@ -6,5 +6,5 @@ import java.awt.image.BufferedImage;
 
 
 public interface Mode {
-    RequestStructure getDimensions(BufferedImage image, RequestStructure requestStructure);
+    public BufferedImage getScaledImage(RequestStructure requestStructure);
 }

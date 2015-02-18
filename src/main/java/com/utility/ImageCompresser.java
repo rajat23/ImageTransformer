@@ -27,7 +27,7 @@ public class ImageCompresser {
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
         param.setCompressionQuality(quality);
         writer.write(null, new IIOImage(inputImage, null, null), param);
-        BufferedImage compressedImage=ImageIO.read(compressedImageFile);
+        BufferedImage compressedImage = ImageIO.read(compressedImageFile);
         compressedImageFile.delete();
         os.close();
         ios.close();
@@ -35,7 +35,7 @@ public class ImageCompresser {
         return compressedImage;
     }
 
-    public float getQuality(){
-       return param.getCompressionQuality();
+    public float getQuality() {
+        return param.getCompressionQuality();
     }
 }
