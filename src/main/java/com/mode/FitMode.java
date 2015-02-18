@@ -1,16 +1,16 @@
 package com.mode;
 
-import com.utility.ImageStructure;
+import com.utility.RequestStructure;
 
 import java.awt.image.BufferedImage;
 
 public class FitMode implements Mode {
-    public ImageStructure getDimensions(BufferedImage image, ImageStructure imageStructure) {
+    public RequestStructure getDimensions(BufferedImage image, RequestStructure requestStructure) {
         int originalHeight = image.getHeight();
         int originalWidth = image.getWidth();
         float originalAspectRatio = (float) originalWidth / (float) originalHeight;
-        int height = imageStructure.getHeight();
-        int width = imageStructure.getWidth();
+        int height = requestStructure.getHeight();
+        int width = requestStructure.getWidth();
         if (height == 0) {
             height = (int) (width / originalAspectRatio);
 
@@ -24,7 +24,7 @@ public class FitMode implements Mode {
                 width = (int) (height * originalAspectRatio);
         }
 
-        return new ImageStructure(0, 0, width, height);
+        return new RequestStructure(0, 0, width, height);
 
 
     }

@@ -1,7 +1,7 @@
 package com.mode;
 
 import com.helper.ImageReader;
-import com.utility.ImageStructure;
+import com.utility.RequestStructure;
 import org.junit.Test;
 
 import java.awt.image.BufferedImage;
@@ -18,11 +18,11 @@ public class LimitModeTest {
             ImageReader imageReader=new ImageReader();
             BufferedImage image=imageReader.readImage(name);
 
-            ImageStructure imageStructure=new ImageStructure(0,0,800,700);
+            RequestStructure requestStructure =new RequestStructure(0,0,800,700);
             ModeFactory modeFactory=new ModeFactory();
             Mode fitMode=modeFactory.create("limit");
-            ImageStructure imageStructure1=fitMode.getDimensions(image, imageStructure);
-            assertEquals(600,imageStructure1.getHeight());
+            RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
+            assertEquals(600, requestStructure1.getHeight());
 
     }
 
@@ -34,11 +34,11 @@ public class LimitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageStructure imageStructure=new ImageStructure(0,0,400,0);
+        RequestStructure requestStructure =new RequestStructure(0,0,400,0);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("limit");
-        ImageStructure imageStructure1=fitMode.getDimensions(image, imageStructure);
-        assertEquals(300,imageStructure1.getHeight());
+        RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
+        assertEquals(300, requestStructure1.getHeight());
 
     }
 

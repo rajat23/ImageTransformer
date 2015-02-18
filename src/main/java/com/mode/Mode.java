@@ -1,10 +1,10 @@
 package com.mode;
 
-import com.utility.ImageStructure;
+import com.utility.RequestStructure;
 
 import java.awt.image.BufferedImage;
 
 
 public interface Mode {
-    ImageStructure getDimensions(BufferedImage image, ImageStructure imageStructure);
+    RequestStructure getDimensions(BufferedImage image, RequestStructure requestStructure);
 }

@@ -9,7 +9,7 @@ import java.net.URL;
 import static org.junit.Assert.assertEquals;
 
 public class ImageScalerTest {
-    @Test
+   /* @Test
     public void testResizeImageForJpeg() throws Exception {
         int width=800;
         int height=800;
@@ -54,6 +54,6 @@ public class ImageScalerTest {
         assertEquals(resizedImage.getHeight(),height);
         assertEquals(resizedImage.getWidth(),width);
 
-    }
+    }*/
 
 }

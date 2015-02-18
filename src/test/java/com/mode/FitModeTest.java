@@ -1,10 +1,9 @@
 package com.mode;
 
 import com.helper.ImageReader;
-import com.utility.ImageStructure;
+import com.utility.RequestStructure;
 import org.junit.Test;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
 import static org.junit.Assert.*;
@@ -17,11 +16,11 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageStructure imageStructure=new ImageStructure(0,0,400,300);
+        RequestStructure requestStructure =new RequestStructure(0,0,400,300);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
-        ImageStructure imageStructure1=fitMode.getDimensions(image, imageStructure);
-       assertEquals(300,imageStructure1.getHeight());
+        RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
+       assertEquals(300, requestStructure1.getHeight());
 
 
 
@@ -35,11 +34,11 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageStructure imageStructure=new ImageStructure(0,0,0,300);
+        RequestStructure requestStructure =new RequestStructure(0,0,0,300);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
-        ImageStructure imageStructure1=fitMode.getDimensions(image, imageStructure);
-        assertEquals(400,imageStructure1.getWidth());
+        RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
+        assertEquals(400, requestStructure1.getWidth());
 
 
 
@@ -54,11 +53,11 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageStructure imageStructure=new ImageStructure(0,0,400,0);
+        RequestStructure requestStructure =new RequestStructure(0,0,400,0);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
-        ImageStructure imageStructure1=fitMode.getDimensions(image, imageStructure);
-        assertEquals(300,imageStructure1.getHeight());
+        RequestStructure requestStructure1 =fitMode.getDimensions(image, requestStructure);
+        assertEquals(300, requestStructure1.getHeight());
 
 
 
