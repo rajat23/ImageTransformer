@@ -6,8 +6,7 @@ import com.helper.ImageReader;
 import com.helper.Response;
 import com.mode.Mode;
 import com.mode.ModeFactory;
-import com.utility.ImageScaler;
-import com.utility.RequestStructure;
+import com.helper.RequestStructure;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ScaleServlet extends HttpServlet {
@@ -35,7 +36,8 @@ public class ScaleServlet extends HttpServlet {
             return;
         }
         RequestStructure requestStructure=new RequestStructure(image);
-        requestStructure.setParameters(request);
+        Map<String,String[]> map = request.getParameterMap();
+        requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create(requestStructure.getMode());
         image=mode.getScaledImage(requestStructure);

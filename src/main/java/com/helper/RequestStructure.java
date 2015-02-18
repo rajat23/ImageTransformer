@@ -1,4 +1,4 @@
-package com.utility;
+package com.helper;
 
 
 import com.helper.MyColor;
@@ -6,7 +6,9 @@ import com.helper.MyColor;
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.rmi.MarshalledObject;
 import java.util.Enumeration;
+import java.util.Map;
 
 public class RequestStructure {
     private BufferedImage image;
@@ -50,19 +52,18 @@ public class RequestStructure {
         return orientation;
     }
 
-    public void setParameters(HttpServletRequest request) {
-        Enumeration <String> parameterNames=request.getParameterNames();
-        String parameterString=parameterNames.toString();
-        if(parameterString.contains("width"))
-            width=Integer.parseInt(request.getParameter("width"));
-        if(parameterString.contains("Height"))
-            height=Integer.parseInt(request.getParameter("height"));
-        if(parameterString.contains("color"))
-            color= MyColor.getColor(request.getParameter("color"));
-        if(parameterString.contains("mode"))
-            mode=request.getParameter("mode");
-        if(parameterString.contains("orientation"))
-            orientation=request.getParameter("orientation");
+    public void setParameters(Map map) {
+
+        if(map.containsKey("width"))
+            width=Integer.parseInt(((String [])map.get("width"))[0]);
+        if(map.containsKey("height"))
+            height=Integer.parseInt(((String [])map.get("height"))[0]);
+        if(map.containsKey("color"))
+            color= MyColor.getColor(((String [])map.get("color"))[0]);
+        if(map.containsKey("mode"))
+            mode=((String [])map.get("mode"))[0];
+        if(map.containsKey("orientation"))
+            orientation=((String [])map.get("orientation"))[0];
 
     }
 
