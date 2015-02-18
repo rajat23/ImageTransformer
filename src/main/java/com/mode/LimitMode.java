@@ -9,12 +9,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class LimitMode implements Mode {
-<<<<<<< HEAD
+
     public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
         BufferedImage image = requestStructure.getImage();
-=======
-    public RequestStructure getScaledImage(BufferedImage image, RequestStructure requestStructure) {
->>>>>>> a1888ba4bb57a1e9c4b029ded5d47f44fbf6336f
+
         if (requestStructure.getHeight() > image.getHeight() || requestStructure.getWidth() > image.getWidth())
             return image;
 
