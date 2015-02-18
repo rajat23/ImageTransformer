@@ -26,7 +26,6 @@ public class FillMode implements Mode {
                 height = (int) (width / aspectRatio);
         }
         image= new ImageScaler().resizeImage(image,width,height);
-        System.out.println(""+image.getWidth()+""+image.getHeight());
         CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
 
         Coordinates coordinates = coordinateCalculator.getCoordinates(image.getWidth(), image.getHeight(), width, height, requestStructure.getOrientation());

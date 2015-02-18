@@ -6,8 +6,11 @@ public class ModeFactory {
             return new LimitMode();
         } else if (mode.equals("fit")) {
             return new FitMode();
-        } else if (mode.equals("fill"))
+        } else if (mode.equals("fill")) {
             return new FillMode();
+        } else if (mode.equals("pad")) {
+            return new PadMode();
+        }
         return new DefaultMode();
     }
 }
