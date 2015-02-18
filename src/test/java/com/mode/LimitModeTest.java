@@ -21,13 +21,13 @@ public class LimitModeTest {
 
         RequestStructure requestStructure =new RequestStructure(image);
         Map<String,String[]> map=new HashMap<String, String[]>();
-        map.put("height",new String[]{"300"});
+        map.put("height",new String[]{"450"});
         map.put("width",new String[]{"400"});
 
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
-        Mode limitMode=modeFactory.create("limit");
-        BufferedImage scaledImage=limitMode.getScaledImage(requestStructure);
+        Mode fitMode=modeFactory.create("limit");
+        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
         assertEquals(300, scaledImage.getHeight());
 
     }
