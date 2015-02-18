@@ -4,6 +4,7 @@ package com.servlet;
 
 import com.helper.ImageReader;
 import com.helper.Response;
+import com.mode.ModeFactory;
 import com.utility.ImageScaler;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +21,6 @@ public class ScaleServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String path = request.getParameter("path");
-        int width = Integer.parseInt(request.getParameter("width"));
-        int height = Integer.parseInt(request.getParameter("height"));
         ImageReader imageReader = new ImageReader();
         BufferedImage image;
         try {
@@ -32,8 +31,11 @@ public class ScaleServlet extends HttpServlet {
             printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        ImageScaler imageScaler = new ImageScaler();
-        image = imageScaler.resizeImage(image, width, height);
+        RequestStructure requestStructure=new RequestStructure(image);
+        requestStructure.setParameters(request);
+        ModeFactory modeFactory=new ModeFactory();
+        Mode mode=modeFactory.create(requestStructure.getMode());
+        image=mode.getScaledImage(requestStructure);
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }
