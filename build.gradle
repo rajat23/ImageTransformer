@@ -1,0 +1,19 @@
+apply plugin:'java'
+apply plugin:'application'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+mainClassName = "StartFile"
+applicationName = "app"
+
+repositories {
+mavenCentral()
+}
+
+dependencies {
+compile 'org.eclipse.jetty:jetty-servlet:7.5.3.v20111011'
+compile 'javax.servlet:servlet-api:2.5'
+testCompile 'junit:junit:4.11'
+
+}
+
+task stage(dependsOn: ['clean', 'installApp'])
