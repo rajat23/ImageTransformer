@@ -4,7 +4,6 @@ import com.helper.CoordinateCalculator;
 import com.helper.Coordinates;
 import com.helper.RequestStructure;
 import com.mode.strategies.Context;
-import com.mode.strategies.ExpandDimension;
 import com.mode.strategies.ShrinkDimension;
 import com.utility.ImageScaler;
 import java.awt.*;
@@ -16,12 +15,11 @@ public class PadMode implements Mode {
         BufferedImage image = requestStructure.getImage();
         Context context=new Context(new ShrinkDimension());
         Dimension dimension=context.executeStrategy(requestStructure);
-        image=new ImageScaler().resizeImage(image, (int) dimension.getWidth(), (int) dimension.getHeight());
-        Coordinates coordinates = new CoordinateCalculator().getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), (int) dimension.getWidth(),(int) dimension.getWidth(), requestStructure.getOrientation());
-        return drawImageWithPad(requestStructure, image, (int)dimension.getHeight(), (int) dimension.getWidth(), coordinates);
+        return drawImageWithPad(requestStructure, image, (int)dimension.getHeight(), (int) dimension.getWidth());
     }
 
-    private BufferedImage drawImageWithPad(RequestStructure requestStructure, BufferedImage image, int height, int width, Coordinates coordinates) throws IOException {
+    private BufferedImage drawImageWithPad(RequestStructure requestStructure, BufferedImage image, int height, int width) throws IOException {
+        Coordinates coordinates = new CoordinateCalculator().getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), width,height, requestStructure.getOrientation());
         BufferedImage paddedImage = new BufferedImage(requestStructure.getWidth(), requestStructure.getHeight(), image.getType());
         Graphics graphics = paddedImage.getGraphics();
         graphics.setColor(requestStructure.getColor());
