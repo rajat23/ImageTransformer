@@ -15,9 +15,9 @@ public class ShrinkDimension implements Strategy {
 
         if ((width / height) != aspectRatio) {
             if (height > width)
-                height = (int) (width / aspectRatio);
+                height = (int) Math.ceil(width / aspectRatio);
             else
-                width = (int) (height * aspectRatio);
+                width = (int) Math.ceil(height * aspectRatio);
         }
         return new Dimension(width,height);
     }

@@ -15,9 +15,9 @@ public class ExpandDimension implements Strategy {
         int height =(int)dimension.getHeight();
         if ((width / height) != aspectRatio) {
             if (height > width)
-                width = (int) ((float)height * aspectRatio);
+                width = (int) Math.ceil((float) height * aspectRatio);
             else
-                height = (int) ((float)width / aspectRatio);
+                height = (int) Math.ceil((float)width / aspectRatio);
         }
         return new Dimension(width,height);
     }
