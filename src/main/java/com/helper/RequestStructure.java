@@ -54,17 +54,21 @@ public class RequestStructure {
         this.image = image;
     }
 
+    public float getAspectRatio() {
+        return (float)(image.getWidth()/image.getHeight());
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
             width = Integer.parseInt(((String[]) map.get("width"))[0]);
         if (map.containsKey("height"))
             height = Integer.parseInt(((String[]) map.get("height"))[0]);
-        float aspectRatio = getAspectRatio(image.getWidth(),image.getHeight());
+
         if(height==0)
-            height=getProportionalHeight(width, aspectRatio);
+            height=getProportionalHeight(width, getAspectRatio());
         if(width==0)
-            width=getProportionalWidth(height, aspectRatio);
+            width=getProportionalWidth(height, getAspectRatio());
         if (map.containsKey("color"))
             color = MyColor.getColor(((String[]) map.get("color"))[0]);
         if (map.containsKey("mode"))
@@ -84,8 +88,10 @@ public class RequestStructure {
     }
     public int getProportionalWidth(int height,float aspectRatio) {
         return (int) (height* aspectRatio);
+    }
 
-
+    public Dimension getDimension(){
+        return new Dimension(width,height);
     }
 
 

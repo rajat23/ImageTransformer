@@ -14,7 +14,7 @@ public class PadMode implements Mode {
     public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
         BufferedImage image = requestStructure.getImage();
         Context context=new Context(new ShrinkDimension());
-        Dimension dimension=context.executeStrategy(requestStructure);
+        Dimension dimension=context.executeStrategy(requestStructure.getDimension(),requestStructure.getAspectRatio());
         return drawImageWithPad(requestStructure, image, (int)dimension.getHeight(), (int) dimension.getWidth());
     }
 

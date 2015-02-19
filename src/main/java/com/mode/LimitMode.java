@@ -17,7 +17,7 @@ public class LimitMode implements Mode {
         if (requestStructure.getHeight() > image.getHeight() || requestStructure.getWidth() > image.getWidth())
             return image;
         Context context=new Context(new ShrinkDimension());
-        Dimension dimension=context.executeStrategy(requestStructure);
+        Dimension dimension=context.executeStrategy(requestStructure.getDimension(),requestStructure.getAspectRatio());
         return new ImageScaler().resizeImage(image,(int)dimension.getWidth(),(int)dimension.getHeight());
     }
 }
