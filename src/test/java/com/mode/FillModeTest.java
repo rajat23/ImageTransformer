@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class FillModeTest {
 
-    @Test
+   /* @Test
     public void testGetScaledImage() throws Exception {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
@@ -32,5 +32,5 @@ public class FillModeTest {
 
 
 
-    }
+    }*/
 }

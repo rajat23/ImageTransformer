@@ -15,17 +15,14 @@ public class FillMode implements Mode {
         double aspectRatio = (double)image.getWidth() / image.getHeight();
         int width = requestStructure.getWidth();
         int height = requestStructure.getHeight();
-
-         if ((width / height) != aspectRatio) {
+        if ((width / height) != aspectRatio) {
             if (height > width)
                 width = (int) ((double)height * aspectRatio);
             else
                 height = (int) (width / aspectRatio);
         }
         image= new ImageScaler().resizeImage(image,width,height);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
-
-        Coordinates coordinates = coordinateCalculator.getCoordinates(image.getWidth(), image.getHeight(),requestStructure.getWidth(), requestStructure.getHeight(), requestStructure.getOrientation());
+        Coordinates coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),requestStructure.getWidth(), requestStructure.getHeight(), requestStructure.getOrientation());
         ImageCropper imageCropper = new ImageCropper();
         return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(),requestStructure.getWidth(), requestStructure.getHeight());
     }
