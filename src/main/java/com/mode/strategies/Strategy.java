@@ -1,4 +1,4 @@
-package com.mode.strategy;
+package com.mode.strategies;
 
 import com.helper.RequestStructure;
 
