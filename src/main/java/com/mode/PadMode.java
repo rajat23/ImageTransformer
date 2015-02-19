@@ -4,7 +4,6 @@ import com.helper.CoordinateCalculator;
 import com.helper.Coordinates;
 import com.helper.RequestStructure;
 import com.utility.ImageScaler;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -22,8 +21,11 @@ public class PadMode implements Mode {
             else
                 width = (int) (height * originalAspectRatio);
         }
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculator();
-        Coordinates coordinates = coordinateCalculator.getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), width, height, requestStructure.getOrientation());
+        Coordinates coordinates = new CoordinateCalculator().getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), width, height, requestStructure.getOrientation());
+        return drawImageWithPad(requestStructure, image, height, width, coordinates);
+    }
+
+    private BufferedImage drawImageWithPad(RequestStructure requestStructure, BufferedImage image, int height, int width, Coordinates coordinates) throws IOException {
         BufferedImage paddedImage = new BufferedImage(requestStructure.getWidth(), requestStructure.getHeight(), image.getType());
         Graphics graphics = paddedImage.getGraphics();
         graphics.setColor(requestStructure.getColor());
