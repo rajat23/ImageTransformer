@@ -55,7 +55,7 @@ public class RequestStructure {
     }
 
     public float getAspectRatio() {
-        return (float)(image.getWidth()/image.getHeight());
+        return (float)image.getWidth()/(float)image.getHeight();
     }
 
     public void setParameters(Map map) {
@@ -78,9 +78,6 @@ public class RequestStructure {
 
     }
 
-    public float getAspectRatio(int width,int height){
-        return (float) width / (float) height;
-    }
 
     public int getProportionalHeight(int width,float aspectRatio) {
         return (int) (width / aspectRatio);

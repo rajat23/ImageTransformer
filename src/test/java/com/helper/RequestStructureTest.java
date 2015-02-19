@@ -22,10 +22,6 @@ public class RequestStructureTest {
 
     }
 
-    @Test
-    public void testGetAspectRatio() throws Exception {
-        RequestStructure requestStructure=new RequestStructure();
-        float aspectRatio=requestStructure.getAspectRatio(900,600);
-        assertEquals(aspectRatio,1.5f,0.0f);
-    }
+
+
 }
