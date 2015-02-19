@@ -18,21 +18,20 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure(image);
+        RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"300"});
         map.put("width",new String[]{"400"});
 
+        requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
         assertEquals(300, scaledImage.getHeight());
-
-
-
-
     }
+
+
 
 
     @Test
@@ -41,21 +40,19 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure(image);
+        RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"300"});
+        requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
         assertEquals(400, scaledImage.getWidth());
 
-
-
-
-
-
     }
+
+
 
 
 
@@ -65,19 +62,16 @@ public class FitModeTest {
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure(image);
+        RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
 
         map.put("width",new String[]{"400"});
+        requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
         assertEquals(300, scaledImage.getHeight());
-
-
-
-
     }
 
 
