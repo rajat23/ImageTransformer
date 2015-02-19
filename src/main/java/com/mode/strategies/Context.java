@@ -14,7 +14,7 @@ public class Context {
         this.strategy = strategy;
     }
 
-    public Dimension executeStrategy(RequestStructure requestStructure){
-        return strategy.doOperation(requestStructure);
+    public Dimension executeStrategy(Dimension dimension,float aspectRatio){
+        return strategy.doOperation(dimension,aspectRatio);
     }
 }
