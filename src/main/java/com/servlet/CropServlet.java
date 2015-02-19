@@ -22,7 +22,7 @@ public class CropServlet extends HttpServlet {
         int yCoordinate = Integer.parseInt(request.getParameter("y"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
-        String path = request.getParameter("url");
+        String path = request.getParameter("path");
         ImageReader imageReader = new ImageReader();
         BufferedImage image;
         try {
