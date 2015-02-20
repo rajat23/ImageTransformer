@@ -6,9 +6,9 @@ public class ShrinkDimension implements Strategy {
         int width = (int)dimension.getWidth();
         int height =(int)dimension.getHeight();
         if (aspectRatio>1.0f)
-            height = (int) Math.ceil(width / aspectRatio);
+            height =  Math.round(width / aspectRatio);
         else if(aspectRatio<1.0f)
-            width = (int) Math.ceil(height * aspectRatio);
+            width =  Math.round(height * aspectRatio);
         return new Dimension(width,height);
     }
 }
