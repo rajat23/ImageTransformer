@@ -10,6 +10,8 @@ public class ModeFactory {
             return new FillMode();
         } else if (mode.equals("pad")) {
             return new PadMode();
+        } else if (mode.equals("crop")) {
+            return new CropMode();
         }
         return new DefaultMode();
     }
