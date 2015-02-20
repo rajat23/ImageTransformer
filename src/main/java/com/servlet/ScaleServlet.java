@@ -35,7 +35,8 @@ public class ScaleServlet extends HttpServlet {
             printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        RequestStructure requestStructure=new RequestStructure(image);
+        RequestStructure requestStructure=new RequestStructure();
+        requestStructure.setImage(image);
         Map<String,String[]> map = request.getParameterMap();
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

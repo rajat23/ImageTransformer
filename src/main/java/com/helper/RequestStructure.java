@@ -18,9 +18,7 @@ public class RequestStructure {
     private String mode;
     private String orientation;
 
-    public RequestStructure(BufferedImage image) {
-
-        this.image = image;
+    public RequestStructure() {
         height = 0;
         width = 0;
         color = Color.WHITE;
@@ -52,17 +50,25 @@ public class RequestStructure {
         return orientation;
     }
 
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
+
+    public float getAspectRatio() {
+        return (float) image.getWidth() / (float) image.getHeight();
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
             width = Integer.parseInt(((String[]) map.get("width"))[0]);
         if (map.containsKey("height"))
             height = Integer.parseInt(((String[]) map.get("height"))[0]);
-        float aspectRatio = (float) image.getWidth() / (float) image.getHeight();
-        if(height==0)
-            height=getProportionalHeight(width,aspectRatio);
-        if(width==0)
-            width=getProportionalWidth(height,aspectRatio);
+
+        if (height == 0)
+            height = getProportionalHeight(width, getAspectRatio());
+        if (width == 0)
+            width = getProportionalWidth(height, getAspectRatio());
         if (map.containsKey("color"))
             color = MyColor.getColor(((String[]) map.get("color"))[0]);
         if (map.containsKey("mode"))
@@ -72,14 +78,18 @@ public class RequestStructure {
 
     }
 
-    public int getProportionalHeight(int width,float aspectRatio) {
+
+    public int getProportionalHeight(int width, float aspectRatio) {
         return (int) (width / aspectRatio);
 
     }
-    public int getProportionalWidth(int height,float aspectRatio) {
-        return (int) (height* aspectRatio);
 
+    public int getProportionalWidth(int height, float aspectRatio) {
+        return (int) (height * aspectRatio);
+    }
 
+    public Dimension getDimension() {
+        return new Dimension(width, height);
     }
 
 
