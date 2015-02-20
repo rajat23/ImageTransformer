@@ -34,12 +34,23 @@ public class ExpandDimensionTest {
     @Test
     public void testDoOperationForFloor() throws Exception {
         Dimension dimension=new Dimension(1,67);
-        float aspectRatio=1.5f;
+        float aspectRatio=1.6f;
         ExpandDimension expandDimension=new ExpandDimension();
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
-        assertEquals((int)dimension.getWidth(),101);
+        assertEquals((int)dimension.getWidth(),107);
         assertEquals((int)dimension.getHeight(),67);
+
+    }
+    @Test
+    public void testDoOperationForCeil() throws Exception {
+        Dimension dimension=new Dimension(1,68);
+        float aspectRatio=1.6f;
+        ExpandDimension expandDimension=new ExpandDimension();
+        dimension=expandDimension.doOperation(dimension,aspectRatio);
+
+        assertEquals((int)dimension.getWidth(),109);
+        assertEquals((int)dimension.getHeight(),68);
 
     }
 
