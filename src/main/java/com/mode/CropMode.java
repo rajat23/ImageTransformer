@@ -15,13 +15,14 @@ public class CropMode implements Mode {
         Coordinates coordinates=requestStructure.getCoordinates();
         int x=coordinates.getX();
         int y=coordinates.getY();
+
         if(y+responseHeight>image.getHeight()) {
             responseHeight=image.getHeight()-y;
         }
         if(x+responseWidth>image.getWidth()) {
             responseWidth=image.getWidth()-x;
         }
-        if(x==0&&y==0)
+        if(!requestStructure.isCoordinatesSet())
             coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),responseWidth, responseHeight, requestStructure.getOrientation());
         ImageCropper imageCropper = new ImageCropper();
         return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(),responseWidth, responseHeight);

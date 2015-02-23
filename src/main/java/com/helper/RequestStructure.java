@@ -18,6 +18,7 @@ public class RequestStructure {
     private String mode;
     private String orientation;
     private Coordinates coordinates;
+    private boolean isCoordinatesSet;
 
     public RequestStructure() {
         height = 0;
@@ -26,6 +27,7 @@ public class RequestStructure {
         mode = "default";
         orientation = "center";
         coordinates=new Coordinates(0,0);
+        isCoordinatesSet=false;
     }
 
     public BufferedImage getImage() {
@@ -64,6 +66,10 @@ public class RequestStructure {
         return coordinates;
     }
 
+    public boolean isCoordinatesSet() {
+        return isCoordinatesSet;
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
@@ -82,10 +88,15 @@ public class RequestStructure {
         if (map.containsKey("orientation"))
             orientation = ((String[]) map.get("orientation"))[0];
         int x=0,y=0;
-        if (map.containsKey("x"))
+        if (map.containsKey("x")) {
             x = Integer.parseInt(((String[]) map.get("x"))[0]);
-        if (map.containsKey("y"))
+            isCoordinatesSet=true;
+        }
+        if (map.containsKey("y")) {
             y = Integer.parseInt(((String[]) map.get("y"))[0]);
+            isCoordinatesSet=true;
+
+        }
         coordinates=new Coordinates(x,y);
 
     }
