@@ -79,4 +79,29 @@ public class CropModeTest {
     }
 
 
+
+    @Test
+    public void testGetScaledImageForFixedCoordinates() throws Exception {
+        String name="PngImage.png";
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image=imageReader.readImage(name);
+
+        RequestStructure requestStructure =new RequestStructure();
+        Map<String,String[]> map=new HashMap<String, String[]>();
+        map.put("width",new String[]{"500"});
+        map.put("x",new String[]{"400"});
+
+
+        requestStructure.setImage(image);
+        requestStructure.setParameters(map);
+        ModeFactory modeFactory=new ModeFactory();
+        Mode fitMode=modeFactory.create("crop");
+        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        assertEquals(400, scaledImage.getWidth());
+        assertEquals(375, scaledImage.getHeight());
+
+
+    }
+
+
 }
