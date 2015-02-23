@@ -17,6 +17,7 @@ public class RequestStructure {
     private Color color;
     private String mode;
     private String orientation;
+    private Coordinates coordinates;
 
     public RequestStructure() {
         height = 0;
@@ -24,6 +25,7 @@ public class RequestStructure {
         color = Color.WHITE;
         mode = "default";
         orientation = "center";
+        coordinates=new Coordinates(0,0);
     }
 
     public BufferedImage getImage() {
@@ -58,6 +60,10 @@ public class RequestStructure {
         return (float) image.getWidth() / (float) image.getHeight();
     }
 
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
@@ -75,6 +81,11 @@ public class RequestStructure {
             mode = ((String[]) map.get("mode"))[0];
         if (map.containsKey("orientation"))
             orientation = ((String[]) map.get("orientation"))[0];
+        int x,y;
+        if (map.containsKey("x"))
+            x = Integer.parseInt(((String[]) map.get("x"))[0]);
+        if (map.containsKey("y"))
+            y = Integer.parseInt(((String[]) map.get("y"))[0]);
 
     }
 
