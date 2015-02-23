@@ -103,5 +103,28 @@ public class CropModeTest {
 
     }
 
+    @Test
+    public void testGetScaledImageForBigHW() throws Exception {
+        String name="PngImage.png";
+        ImageReader imageReader=new ImageReader();
+        BufferedImage image=imageReader.readImage(name);
+
+        RequestStructure requestStructure =new RequestStructure();
+        Map<String,String[]> map=new HashMap<String, String[]>();
+        map.put("width",new String[]{"600"});
+        map.put("height",new String[]{"600"});
+        map.put("x",new String[]{"300"});
+        map.put("y",new String[]{"300"});
+        requestStructure.setImage(image);
+        requestStructure.setParameters(map);
+        ModeFactory modeFactory=new ModeFactory();
+        Mode fitMode=modeFactory.create("crop");
+        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        assertEquals(300, scaledImage.getHeight());
+        assertEquals(500, scaledImage.getWidth());
+
+
+    }
+
 
 }
