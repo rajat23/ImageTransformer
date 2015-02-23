@@ -24,7 +24,7 @@ public class RequestStructure {
         height = 0;
         width = 0;
         color = Color.WHITE;
-        mode = "default";
+        mode = "pad";
         orientation = "center";
         coordinates=new Coordinates(0,0);
         isCoordinatesSet=false;
