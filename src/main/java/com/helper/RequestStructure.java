@@ -81,11 +81,12 @@ public class RequestStructure {
             mode = ((String[]) map.get("mode"))[0];
         if (map.containsKey("orientation"))
             orientation = ((String[]) map.get("orientation"))[0];
-        int x,y;
+        int x=0,y=0;
         if (map.containsKey("x"))
             x = Integer.parseInt(((String[]) map.get("x"))[0]);
         if (map.containsKey("y"))
             y = Integer.parseInt(((String[]) map.get("y"))[0]);
+        coordinates=new Coordinates(x,y);
 
     }
 
