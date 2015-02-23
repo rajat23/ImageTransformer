@@ -14,13 +14,13 @@ public class FitModeTest {
 
     @Test
     public void testGetDimensionsForBoth() throws Exception {
-        String name="PngImage.png";
+        String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-        map.put("height",new String[]{"300"});
+        map.put("height",new String[]{"200"});
         map.put("width",new String[]{"400"});
 
         requestStructure.setImage(image);
@@ -28,7 +28,7 @@ public class FitModeTest {
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
-        assertEquals(300, scaledImage.getHeight());
+        assertEquals(300, scaledImage.getWidth());
     }
 
 
@@ -36,7 +36,7 @@ public class FitModeTest {
 
     @Test
     public void testGetDimensionsForWidth() throws Exception {
-        String name="PngImage.png";
+        String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
@@ -48,7 +48,7 @@ public class FitModeTest {
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
-        assertEquals(400, scaledImage.getWidth());
+        assertEquals(450, scaledImage.getWidth());
 
     }
 
@@ -58,7 +58,7 @@ public class FitModeTest {
 
     @Test
     public void testGetDimensionsForHeight() throws Exception {
-        String name="PngImage.png";
+        String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
@@ -71,7 +71,7 @@ public class FitModeTest {
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
-        assertEquals(300, scaledImage.getHeight());
+        assertEquals(266, scaledImage.getHeight());
     }
 
 
