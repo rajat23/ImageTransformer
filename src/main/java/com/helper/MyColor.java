@@ -4,7 +4,9 @@ import java.awt.*;
 
 public class MyColor {
     public static Color getColor(String name) {
-        name = name.toLowerCase();
+        if(name.startsWith("#"))
+            return hex2Rgb(name);
+        name=name.toLowerCase();
         if (name.equals("black"))
             return Color.BLACK;
         if (name.equals("blue"))
@@ -31,5 +33,11 @@ public class MyColor {
             return Color.YELLOW;
         return Color.WHITE;
 
+    }
+    private static Color hex2Rgb(String colorStr) {
+        return new Color(
+                Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
+                Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),
+                Integer.valueOf( colorStr.substring( 5, 7 ), 16 ) );
     }
 }
