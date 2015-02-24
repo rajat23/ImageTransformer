@@ -7,9 +7,6 @@ public class MyColor {
         if(name.startsWith("0x")) {
             return Color.decode(name);
         }
-        if(name.startsWith("#")) {
-            return Color.decode(toHex(name));
-        }
         if (name.equals("black"))
             return Color.BLACK;
         if (name.equals("blue"))
