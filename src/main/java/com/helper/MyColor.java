@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class MyColor {
     public static Color getColor(String name) {
-       if(name.startsWith("#")) {
-           String tmp=name.substring(1);
-           return Color.decode("0x"+tmp);
+        if(name.startsWith("0x")) {
+
+           return Color.decode(name);
 
        }
 
