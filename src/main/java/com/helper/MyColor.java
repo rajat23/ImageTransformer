@@ -44,7 +44,7 @@ public class MyColor {
                 r=Integer.parseInt(color.substring(2));
             else if(color.startsWith("g_"))
                 g=Integer.parseInt(color.substring(2));
-            else  if(color.startsWith("r_"))
+            else  if(color.startsWith("b_"))
                 b=Integer.parseInt(color.substring(2));
         }
         return new Color(r,g,b);
