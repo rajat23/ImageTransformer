@@ -12,7 +12,7 @@ public class StartFile  {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new ScaleServlet()),"/image/scale/*");
+        context.addServlet(new ServletHolder(new ScaleServlet()),"/image/transform/*");
         context.addServlet(new ServletHolder(new CropServlet()),"/image/crop/*");
         context.addServlet(new ServletHolder(new CompressServlet()),"/image/compress/*");
         server.start();
