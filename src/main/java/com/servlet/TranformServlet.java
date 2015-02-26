@@ -4,6 +4,7 @@ package com.servlet;
 
 import com.helper.ImageReader;
 import com.helper.Response;
+import com.helper.Rounder;
 import com.mode.Mode;
 import com.mode.ModeFactory;
 import com.helper.RequestStructure;
@@ -42,6 +43,7 @@ public class TranformServlet extends HttpServlet {
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create(requestStructure.getMode());
         image=mode.getScaledImage(requestStructure);
+        image= Rounder.makeRoundedCorner(image,requestStructure.getRadius());
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }

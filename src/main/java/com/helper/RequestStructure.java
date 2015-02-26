@@ -19,6 +19,7 @@ public class RequestStructure {
     private String orientation;
     private Coordinates coordinates;
     private boolean isCoordinatesSet;
+    private int radius;
 
     public RequestStructure() {
         height = 0;
@@ -28,6 +29,7 @@ public class RequestStructure {
         orientation = "center";
         coordinates=new Coordinates(0,0);
         isCoordinatesSet=false;
+        radius=0;
     }
 
     public BufferedImage getImage() {
@@ -98,6 +100,8 @@ public class RequestStructure {
 
         }
         coordinates=new Coordinates(x,y);
+        if(map.containsKey("radius"))
+            radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
 
     }
 
@@ -109,6 +113,10 @@ public class RequestStructure {
 
     public int getProportionalWidth(int height, float aspectRatio) {
         return (int) (height * aspectRatio);
+    }
+
+    public int getRadius() {
+        return radius;
     }
 
     public Dimension getDimension() {
