@@ -5,6 +5,7 @@ import com.helper.MyColor;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
+import java.awt.geom.Arc2D;
 import java.awt.image.BufferedImage;
 import java.rmi.MarshalledObject;
 import java.util.Enumeration;
@@ -75,9 +76,9 @@ public class RequestStructure {
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
-            width = Integer.parseInt(((String[]) map.get("width"))[0]);
+            width = getWidth(((String[]) map.get("width"))[0],image.getWidth());
         if (map.containsKey("height"))
-            height = Integer.parseInt(((String[]) map.get("height"))[0]);
+            height = getHeight(((String[]) map.get("height"))[0],image.getHeight());
 
         if (height == 0)
             height = getProportionalHeight(width, getAspectRatio());
@@ -103,6 +104,22 @@ public class RequestStructure {
         if(map.containsKey("radius"))
             radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
 
+    }
+
+    public int getHeight(String height,int imageHeight) {
+        if(height.contains(".")) {
+            Double percentage = Double.parseDouble(height);
+            return (int) (percentage*(double)imageHeight);
+        }
+        return Integer.parseInt(height);
+    }
+
+    public int getWidth(String width,int imageWidth) {
+        if(width.contains(".")) {
+            Double percentage = Double.parseDouble(width);
+            return (int) (percentage*(double)imageWidth);
+        }
+        return Integer.parseInt(width);
     }
 
 
