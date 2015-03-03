@@ -1,5 +1,3 @@
-import com.servlet.CompressServlet;
-import com.servlet.CropServlet;
 import com.servlet.TranformServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.*;
@@ -13,8 +11,6 @@ public class StartFile  {
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new TranformServlet()),"/image/transform/*");
-        context.addServlet(new ServletHolder(new CropServlet()),"/image/crop/*");
-        context.addServlet(new ServletHolder(new CompressServlet()),"/image/compress/*");
         server.start();
         server.join();   
     }

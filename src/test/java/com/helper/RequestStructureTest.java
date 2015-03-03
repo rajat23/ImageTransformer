@@ -23,5 +23,27 @@ public class RequestStructureTest {
     }
 
 
+    @Test
+    public void testGetWidth() throws Exception {
+        RequestStructure requestStructure=new RequestStructure();
+        String width="0.5";
+        int imageWidth=500;
 
+        int expectedWidth=requestStructure.getWidth(width,imageWidth);
+
+        assertEquals(expectedWidth,250);
+
+    }
+
+    @Test
+    public void testGetHeight() throws Exception {
+        RequestStructure requestStructure=new RequestStructure();
+        String height="0.5";
+        int imageheight=500;
+
+        int expectedHeight=requestStructure.getWidth(height,imageheight);
+
+        assertEquals(expectedHeight,250);
+
+    }
 }
