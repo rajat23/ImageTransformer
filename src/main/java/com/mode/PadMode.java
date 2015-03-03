@@ -19,6 +19,8 @@ public class PadMode implements Mode {
     }
 
     private BufferedImage drawImageWithPad(RequestStructure requestStructure, BufferedImage image, int height, int width) throws IOException {
+        if(height==0&&width==0)
+            return image;
         Coordinates coordinates = new CoordinateCalculator().getCoordinates(requestStructure.getWidth(), requestStructure.getHeight(), width,height, requestStructure.getOrientation());
         BufferedImage paddedImage = new BufferedImage(requestStructure.getWidth(), requestStructure.getHeight(), image.getType());
         Graphics graphics = paddedImage.getGraphics();
