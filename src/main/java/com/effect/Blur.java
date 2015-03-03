@@ -13,7 +13,7 @@ public class Blur implements  Effect{
 
     public BufferedImage getEffect(BufferedImage image){
     
-
+        return  image;
     }
 
 }
