@@ -7,15 +7,12 @@ import com.mode.*;
  */
 public class EffectFactory {
     public Effect create(String effect) {
-        if (effect.equals("Blur")) {
+        if (effect.equals("Blur"))
             return new Blur();
-        }
-
-        if(effect.equals("Grayscale")) {
+        if(effect.equals("Grayscale"))
             return new GrayScale();
-        }
-
-
+        if(effect.equals("blackwhite"))
+            return new BlackWhite();
         return new NoEffect();
 
     }
