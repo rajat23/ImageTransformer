@@ -15,6 +15,8 @@ public class EffectFactory {
             return new BlackWhite();
         if(effect.equals("sepia"))
             return new Sepia();
+        if(effect.equals("pixelate"))
+            return new Pixelate();
         return new NoEffect();
 
     }
