@@ -1,7 +1,5 @@
 package com.effect;
 
-import com.mode.*;
-
 public class EffectFactory {
     public Effect create(String effect) {
         if (effect.equals("Blur"))
@@ -14,6 +12,8 @@ public class EffectFactory {
             return new Sepia();
         if(effect.equals("pixelate"))
             return new Pixelate();
+        if(effect.equals("oilpaint"))
+            return new Oilpaint();
         return new NoEffect();
 
     }
