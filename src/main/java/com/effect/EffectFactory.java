@@ -10,6 +10,6 @@ public class EffectFactory {
         if (effect.equals("Blur")) {
             return new Blur();
         }
-        return null;
+        return new NoEffect();
     }
 }
