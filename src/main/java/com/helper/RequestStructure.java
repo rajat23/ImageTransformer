@@ -20,6 +20,7 @@ public class RequestStructure {
     private Coordinates coordinates;
     private boolean isCoordinatesSet;
     private int radius;
+    private String effect;
 
     public RequestStructure() {
         height = 0;
@@ -30,6 +31,7 @@ public class RequestStructure {
         coordinates=new Coordinates(0,0);
         isCoordinatesSet=false;
         radius=0;
+        effect=null;
     }
 
     public BufferedImage getImage() {
@@ -98,6 +100,9 @@ public class RequestStructure {
             y = Integer.parseInt(((String[]) map.get("y"))[0]);
             isCoordinatesSet=true;
 
+        }
+        if(map.containsKey("effect")) {
+            effect=((String[]) map.get("effect"))[0];
         }
         coordinates=new Coordinates(x,y);
         if(map.containsKey("radius"))

@@ -1,7 +1,8 @@
 package com.servlet;
 
 
-
+import com.effect.Effect;
+import com.effect.EffectFactory;
 import com.helper.ImageReader;
 import com.helper.Response;
 import com.helper.Rounder;
@@ -36,18 +37,19 @@ public class TranformServlet extends HttpServlet {
             printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        RequestStructure requestStructure=new RequestStructure();
+        RequestStructure requestStructure = new RequestStructure();
         requestStructure.setImage(image);
-        Map<String,String[]> map = request.getParameterMap();
+        Map<String, String[]> map = request.getParameterMap();
         requestStructure.setParameters(map);
-        ModeFactory modeFactory=new ModeFactory();
-        Mode mode=modeFactory.create(requestStructure.getMode());
-        image=mode.getScaledImage(requestStructure);
-        image= Rounder.makeRoundedCorner(image,requestStructure.getRadius());
+        ModeFactory modeFactory = new ModeFactory();
+        Mode mode = modeFactory.create(requestStructure.getMode());
+        image = mode.getScaledImage(requestStructure);
+        image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
+        Effect effect=new EffectFactory().create("Blur");
+        image=effect.getEffect(image);
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }
-
 
 
 }
