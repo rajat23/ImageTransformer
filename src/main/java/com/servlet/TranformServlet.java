@@ -47,10 +47,7 @@ public class TranformServlet extends HttpServlet {
 
         image = mode.getScaledImage(requestStructure);
         image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
-<<<<<<< HEAD
-=======
 
->>>>>>> 8e9687524fd9d897d31963b973d8b4c2f02cfbe2
         Effect effect=new EffectFactory().create(requestStructure.getEffect());
         image=effect.getEffect(image);
 
