@@ -13,6 +13,8 @@ public class EffectFactory {
             return new GrayScale();
         if(effect.equals("blackwhite"))
             return new BlackWhite();
+        if(effect.equals("sepia"))
+            return new Sepia();
         return new NoEffect();
 
     }
