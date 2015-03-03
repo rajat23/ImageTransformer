@@ -4,9 +4,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-/**
- * Created by akshaysinghyaduvanshi on 3/3/15.
- */
 public class Pixelate implements Effect {
     public BufferedImage getEffect(BufferedImage image) {
         int PIX_SIZE=10;

@@ -3,9 +3,6 @@ package com.effect;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 
-/**
- * Created by akshaysinghyaduvanshi on 3/3/15.
- */
 public class BlackWhite implements Effect {
     public BufferedImage getEffect(BufferedImage image) {
         int threshold=128;

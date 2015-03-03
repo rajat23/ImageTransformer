@@ -3,10 +3,6 @@ package com.effect;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-/**
- * Created by rajatchandak on 03/03/15.
- */
-
 public class GrayScale implements Effect {
     public BufferedImage getEffect(BufferedImage image) {
 
