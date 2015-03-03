@@ -11,7 +11,7 @@ public class GrayScale implements Effect {
 
         int width = image.getWidth();
         int height = image.getHeight();
-        
+
         for(int i=0; i<height; i++){
 
             for(int j=0; j<width; j++){

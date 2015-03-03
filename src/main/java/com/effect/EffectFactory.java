@@ -10,9 +10,13 @@ public class EffectFactory {
         if (effect.equals("Blur")) {
             return new Blur();
         }
+
         if(effect.equals("Grayscale")) {
             return new GrayScale();
         }
-        return null;
+
+
+        return new NoEffect();
+
     }
 }
