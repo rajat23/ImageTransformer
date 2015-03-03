@@ -45,7 +45,7 @@ public class TranformServlet extends HttpServlet {
         Mode mode = modeFactory.create(requestStructure.getMode());
         image = mode.getScaledImage(requestStructure);
         image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
-        Effect effect=new EffectFactory().create("Blur");
+        Effect effect=new EffectFactory().create(requestStructure.getEffect());
         image=effect.getEffect(image);
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);

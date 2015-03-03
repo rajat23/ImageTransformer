@@ -74,6 +74,7 @@ public class RequestStructure {
     public boolean isCoordinatesSet() {
         return isCoordinatesSet;
     }
+    public String getEffect() { return effect;}
 
     public void setParameters(Map map) {
 
