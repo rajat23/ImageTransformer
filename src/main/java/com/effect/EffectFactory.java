@@ -14,6 +14,9 @@ public class EffectFactory {
             return new Pixelate();
         if(effect.equals("oilpaint"))
             return new Oilpaint();
+        if(effect.equals("negate"))
+            return new Negate();
+
         return new NoEffect();
 
     }
