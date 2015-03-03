@@ -50,7 +50,6 @@ public class TranformServlet extends HttpServlet {
 
         Effect effect=new EffectFactory().create(requestStructure.getEffect());
         image=effect.getEffect(image);
-        System.out.println(image.getType());
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }

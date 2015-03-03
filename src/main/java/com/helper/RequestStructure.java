@@ -32,7 +32,7 @@ public class RequestStructure {
         coordinates=new Coordinates(0,0);
         isCoordinatesSet=false;
         radius=0;
-        effect=null;
+        effect="NoEffect";
     }
 
     public BufferedImage getImage() {
