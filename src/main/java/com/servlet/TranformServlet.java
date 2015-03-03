@@ -41,12 +41,16 @@ public class TranformServlet extends HttpServlet {
         requestStructure.setImage(image);
         Map<String, String[]> map = request.getParameterMap();
         requestStructure.setParameters(map);
+
         ModeFactory modeFactory = new ModeFactory();
         Mode mode = modeFactory.create(requestStructure.getMode());
+
         image = mode.getScaledImage(requestStructure);
         image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
-        Effect effect=new EffectFactory().create("Blur");
+
+        Effect effect=new EffectFactory().create(requestStructure.getEffect());
         image=effect.getEffect(image);
+
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }

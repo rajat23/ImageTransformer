@@ -75,6 +75,10 @@ public class RequestStructure {
         return isCoordinatesSet;
     }
 
+    public String getEffect() {
+        return effect;
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
@@ -105,6 +109,7 @@ public class RequestStructure {
         if(map.containsKey("effect")) {
             effect=((String[]) map.get("effect"))[0];
         }
+
         coordinates=new Coordinates(x,y);
         if(map.containsKey("radius"))
             radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
