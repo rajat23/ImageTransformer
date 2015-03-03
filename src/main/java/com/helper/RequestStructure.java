@@ -76,9 +76,6 @@ public class RequestStructure {
     }
     public String getEffect() { return effect;}
 
-    public String getEffect() {
-        return effect;
-    }
 
     public void setParameters(Map map) {
 
