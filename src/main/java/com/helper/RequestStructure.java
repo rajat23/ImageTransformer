@@ -109,6 +109,7 @@ public class RequestStructure {
         }
 
         coordinates=new Coordinates(x,y);
+
         if(map.containsKey("radius"))
             radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
 
