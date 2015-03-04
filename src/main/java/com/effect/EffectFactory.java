@@ -18,6 +18,8 @@ public class EffectFactory {
             return new Negate();
         if(effect.equals("brightness"))
             return new Brightness();
+        if(effect.equals("watermark"))
+            return new Watermark();
 
         return new NoEffect();
 
