@@ -16,6 +16,8 @@ public class EffectFactory {
             return new Oilpaint();
         if(effect.equals("negate"))
             return new Negate();
+        if(effect.equals("brightness"))
+            return new Brightness();
 
         return new NoEffect();
 
