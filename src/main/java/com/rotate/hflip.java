@@ -5,7 +5,7 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 public class Hflip implements Angle{
-    
+
         public BufferedImage rotateImage(BufferedImage image, String angle) {
             AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
             tx.translate(-image.getWidth(null), 0);
