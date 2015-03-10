@@ -9,6 +9,8 @@ import com.helper.Rounder;
 import com.mode.Mode;
 import com.mode.ModeFactory;
 import com.helper.RequestStructure;
+import com.rotate.Angle;
+import com.rotate.AngleFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +52,10 @@ public class TranformServlet extends HttpServlet {
 
         Effect effect=new EffectFactory().create(requestStructure.getEffect());
         image=effect.getEffect(image);
+
+        Angle angle=new AngleFactory().create(requestStructure.getAngle());
+        image=angle.rotateImage(image,requestStructure.getAngle());
+
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, path);
     }

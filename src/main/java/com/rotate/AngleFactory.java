@@ -3,7 +3,9 @@ package com.rotate;
 
 public class AngleFactory {
     public Angle create(String angle) {
-        return null;
+        if(angle.equals("hflip"))
+            return new Hflip();
+        return new NoEffect();
 
     }
 }
