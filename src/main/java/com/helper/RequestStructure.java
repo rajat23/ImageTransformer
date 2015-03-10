@@ -22,6 +22,7 @@ public class RequestStructure {
     private boolean isCoordinatesSet;
     private int radius;
     private String effect;
+    private String angle;
 
     public RequestStructure() {
         height = 0;
@@ -33,6 +34,7 @@ public class RequestStructure {
         isCoordinatesSet=false;
         radius=0;
         effect="NoEffect";
+        angle="0";
     }
 
     public BufferedImage getImage() {
@@ -77,6 +79,10 @@ public class RequestStructure {
     public String getEffect() { return effect;}
 
 
+    public String getAngle() {
+        return angle;
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
@@ -112,6 +118,10 @@ public class RequestStructure {
 
         if(map.containsKey("radius"))
             radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
+
+        if(map.containsKey("angle"))
+            angle=((String[]) map.get("angle"))[0];
+
 
     }
 
