@@ -57,7 +57,7 @@ public class TranformServlet extends HttpServlet {
         image=angle.rotateImage(image,requestStructure.getAngle());
 
         Response servletResponse = new Response();
-        servletResponse.setResponse(response, image, path);
+        servletResponse.setResponse(response, image, requestStructure.getFormat());
     }
 
 
