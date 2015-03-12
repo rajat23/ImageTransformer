@@ -22,6 +22,7 @@ public class PadModeTest {
         map.put("height",new String[]{"300"});
         map.put("width",new String[]{"400"});
         map.put("orientation",new String[]{"north_west"});
+        map.put("format",new String[]{"png"});
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("pad");
@@ -44,6 +45,7 @@ public class PadModeTest {
         map.put("height",new String[]{"1000"});
         map.put("width",new String[]{"4000"});
         map.put("orientation",new String[]{"north_west"});
+        map.put("format",new String[]{"png"});
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("pad");

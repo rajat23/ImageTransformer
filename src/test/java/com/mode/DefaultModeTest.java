@@ -23,7 +23,7 @@ public class DefaultModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"450"});
         map.put("width",new String[]{"400"});
-
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -46,6 +46,7 @@ public class DefaultModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
 
         map.put("width",new String[]{"400"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -67,6 +68,7 @@ public class DefaultModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
 
         map.put("height",new String[]{"300"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -88,6 +90,7 @@ public class DefaultModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
 
         map.put("width",new String[]{"900"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

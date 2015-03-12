@@ -22,6 +22,7 @@ public class CropModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"450"});
         map.put("width",new String[]{"400"});
+        map.put("format",new String[]{"png"});
 
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
@@ -46,7 +47,7 @@ public class CropModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"750"});
         map.put("width",new String[]{"900"});
-
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -67,7 +68,7 @@ public class CropModeTest {
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("width",new String[]{"400"});
-
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -90,7 +91,7 @@ public class CropModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("width",new String[]{"500"});
         map.put("x",new String[]{"400"});
-
+        map.put("format",new String[]{"png"});
 
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
@@ -115,6 +116,7 @@ public class CropModeTest {
         map.put("height",new String[]{"600"});
         map.put("x",new String[]{"300"});
         map.put("y",new String[]{"300"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

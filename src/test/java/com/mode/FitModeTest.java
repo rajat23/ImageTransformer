@@ -22,7 +22,7 @@ public class FitModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"200"});
         map.put("width",new String[]{"400"});
-
+        map.put("format",new String[]{"jpg"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -43,6 +43,7 @@ public class FitModeTest {
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"300"});
+        map.put("format",new String[]{"jpg"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -66,6 +67,7 @@ public class FitModeTest {
         Map<String,String[]> map=new HashMap<String, String[]>();
 
         map.put("width",new String[]{"400"});
+        map.put("format",new String[]{"jpg"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
