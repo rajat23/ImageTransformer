@@ -23,6 +23,7 @@ public class RequestStructure {
     private int radius;
     private String effect;
     private String angle;
+    private String format;
 
     public RequestStructure() {
         height = 0;
@@ -35,6 +36,7 @@ public class RequestStructure {
         radius=0;
         effect="NoEffect";
         angle="0";
+        format="";
     }
 
     public BufferedImage getImage() {
@@ -83,6 +85,10 @@ public class RequestStructure {
         return angle;
     }
 
+    public String getFormat() {
+        return format;
+    }
+
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
@@ -121,6 +127,12 @@ public class RequestStructure {
 
         if(map.containsKey("angle"))
             angle=((String[]) map.get("angle"))[0];
+        if(map.containsKey("format"))
+            format=((String[]) map.get("format"))[0];
+        else
+        {
+            format=new FileUrl().getFileExtension(((String[]) map.get("path"))[0]);
+        }
 
 
     }
