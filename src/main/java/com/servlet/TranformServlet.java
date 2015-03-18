@@ -11,6 +11,7 @@ import com.mode.ModeFactory;
 import com.helper.RequestStructure;
 import com.rotate.Angle;
 import com.rotate.AngleFactory;
+import com.utility.ImageCompresser;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +56,9 @@ public class TranformServlet extends HttpServlet {
 
         Angle angle=new AngleFactory().create(requestStructure.getAngle());
         image=angle.rotateImage(image,requestStructure.getAngle());
+
+        ImageCompresser imageCompresser=new ImageCompresser();
+        image=imageCompresser.getCompressImage(image,requestStructure.getQuality());
 
         Response servletResponse = new Response();
         servletResponse.setResponse(response, image, requestStructure.getFormat());
