@@ -81,5 +81,13 @@ Effects
 =============
 Various effect can be applied to image. To select effect 'effect' parameter is used. Provided effects are sepia, grayscale, blackwhite, negate, oilpaint, pixelate, brightness.The following example gives sample.jpg image a sepia effect <br><br>
 http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&effect=sepia
+
+Rotating Image
+=============
+Image can be rotated using angle parameter. You can specify angle in degrees. Positive value of angle will rotate image clockwise and viceversa.Also you can specify modes.Two modes are provided vflip and hflip. Modes should also be assigned to angle parameter.<br><br>
+http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&angle=10
+<br><br>
+http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&angle=hflip
+
 							
  
