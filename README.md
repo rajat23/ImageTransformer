@@ -89,5 +89,12 @@ http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&angle=10
 <br><br>
 http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&angle=hflip
 
-							
+Specifying Required Format
+=============
+Static or dynamic image are uploaded to Cloudinary in various formats. You might want to convert them for displaying in your web site in your desired format.
+If you know you display photos and you want them to load quickly, you might want to use a low quality JPG format. If you know the image contains a drawing with only a few colors, then the GIF format might suite you best. When you need to display high quality illustrations with a transparent background the PNG (24 bit) format is the best choice.
+You can specify the format as part of the resource name.
+For example, if you want to display a GIF version of the uploaded sample JPG file:
+<br><br>
+http://imagetransformer.herokuapp.com/image/transform?path=sample.jpg&format=gif							
  
