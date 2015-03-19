@@ -61,7 +61,29 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(40,20,0);
 
-        Effect effect=new EffectFactory().create("sepia_30");
+        Effect effect=new EffectFactory().create("sepia");
+        image=effect.getEffect(image);
+
+        for(int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                Color color=new Color(image.getRGB(x,y));
+                assertEquals(color,expectedColor);
+            }
+        }
+
+    }
+
+    @Test
+    public void testGetEffectForParameter() throws Exception {
+        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
+        for(int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                image.setRGB(x, y, new Color(100, 100, 100).getRGB());
+            }
+        }
+        Color expectedColor=new Color(140,120,40);
+
+        Effect effect=new EffectFactory().create("sepia_60");
         image=effect.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
