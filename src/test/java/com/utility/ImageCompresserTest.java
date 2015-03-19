@@ -16,7 +16,9 @@ public class ImageCompresserTest {
         String name = "JpgImage.jpg";
         ImageReader imageReader = new ImageReader();
         BufferedImage image = imageReader.readImage(name);
+
         BufferedImage compressedImage = imageCompresser.getCompressImage(image, 0.05f);
+
         float quality = imageCompresser.getQuality();
         assertEquals(quality,0.05f,0.0f);
     }
@@ -26,7 +28,6 @@ public class ImageCompresserTest {
 
         ImageCompresser imageCompresser = new ImageCompresser();
         String name = "JpgImage.jpg";
-
         ImageReader imageReader = new ImageReader();
         BufferedImage image = imageReader.readImage(name);
         File originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);
@@ -45,7 +46,6 @@ public class ImageCompresserTest {
 
         ImageCompresser imageCompresser = new ImageCompresser();
         String name = "PngImage.png";
-
         ImageReader imageReader = new ImageReader();
         BufferedImage image = imageReader.readImage(name);
         File originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);
@@ -63,7 +63,6 @@ public class ImageCompresserTest {
     public void testgetCompressImageGif() throws Exception {
         ImageCompresser imageCompresser = new ImageCompresser();
         String name = "GifImage.gif";
-
         ImageReader imageReader = new ImageReader();
         BufferedImage image = imageReader.readImage(name);
         File originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);

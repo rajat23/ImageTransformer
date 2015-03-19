@@ -20,6 +20,7 @@ public class GrayScaleTest {
         boolean isEqual=true;
 
         BufferedImage grayScaleImage=new GrayScale().getEffect(image);
+
         int height=grayScaleImage.getHeight();
         int width=grayScaleImage.getWidth();
         for (int i = 0; i <height ; i++) {

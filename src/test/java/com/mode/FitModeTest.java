@@ -62,17 +62,17 @@ public class FitModeTest {
         String name="JpgImage.jpg";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("width",new String[]{"400"});
         map.put("format",new String[]{"jpg"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
+
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+
         assertEquals(266, scaledImage.getHeight());
     }
 

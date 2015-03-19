@@ -12,6 +12,7 @@ public class ExpandDimensionTest {
         Dimension dimension=new Dimension(1000,600);
         float aspectRatio=2.0f;
         ExpandDimension expandDimension=new ExpandDimension();
+
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
         assertEquals((int)dimension.getWidth(),1200);
@@ -24,6 +25,7 @@ public class ExpandDimensionTest {
         Dimension dimension=new Dimension(400,150);
         float aspectRatio=2.0f;
         ExpandDimension expandDimension=new ExpandDimension();
+
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
         assertEquals((int)dimension.getWidth(),400);
@@ -36,6 +38,7 @@ public class ExpandDimensionTest {
         Dimension dimension=new Dimension(1,67);
         float aspectRatio=1.6f;
         ExpandDimension expandDimension=new ExpandDimension();
+
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
         assertEquals((int)dimension.getWidth(),107);
@@ -47,6 +50,7 @@ public class ExpandDimensionTest {
         Dimension dimension=new Dimension(1,68);
         float aspectRatio=1.6f;
         ExpandDimension expandDimension=new ExpandDimension();
+
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
         assertEquals((int)dimension.getWidth(),109);
@@ -59,6 +63,7 @@ public class ExpandDimensionTest {
         Dimension dimension=new Dimension(150,100);
         float aspectRatio=1.5f;
         ExpandDimension expandDimension=new ExpandDimension();
+
         dimension=expandDimension.doOperation(dimension,aspectRatio);
 
         assertEquals((int)dimension.getWidth(),150);

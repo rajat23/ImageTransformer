@@ -19,11 +19,11 @@ public class PixelateTest {
         }
         Color color=new Color(122,23,231);
         image.setRGB(0,0,color.getRGB());
+
         Effect effect=new EffectFactory().create("pixelate");
         image=effect.getEffect(image);
 
         boolean isCorrect=true;
-
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
                 Color newColor=new Color(image.getRGB(x,y));
