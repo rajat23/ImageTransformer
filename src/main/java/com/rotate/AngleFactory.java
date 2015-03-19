@@ -7,7 +7,14 @@ public class AngleFactory {
             return new Hflip();
         if(angle.equals("vflip"))
             return new Vflip();
-        return new AngledFlip(Integer.parseInt(angle));
+        int tmpAngle=0;
+        try{
+            tmpAngle=Integer.parseInt(angle);
+        }
+        catch (Exception e){
+            tmpAngle=360;
+        }
+        return new AngledFlip(tmpAngle);
 
     }
 }
