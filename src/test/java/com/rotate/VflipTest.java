@@ -19,7 +19,7 @@ public class VflipTest {
         image.setRGB(1, 1, new Color(4, 4, 4).getRGB());
 
         Angle angle=new AngleFactory().create("vflip");
-        image=angle.rotateImage(image,"vflip");
+        image=angle.rotateImage(image);
 
         assertEquals(new Color(image.getRGB(0,0)),new Color(3,3,3));
         assertEquals(new Color(image.getRGB(1,0)),new Color(4,4,4));
