@@ -1,4 +1,4 @@
-package com.effect;
+/*package com.effect;
 
 import com.helper.ImageReader;
 import org.junit.Test;
@@ -40,4 +40,4 @@ public class GrayScaleTest {
         
 
     }
-}
+}*/

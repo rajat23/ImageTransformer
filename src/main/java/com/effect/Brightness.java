@@ -5,10 +5,15 @@ import java.awt.image.BufferedImage;
 
 
 public class Brightness implements Effect{
+    int increasingFactor;
+    public Brightness(String factor)
+    {
+            increasingFactor=Integer.parseInt(factor);
+    }
 
     public  BufferedImage getEffect(BufferedImage sourceImage)  {
 
-        int increasingFactor=60;
+      //  int increasingFactor=60;
         int w = sourceImage.getWidth();
         int h = sourceImage.getHeight();
 

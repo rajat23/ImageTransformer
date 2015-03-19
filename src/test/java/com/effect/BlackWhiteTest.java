@@ -1,4 +1,4 @@
-package com.effect;
+/*package com.effect;
 
 import com.helper.ImageReader;
 import org.junit.Test;
@@ -33,4 +33,4 @@ public class BlackWhiteTest {
         assertEquals(1,isBlackWhite);
 
     }
-}
+}*/

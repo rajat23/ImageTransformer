@@ -1,4 +1,4 @@
-package com.effect;
+/*package com.effect;
 
 import org.junit.Test;
 
@@ -30,4 +30,4 @@ public class BrightnessTest {
         }
 
     }
-}
+}*/

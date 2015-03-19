@@ -4,8 +4,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 
 public class BlackWhite implements Effect {
+    int threshold;
+    public BlackWhite(String threshold){
+        this.threshold=Integer.parseInt(threshold);
+    }
     public BufferedImage getEffect(BufferedImage image) {
-        int threshold=128;
+
         BufferedImage result = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
         result.getGraphics().drawImage(image, 0, 0, null);
         WritableRaster raster = result.getRaster();

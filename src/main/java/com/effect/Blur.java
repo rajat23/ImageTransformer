@@ -1,20 +1,16 @@
 package com.effect;
 
 
-import com.utility.ImageScaler;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Blur implements  Effect{
+
+
     public BufferedImage getEffect(BufferedImage image) {
         return null;
     }

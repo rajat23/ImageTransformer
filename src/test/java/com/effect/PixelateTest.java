@@ -1,4 +1,4 @@
-package com.effect;
+/*package com.effect;
 
 import org.junit.Test;
 
@@ -33,4 +33,4 @@ public class PixelateTest {
         }
         assertEquals(isCorrect,true);
     }
-}
+}*/

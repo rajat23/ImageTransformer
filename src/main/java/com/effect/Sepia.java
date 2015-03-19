@@ -4,8 +4,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 
 public class Sepia implements Effect {
+    int sepiaIntensity;
+    public Sepia(String sepiaIntensity){
+        this.sepiaIntensity=Integer.parseInt(sepiaIntensity);
+    }
     public BufferedImage getEffect(BufferedImage image) {
-        int sepiaIntensity=30;
+
         int sepiaDepth = 20;
         int w = image.getWidth();
         int h = image.getHeight();

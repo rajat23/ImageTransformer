@@ -5,8 +5,12 @@ import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
 public class Pixelate implements Effect {
+    int PIX_SIZE;
+    public Pixelate(String pix_size){
+        PIX_SIZE=Integer.parseInt(pix_size);
+    }
     public BufferedImage getEffect(BufferedImage image) {
-        int PIX_SIZE=10;
+
         Raster src = image.getData();
         WritableRaster dest = src.createCompatibleWritableRaster();
         for(int y = 0; y < src.getHeight(); y += PIX_SIZE) {
