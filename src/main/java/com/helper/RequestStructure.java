@@ -24,6 +24,7 @@ public class RequestStructure {
     private String effect;
     private String angle;
     private String format;
+    private float quality;
 
     public RequestStructure() {
         height = 0;
@@ -37,6 +38,7 @@ public class RequestStructure {
         effect="NoEffect";
         angle="0";
         format="";
+        quality=-1.0f;
     }
 
     public BufferedImage getImage() {
@@ -133,6 +135,8 @@ public class RequestStructure {
         {
             format=new FileUrl().getFileExtension(((String[]) map.get("path"))[0]);
         }
+        if(map.containsKey("quality"))
+            quality= Float.parseFloat(((String[]) map.get("quality"))[0]);
 
 
     }
@@ -143,6 +147,10 @@ public class RequestStructure {
             return (int) (percentage*(double)imageHeight);
         }
         return Integer.parseInt(height);
+    }
+
+    public float getQuality() {
+        return quality;
     }
 
     public int getWidth(String width,int imageWidth) {

@@ -11,7 +11,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,500,200,"top_left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -20,7 +22,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=700;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"top_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -29,7 +33,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"top_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -39,7 +45,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=800;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"top_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -48,7 +56,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom_left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -57,7 +67,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom_left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -67,7 +79,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom_left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -77,7 +91,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=700;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -86,7 +102,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -96,7 +114,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=800;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom_right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -106,7 +126,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=350;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"top");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -115,7 +137,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"top");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -125,7 +149,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=400;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"top");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -135,7 +161,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -144,7 +172,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -154,7 +184,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"left");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -164,7 +196,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=350;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -173,7 +207,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=800;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -183,7 +219,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=400;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -193,7 +231,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=700;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -202,7 +242,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -212,7 +254,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=800;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"right");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -222,7 +266,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=350;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"center");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -231,7 +277,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=0;
         int expectedYCoordinate=400;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"center");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }
@@ -241,7 +289,9 @@ public class CoordinateCalculatorTest {
         int expectedXCoordinate=400;
         int expectedYCoordinate=0;
         CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"center");
+
         assertEquals(expectedXCoordinate,returnedCoordinates.getX());
         assertEquals(expectedYCoordinate,returnedCoordinates.getY());
     }

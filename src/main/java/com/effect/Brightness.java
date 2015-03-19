@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 
+
 public class Brightness implements Effect{
     int increasingFactor;
     public Brightness(String factor)
@@ -11,9 +12,10 @@ public class Brightness implements Effect{
             increasingFactor=Integer.parseInt(factor);
     }
 
-    public  BufferedImage getEffect(BufferedImage sourceImage)  {
 
-      //  int increasingFactor=60;
+    public BufferedImage getEffect(BufferedImage sourceImage) {
+
+
         int w = sourceImage.getWidth();
         int h = sourceImage.getHeight();
 
@@ -24,7 +26,6 @@ public class Brightness implements Effect{
             for (int j = 0; j < h; j++) {
 
 
-
                 Color color = new Color(sourceImage.getRGB(i, j));
 
                 int r, g, b;
@@ -33,7 +34,6 @@ public class Brightness implements Effect{
                 r = color.getRed() + increasingFactor;
                 g = color.getGreen() + increasingFactor;
                 b = color.getBlue() + increasingFactor;
-
 
 
                 if (r >= 256) {

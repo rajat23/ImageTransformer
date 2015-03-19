@@ -5,6 +5,7 @@ public class EffectFactory {
         if (effect.contains("Blur")) {
 
             return new Blur();
+
         }
         if(effect.equals("Grayscale"))
             return new GrayScale();
@@ -20,10 +21,14 @@ public class EffectFactory {
             String[] tmp=effect.split("_");
             return new Pixelate(tmp[1]);
         }
-        if(effect.equals("oilpaint"))
+
+
+        if (effect.equals("oilpaint"))
+
             return new Oilpaint();
-        if(effect.equals("negate"))
+        if (effect.equals("negate"))
             return new Negate();
+
         if(effect.contains("brightness")){
             String[] tmp=effect.split("_");
             return new Brightness(tmp[1]);}
@@ -31,6 +36,7 @@ public class EffectFactory {
             String[] tmp=effect.split("_");
 
             return new Watermark(tmp[1]);}
+
 
         return new NoEffect();
 

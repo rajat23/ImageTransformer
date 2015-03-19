@@ -16,6 +16,8 @@ public class ImageCompresser {
     private ImageWriteParam param;
 
     public BufferedImage getCompressImage(BufferedImage inputImage, float quality) throws IOException {
+        if(quality==-1.0f)
+            return inputImage;
 
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);

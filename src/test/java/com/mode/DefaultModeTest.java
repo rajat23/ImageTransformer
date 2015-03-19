@@ -28,7 +28,9 @@ public class DefaultModeTest {
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
+
         BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+
         assertEquals(450, scaledImage.getHeight());
         assertEquals(400, scaledImage.getWidth());
 
@@ -41,17 +43,17 @@ public class DefaultModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("width",new String[]{"400"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
+
         BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+
         assertEquals(300, scaledImage.getHeight());
 
     }
@@ -63,17 +65,17 @@ public class DefaultModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("height",new String[]{"300"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
+
         BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+
         assertEquals(400, scaledImage.getWidth());
 
     }
@@ -85,17 +87,17 @@ public class DefaultModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("width",new String[]{"900"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
+
         BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+
         assertEquals(900, scaledImage.getWidth());
 
     }

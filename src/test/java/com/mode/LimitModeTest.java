@@ -18,7 +18,6 @@ public class LimitModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"450"});
@@ -28,7 +27,9 @@ public class LimitModeTest {
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("limit");
+
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+
         assertEquals(300, scaledImage.getHeight());
 
     }
@@ -40,17 +41,17 @@ public class LimitModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("width",new String[]{"400"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode limitMode=modeFactory.create("limit");
+
         BufferedImage scaledImage=limitMode.getScaledImage(requestStructure);
+
         assertEquals(300, scaledImage.getHeight());
 
     }
@@ -62,17 +63,17 @@ public class LimitModeTest {
         String name="PngImage.png";
         ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-
         RequestStructure requestStructure =new RequestStructure();
         Map<String,String[]> map=new HashMap<String, String[]>();
-
         map.put("width",new String[]{"900"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode limitMode=modeFactory.create("limit");
+
         BufferedImage scaledImage=limitMode.getScaledImage(requestStructure);
+
         assertEquals(800, scaledImage.getWidth());
 
     }

@@ -6,14 +6,12 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 
-
-public class Oilpaint implements Effect  {
+public class Oilpaint implements Effect {
 
     static int radius = 10;
-    static  int intensityLevels = 24;
+    static int intensityLevels = 24;
 
-    public  BufferedImage getEffect(BufferedImage sourceImage) {
-
+    public BufferedImage getEffect(BufferedImage sourceImage) {
 
 
         BufferedImage dest = new BufferedImage(
