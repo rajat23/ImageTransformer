@@ -18,7 +18,7 @@ public class EffectFactory {
 
         if(effect.contains("sepia")){
             if(!effect.contains("_"))
-            return new Sepia("60");
+            return new Sepia("30");
             String[] tmp=effect.split("_");
             return new Sepia(tmp[1]);}
 
