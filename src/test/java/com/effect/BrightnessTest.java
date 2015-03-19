@@ -1,4 +1,4 @@
-/*package com.effect;
+package com.effect;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class BrightnessTest {
         }
         Color expectedColor=new Color(160,160,160);
 
-        Effect effect=new EffectFactory().create("brightness");
+        Effect effect=new EffectFactory().create("brightness_60");
         image=effect.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
@@ -30,4 +30,4 @@ public class BrightnessTest {
         }
 
     }
-}*/
+}

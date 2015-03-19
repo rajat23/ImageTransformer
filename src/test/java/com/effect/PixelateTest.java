@@ -1,4 +1,4 @@
-/*package com.effect;
+package com.effect;
 
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class PixelateTest {
         Color color=new Color(122,23,231);
         image.setRGB(0,0,color.getRGB());
 
-        Effect effect=new EffectFactory().create("pixelate");
+        Effect effect=new EffectFactory().create("pixelate_10");
         image=effect.getEffect(image);
 
         boolean isCorrect=true;
@@ -33,4 +33,4 @@ public class PixelateTest {
         }
         assertEquals(isCorrect,true);
     }
-}*/
+}

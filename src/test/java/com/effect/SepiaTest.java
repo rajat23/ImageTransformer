@@ -1,4 +1,4 @@
-/*package com.effect;
+package com.effect;
 
 import org.junit.Test;
 
@@ -61,7 +61,7 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(40,20,0);
 
-        Effect effect=new EffectFactory().create("sepia");
+        Effect effect=new EffectFactory().create("sepia_30");
         image=effect.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
@@ -72,4 +72,4 @@ public class SepiaTest {
         }
 
     }
-}*/
+}
