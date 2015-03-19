@@ -55,7 +55,7 @@ public class TranformServlet extends HttpServlet {
         image=effect.getEffect(image);
 
         Angle angle=new AngleFactory().create(requestStructure.getAngle());
-        image=angle.rotateImage(image,requestStructure.getAngle());
+        image=angle.rotateImage(image);
 
         ImageCompresser imageCompresser=new ImageCompresser();
         image=imageCompresser.getCompressImage(image,requestStructure.getQuality());

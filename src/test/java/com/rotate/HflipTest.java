@@ -20,7 +20,7 @@ public class HflipTest {
         image.setRGB(1, 1, new Color(4, 4, 4).getRGB());
 
         Angle angle=new AngleFactory().create("hflip");
-        image=angle.rotateImage(image,"hflip");
+        image=angle.rotateImage(image);
 
         assertEquals(new Color(image.getRGB(0,0)),new Color(2,2,2));
         assertEquals(new Color(image.getRGB(1,0)),new Color(1,1,1));
