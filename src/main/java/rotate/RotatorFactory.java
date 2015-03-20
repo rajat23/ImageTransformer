@@ -1,8 +1,8 @@
 package rotate;
 
 
-public class AngleFactory {
-    public Angle create(String angle) {
+public class RotatorFactory {
+    public Rotable create(String angle) {
         if(angle.equals("hflip"))
             return new Hflip();
         if(angle.equals("vflip"))
@@ -12,7 +12,7 @@ public class AngleFactory {
             tmpAngle=Integer.parseInt(angle);
         }
         catch (Exception e){
-            tmpAngle=360;
+            tmpAngle=0;
         }
         return new AngledFlip(tmpAngle);
 

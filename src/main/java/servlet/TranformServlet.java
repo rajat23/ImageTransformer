@@ -9,10 +9,9 @@ import helper.Rounder;
 import mode.Mode;
 import mode.ModeFactory;
 import helper.RequestStructure;
-import rotate.Angle;
-import rotate.AngleFactory;
+import rotate.Rotable;
+import rotate.RotatorFactory;
 import utility.ImageCompresser;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -53,8 +52,8 @@ public class TranformServlet extends HttpServlet {
         Effectible effectible =new EffectFactory().create(requestStructure.getEffect());
         image= effectible.getEffect(image);
 
-        Angle angle=new AngleFactory().create(requestStructure.getAngle());
-        image=angle.rotateImage(image);
+        Rotable rotable =new RotatorFactory().create(requestStructure.getAngle());
+        image= rotable.rotateImage(image);
 
         ImageCompresser imageCompresser=new ImageCompresser();
         image=imageCompresser.getCompressImage(image,requestStructure.getQuality());

@@ -7,7 +7,6 @@ import mode.strategies.ExpandDimension;
 import utility.ImageCropper;
 import helper.RequestStructure;
 import utility.ImageScaler;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;

@@ -1,9 +1,9 @@
 package mode;
+
 import helper.CoordinateCalculator;
 import helper.Coordinates;
 import helper.RequestStructure;
 import utility.ImageCropper;
-
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 

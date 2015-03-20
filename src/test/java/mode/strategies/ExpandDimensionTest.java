@@ -1,6 +1,5 @@
 package mode.strategies;
 
-import mode.strategies.ExpandDimension;
 import org.junit.Test;
 
 import java.awt.*;
@@ -14,7 +13,7 @@ public class ExpandDimensionTest {
         float aspectRatio=2.0f;
         ExpandDimension expandDimension=new ExpandDimension();
 
-        dimension=expandDimension.doOperation(dimension,aspectRatio);
+        dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),1200);
         assertEquals((int)dimension.getHeight(),600);
@@ -27,7 +26,7 @@ public class ExpandDimensionTest {
         float aspectRatio=2.0f;
         ExpandDimension expandDimension=new ExpandDimension();
 
-        dimension=expandDimension.doOperation(dimension,aspectRatio);
+        dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),400);
         assertEquals((int)dimension.getHeight(),200);
@@ -40,7 +39,7 @@ public class ExpandDimensionTest {
         float aspectRatio=1.6f;
         ExpandDimension expandDimension=new ExpandDimension();
 
-        dimension=expandDimension.doOperation(dimension,aspectRatio);
+        dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),107);
         assertEquals((int)dimension.getHeight(),67);
@@ -52,7 +51,7 @@ public class ExpandDimensionTest {
         float aspectRatio=1.6f;
         ExpandDimension expandDimension=new ExpandDimension();
 
-        dimension=expandDimension.doOperation(dimension,aspectRatio);
+        dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),109);
         assertEquals((int)dimension.getHeight(),68);
@@ -65,7 +64,7 @@ public class ExpandDimensionTest {
         float aspectRatio=1.5f;
         ExpandDimension expandDimension=new ExpandDimension();
 
-        dimension=expandDimension.doOperation(dimension,aspectRatio);
+        dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),150);
         assertEquals((int)dimension.getHeight(),100);

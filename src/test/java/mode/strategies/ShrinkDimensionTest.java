@@ -1,6 +1,5 @@
 package mode.strategies;
 
-import mode.strategies.ShrinkDimension;
 import org.junit.Test;
 
 import java.awt.*;
@@ -14,7 +13,7 @@ public class ShrinkDimensionTest {
         Dimension dimension=new Dimension(1000,600);
         float aspectRatio=2.0f;
         ShrinkDimension shrinkDimension=new ShrinkDimension();
-        dimension=shrinkDimension.doOperation(dimension,aspectRatio);
+        dimension=shrinkDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),1000);
         assertEquals((int)dimension.getHeight(),500);
@@ -26,7 +25,7 @@ public class ShrinkDimensionTest {
         Dimension dimension=new Dimension(100,150);
         float aspectRatio=1.5f;
         ShrinkDimension shrinkDimension=new ShrinkDimension();
-        dimension=shrinkDimension.doOperation(dimension,aspectRatio);
+        dimension=shrinkDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),100);
         assertEquals((int)dimension.getHeight(),67);
@@ -38,7 +37,7 @@ public class ShrinkDimensionTest {
         Dimension dimension=new Dimension(101,150);
         float aspectRatio=1.5f;
         ShrinkDimension shrinkDimension=new ShrinkDimension();
-        dimension=shrinkDimension.doOperation(dimension,aspectRatio);
+        dimension=shrinkDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),101);
         assertEquals((int)dimension.getHeight(),67);
@@ -50,7 +49,7 @@ public class ShrinkDimensionTest {
         Dimension dimension=new Dimension(150,100);
         float aspectRatio=1.5f;
         ShrinkDimension shrinkDimension=new ShrinkDimension();
-        dimension=shrinkDimension.doOperation(dimension,aspectRatio);
+        dimension=shrinkDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),150);
         assertEquals((int)dimension.getHeight(),100);

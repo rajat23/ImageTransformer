@@ -4,8 +4,9 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-public class AngledFlip implements Angle {
+public class AngledFlip implements Rotable {
     private int angle;
+
     public AngledFlip(int angle) {
         this.angle=angle;
     }

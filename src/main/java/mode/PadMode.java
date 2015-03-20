@@ -6,7 +6,6 @@ import helper.RequestStructure;
 import mode.strategies.Context;
 import mode.strategies.ShrinkDimension;
 import utility.ImageScaler;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;

@@ -1,8 +1,10 @@
 package mode.strategies;
 
 import java.awt.*;
-public class ExpandDimension implements Strategy {
-    public Dimension doOperation(Dimension dimension,float aspectRatio) {
+
+public class ExpandDimension implements AspectRatioStrategy {
+
+    public Dimension changeDimension(Dimension dimension, float aspectRatio) {
 
         int width = (int)dimension.getWidth();
         int height =(int)dimension.getHeight();
@@ -12,4 +14,5 @@ public class ExpandDimension implements Strategy {
                 height= Math.round((float)width / aspectRatio);
         return new Dimension(width,height);
     }
+
 }
