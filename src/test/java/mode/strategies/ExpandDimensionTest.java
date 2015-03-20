@@ -19,7 +19,7 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testchangeDimensionForWidth() throws Exception {
+    public void testChangeDimensionForWidth() throws Exception {
         dimension=new Dimension(1000,600);
         aspectRatio=2.0f;
 
@@ -31,7 +31,7 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testchangeDimensionForHeight() throws Exception {
+    public void testChangeDimensionForHeight() throws Exception {
         dimension=new Dimension(400,150);
         aspectRatio=2.0f;
 
@@ -43,7 +43,7 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testchangeDimensionForFloor() throws Exception {
+    public void testChangeDimensionForFloor() throws Exception {
         dimension=new Dimension(1,67);
         aspectRatio=1.6f;
 
@@ -54,7 +54,7 @@ public class ExpandDimensionTest {
 
     }
     @Test
-    public void testchangeDimensionForCeil() throws Exception {
+    public void testChangeDimensionForCeil() throws Exception {
         dimension=new Dimension(1,68);
         aspectRatio=1.6f;
 
@@ -66,7 +66,7 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testchangeDimensionForEqual() throws Exception {
+    public void testChangeDimensionForEqual() throws Exception {
         dimension=new Dimension(150,100);
         aspectRatio=1.5f;
 

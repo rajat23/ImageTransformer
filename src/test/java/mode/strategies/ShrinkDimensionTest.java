@@ -19,7 +19,7 @@ public class ShrinkDimensionTest {
     }
 
     @Test
-    public void testDoOperation() throws Exception {
+    public void testChangeDimension() throws Exception {
         dimension=new Dimension(1000,600);
         aspectRatio=2.0f;
 
@@ -31,7 +31,7 @@ public class ShrinkDimensionTest {
     }
 
     @Test
-    public void testDoOperationForCeil() throws Exception {
+    public void testChangeDimensionForCeil() throws Exception {
         dimension=new Dimension(100,150);
         aspectRatio=1.5f;
 
@@ -43,7 +43,7 @@ public class ShrinkDimensionTest {
     }
 
     @Test
-    public void testDoOperationForFloor() throws Exception {
+    public void testChangeDimensionForFloor() throws Exception {
         dimension=new Dimension(101,150);
         aspectRatio=1.5f;
 
@@ -55,10 +55,10 @@ public class ShrinkDimensionTest {
     }
 
     @Test
-    public void testDoOperationForEqual() throws Exception {
+    public void testChangeDimensionForEqual() throws Exception {
         dimension=new Dimension(150,100);
         aspectRatio=1.5f;
-        
+
         dimension=shrinkDimension.changeDimension(dimension, aspectRatio);
 
         assertEquals((int)dimension.getWidth(),150);

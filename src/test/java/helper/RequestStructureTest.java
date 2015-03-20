@@ -1,15 +1,20 @@
 package helper;
 
-import helper.RequestStructure;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class RequestStructureTest {
+    private RequestStructure requestStructure;
+
+    @Before
+    public void beforeEachTest(){
+        requestStructure=new RequestStructure();
+    }
 
     @Test
     public void testGetProportionalHeight() throws Exception {
-        RequestStructure requestStructure=new RequestStructure();
 
         int height=requestStructure.getProportionalHeight(600, 1.5f);
         
@@ -19,7 +24,6 @@ public class RequestStructureTest {
 
     @Test
     public void testGetProportionalWidth() throws Exception {
-        RequestStructure requestStructure=new RequestStructure();
 
         int width=requestStructure.getProportionalWidth(600, 1.5f);
 
@@ -30,7 +34,6 @@ public class RequestStructureTest {
 
     @Test
     public void testGetWidth() throws Exception {
-        RequestStructure requestStructure=new RequestStructure();
         String width="0.5";
         int imageWidth=500;
 
@@ -42,7 +45,6 @@ public class RequestStructureTest {
 
     @Test
     public void testGetHeight() throws Exception {
-        RequestStructure requestStructure=new RequestStructure();
         String height="0.5";
         int imageheight=500;
 
