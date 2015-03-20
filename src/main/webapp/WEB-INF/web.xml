@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>scaleServlet</servlet-name>
-        <servlet-class>com.servlet.TranformServlet</servlet-class>
+        <servlet-class>servlet.TranformServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -43,7 +43,7 @@
 
     <servlet>
         <servlet-name>scaleServlet2</servlet-name>
-        <servlet-class>com.servlet.TranformServlet</servlet-class>
+        <servlet-class>servlet.TranformServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
