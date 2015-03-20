@@ -1,18 +1,24 @@
 package helper;
 
-import helper.CoordinateCalculator;
-import helper.Coordinates;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class CoordinateCalculatorTest {
+    private int expectedXCoordinate;
+    private int expectedYCoordinate;
+    private CoordinateCalculator coordinateCalculator;
+
+    @Before
+    public void beforeEachTest(){
+        coordinateCalculator=new CoordinateCalculator();
+    }
 
     @Test
     public void testGetCoordinatesNorthWest() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,500,200,"top_left");
 
@@ -21,9 +27,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesNorthEast() throws Exception {
-        int expectedXCoordinate=700;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=700;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"top_right");
 
@@ -32,9 +37,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesNorthEasForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"top_right");
 
@@ -44,9 +48,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesNorthEastForFullHeight() throws Exception {
-        int expectedXCoordinate=800;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=800;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"top_right");
 
@@ -55,9 +58,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesSouthWest() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom_left");
 
@@ -66,9 +68,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesSouthWestForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom_left");
 
@@ -78,9 +79,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesSouthWestForFullHeight() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom_left");
 
@@ -90,9 +90,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesSouthEast() throws Exception {
-        int expectedXCoordinate=700;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=700;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom_right");
 
@@ -101,9 +100,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesSouthEastForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom_right");
 
@@ -113,9 +111,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesSouthEastForFullHeight() throws Exception {
-        int expectedXCoordinate=800;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=800;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom_right");
 
@@ -125,9 +122,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesNorth() throws Exception {
-        int expectedXCoordinate=350;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=350;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"top");
 
@@ -136,9 +132,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesNorthForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"top");
 
@@ -148,9 +143,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesNorthForFullHeight() throws Exception {
-        int expectedXCoordinate=400;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=400;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"top");
 
@@ -160,9 +154,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesWest() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"left");
 
@@ -171,9 +164,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesWestForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"left");
 
@@ -183,9 +175,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesWestForFullHeight() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"left");
 
@@ -195,9 +186,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesSouth() throws Exception {
-        int expectedXCoordinate=350;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=350;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"bottom");
 
@@ -206,9 +196,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesSouthForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=800;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=800;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"bottom");
 
@@ -218,9 +207,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesSouthForFullHeight() throws Exception {
-        int expectedXCoordinate=400;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=400;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"bottom");
 
@@ -230,9 +218,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesEast() throws Exception {
-        int expectedXCoordinate=700;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=700;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"right");
 
@@ -241,9 +228,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatesEastForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"right");
 
@@ -253,9 +239,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesEastForFullHeight() throws Exception {
-        int expectedXCoordinate=800;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=800;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"right");
 
@@ -265,9 +250,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesCenter() throws Exception {
-        int expectedXCoordinate=350;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=350;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,300,200,"center");
 
@@ -276,9 +260,8 @@ public class CoordinateCalculatorTest {
     }
     @Test
     public void testGetCoordinatescenterForFullWidtht() throws Exception {
-        int expectedXCoordinate=0;
-        int expectedYCoordinate=400;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=0;
+        expectedYCoordinate=400;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,1000,200,"center");
 
@@ -288,9 +271,8 @@ public class CoordinateCalculatorTest {
 
     @Test
     public void testGetCoordinatesCenterForFullHeight() throws Exception {
-        int expectedXCoordinate=400;
-        int expectedYCoordinate=0;
-        CoordinateCalculator coordinateCalculator=new CoordinateCalculator();
+        expectedXCoordinate=400;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=coordinateCalculator.getCoordinates(1000,1000,200,1000,"center");
 

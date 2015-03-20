@@ -1,6 +1,5 @@
 package helper;
 
-import helper.MyColor;
 import org.junit.Test;
 
 import java.awt.*;
