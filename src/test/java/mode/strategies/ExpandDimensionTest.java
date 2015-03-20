@@ -1,5 +1,6 @@
 package mode.strategies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
@@ -7,11 +8,20 @@ import java.awt.*;
 import static org.junit.Assert.*;
 
 public class ExpandDimensionTest {
+    private Dimension dimension;
+    private float aspectRatio;
+    private ExpandDimension expandDimension;
+
+
+    @Before
+    public void beforeEachTest(){
+        expandDimension=new ExpandDimension();
+    }
+
     @Test
-    public void testDoOperationForWidth() throws Exception {
-        Dimension dimension=new Dimension(1000,600);
-        float aspectRatio=2.0f;
-        ExpandDimension expandDimension=new ExpandDimension();
+    public void testchangeDimensionForWidth() throws Exception {
+        dimension=new Dimension(1000,600);
+        aspectRatio=2.0f;
 
         dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
@@ -21,10 +31,9 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testDoOperationForHeight() throws Exception {
-        Dimension dimension=new Dimension(400,150);
-        float aspectRatio=2.0f;
-        ExpandDimension expandDimension=new ExpandDimension();
+    public void testchangeDimensionForHeight() throws Exception {
+        dimension=new Dimension(400,150);
+        aspectRatio=2.0f;
 
         dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
@@ -34,10 +43,9 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testDoOperationForFloor() throws Exception {
-        Dimension dimension=new Dimension(1,67);
-        float aspectRatio=1.6f;
-        ExpandDimension expandDimension=new ExpandDimension();
+    public void testchangeDimensionForFloor() throws Exception {
+        dimension=new Dimension(1,67);
+        aspectRatio=1.6f;
 
         dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
@@ -46,10 +54,9 @@ public class ExpandDimensionTest {
 
     }
     @Test
-    public void testDoOperationForCeil() throws Exception {
-        Dimension dimension=new Dimension(1,68);
-        float aspectRatio=1.6f;
-        ExpandDimension expandDimension=new ExpandDimension();
+    public void testchangeDimensionForCeil() throws Exception {
+        dimension=new Dimension(1,68);
+        aspectRatio=1.6f;
 
         dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
@@ -59,10 +66,9 @@ public class ExpandDimensionTest {
     }
 
     @Test
-    public void testDoOperationForEqual() throws Exception {
-        Dimension dimension=new Dimension(150,100);
-        float aspectRatio=1.5f;
-        ExpandDimension expandDimension=new ExpandDimension();
+    public void testchangeDimensionForEqual() throws Exception {
+        dimension=new Dimension(150,100);
+        aspectRatio=1.5f;
 
         dimension=expandDimension.changeDimension(dimension, aspectRatio);
 
