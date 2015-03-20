@@ -3,17 +3,19 @@ package effect;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 
-public class Sepia implements Effect {
-    int sepiaIntensity;
+public class Sepia implements Effectible {
+    private int sepiaIntensity;
+
     public Sepia(String sepiaIntensity){
         this.sepiaIntensity=Integer.parseInt(sepiaIntensity);
     }
-    public BufferedImage getEffect(BufferedImage image) {
+
+    public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int sepiaDepth = 20;
-        int w = image.getWidth();
-        int h = image.getHeight();
-        WritableRaster raster = image.getRaster();
+        int w = sourceImage.getWidth();
+        int h = sourceImage.getHeight();
+        WritableRaster raster = sourceImage.getRaster();
         int[] pixels = new int[w * h * 3];
         raster.getPixels(0, 0, w, h, pixels);
         for (int i = 0; i < pixels.length; i += 3) {
@@ -38,7 +40,7 @@ public class Sepia implements Effect {
             pixels[i + 2] = b;
         }
         raster.setPixels(0, 0, w, h, pixels);
-        return image;
+        return sourceImage;
     }
 
 }

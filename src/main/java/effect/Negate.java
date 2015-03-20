@@ -3,7 +3,8 @@ package effect;
 
 import java.awt.image.BufferedImage;
 
-public class Negate implements Effect {
+public class Negate implements Effectible {
+
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int width = sourceImage.getWidth();

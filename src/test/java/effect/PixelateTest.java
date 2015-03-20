@@ -1,7 +1,5 @@
 package effect;
 
-import effect.Effect;
-import effect.EffectFactory;
 import org.junit.Test;
 
 import java.awt.*;
@@ -21,8 +19,8 @@ public class PixelateTest {
         Color color=new Color(122,23,231);
         image.setRGB(0,0,color.getRGB());
 
-        Effect effect=new EffectFactory().create("pixelate");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("pixelate");
+        image= effectible.getEffect(image);
 
         boolean isCorrect=true;
         for(int y = 0; y < image.getHeight(); y++) {
@@ -46,8 +44,8 @@ public class PixelateTest {
         Color color=new Color(122,23,231);
         image.setRGB(0,0,color.getRGB());
 
-        Effect effect=new EffectFactory().create("pixelate_10");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("pixelate_10");
+        image= effectible.getEffect(image);
 
         boolean isCorrect=true;
         for(int y = 0; y < image.getHeight(); y++) {

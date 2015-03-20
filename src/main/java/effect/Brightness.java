@@ -5,36 +5,29 @@ import java.awt.image.BufferedImage;
 
 
 
-public class Brightness implements Effect{
-    int increasingFactor;
-    public Brightness(String factor)
+public class Brightness implements Effectible {
+    private int increasingFactor;
+
+    public Brightness(String increasingFactor)
     {
-            increasingFactor=Integer.parseInt(factor);
+            this.increasingFactor=Integer.parseInt(increasingFactor);
     }
 
-
     public BufferedImage getEffect(BufferedImage sourceImage) {
-
 
         int w = sourceImage.getWidth();
         int h = sourceImage.getHeight();
 
-        BufferedImage outImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-
+        BufferedImage outputImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
 
         for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-
-
                 Color color = new Color(sourceImage.getRGB(i, j));
-
                 int r, g, b;
-
 
                 r = color.getRed() + increasingFactor;
                 g = color.getGreen() + increasingFactor;
                 b = color.getBlue() + increasingFactor;
-
 
                 if (r >= 256) {
                     r = 255;
@@ -53,14 +46,12 @@ public class Brightness implements Effect{
                 } else if (b < 0) {
                     b = 0;
                 }
-
-
-                outImage.setRGB(i, j, new Color(r, g, b).getRGB());
+                outputImage.setRGB(i, j, new Color(r, g, b).getRGB());
 
             }
         }
 
-        return outImage;
+        return outputImage;
     }
 }
 

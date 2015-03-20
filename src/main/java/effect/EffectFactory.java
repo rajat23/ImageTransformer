@@ -1,33 +1,28 @@
 package effect;
 
 public class EffectFactory {
-    public Effect create(String effect) {
-        if (effect.contains("Blur")) {
+    public Effectible create(String effect) {
 
-            return new Blur();
-
-        }
-        if(effect.equals("Grayscale"))
+        if(effect.equals("grayscale"))
             return new GrayScale();
 
         if(effect.contains("blackwhite")){
             if(!effect.contains("_"))
-            return new BlackWhite("60");
+                return new BlackWhite("60");
             String[] tmp=effect.split("_");
             return new BlackWhite(tmp[1]);}
 
         if(effect.contains("sepia")){
             if(!effect.contains("_"))
-            return new Sepia("30");
+                return new Sepia("30");
             String[] tmp=effect.split("_");
             return new Sepia(tmp[1]);}
 
         if(effect.contains("pixelate")) {
             if(!effect.contains("_"))
-            return new Pixelate("30");
+                return new Pixelate("30");
             String[] tmp=effect.split("_");
             return new Pixelate(tmp[1]);}
-
 
         if (effect.equals("oilpaint"))
             return new Oilpaint();
@@ -43,7 +38,7 @@ public class EffectFactory {
 
         if(effect.contains("watermark")){
             if(!effect.contains("_"))
-            return new Watermark("no text");
+                return new Watermark("no text");
             String[] tmp=effect.split("_");
             return new Watermark(tmp[1]);}
 

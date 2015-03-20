@@ -1,7 +1,5 @@
 package effect;
 
-import effect.Effect;
-import effect.EffectFactory;
 import org.junit.Test;
 
 import java.awt.*;
@@ -21,8 +19,8 @@ public class NegateTest {
         }
         Color expectedColor=new Color(155,155,155);
 
-        Effect effect=new EffectFactory().create("negate");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("negate");
+        image= effectible.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {

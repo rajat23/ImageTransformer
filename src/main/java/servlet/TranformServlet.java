@@ -1,7 +1,7 @@
 package servlet;
 
 
-import effect.Effect;
+import effect.Effectible;
 import effect.EffectFactory;
 import helper.ImageReader;
 import helper.Response;
@@ -50,8 +50,8 @@ public class TranformServlet extends HttpServlet {
         image = mode.getScaledImage(requestStructure);
         image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
 
-        Effect effect=new EffectFactory().create(requestStructure.getEffect());
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create(requestStructure.getEffect());
+        image= effectible.getEffect(image);
 
         Angle angle=new AngleFactory().create(requestStructure.getAngle());
         image=angle.rotateImage(image);

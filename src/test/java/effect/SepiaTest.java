@@ -1,7 +1,5 @@
 package effect;
 
-import effect.Effect;
-import effect.EffectFactory;
 import org.junit.Test;
 
 import java.awt.*;
@@ -21,8 +19,8 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(140,120,70);
 
-        Effect effect=new EffectFactory().create("sepia");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("sepia");
+        image= effectible.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
@@ -42,8 +40,8 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(255,255,225);
 
-        Effect effect=new EffectFactory().create("sepia");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("sepia");
+        image= effectible.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
@@ -63,8 +61,8 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(40,20,0);
 
-        Effect effect=new EffectFactory().create("sepia");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("sepia");
+        image= effectible.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
@@ -85,8 +83,8 @@ public class SepiaTest {
         }
         Color expectedColor=new Color(140,120,40);
 
-        Effect effect=new EffectFactory().create("sepia_60");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("sepia_60");
+        image= effectible.getEffect(image);
 
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {

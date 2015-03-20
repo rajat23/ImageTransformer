@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 
-public class Oilpaint implements Effect {
+public class Oilpaint implements Effectible {
 
     static int radius = 10;
     static int intensityLevels = 24;
@@ -14,7 +14,7 @@ public class Oilpaint implements Effect {
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
 
-        BufferedImage dest = new BufferedImage(
+        BufferedImage outputImage = new BufferedImage(
                 sourceImage.getWidth(),
                 sourceImage.getHeight(),
                 sourceImage.getType()
@@ -27,11 +27,11 @@ public class Oilpaint implements Effect {
 
         for (int x = 0; x < sourceImage.getWidth(); ++x) {
             int left = Math.max(0, x - radius);
-            int right = Math.min(x + radius, dest.getWidth() - 1);
+            int right = Math.min(x + radius, outputImage.getWidth() - 1);
             for (int y = 0; y < sourceImage.getHeight(); ++y) {
 
                 int top = Math.max(0, y - radius);
-                int bottom = Math.min(y + radius, dest.getHeight() - 1);
+                int bottom = Math.min(y + radius, outputImage.getHeight() - 1);
 
                 Arrays.fill(averageR, 0);
                 Arrays.fill(averageG, 0);
@@ -69,12 +69,12 @@ public class Oilpaint implements Effect {
                 int b = averageB[maxIndex] / curMax;
 
                 int rgb = ((r << 16) | ((g << 8) | b));
-                dest.setRGB(x, y, rgb);
+                outputImage.setRGB(x, y, rgb);
             }
         }
 
 
-        return dest;
+        return outputImage;
     }
 
     public static boolean inRange(int cx, int cy, int i, int j) {

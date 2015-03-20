@@ -4,28 +4,30 @@ import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-public class Pixelate implements Effect {
-    int PIX_SIZE;
-    public Pixelate(String pix_size){
-        PIX_SIZE=Integer.parseInt(pix_size);
-    }
-    public BufferedImage getEffect(BufferedImage image) {
+public class Pixelate implements Effectible {
+    private int pixSize;
 
-        Raster src = image.getData();
+    public Pixelate(String pix_size){
+        this.pixSize =Integer.parseInt(pix_size);
+    }
+
+    public BufferedImage getEffect(BufferedImage sourceImage) {
+
+        Raster src = sourceImage.getData();
         WritableRaster dest = src.createCompatibleWritableRaster();
-        for (int y = 0; y < src.getHeight(); y += PIX_SIZE) {
-            for (int x = 0; x < src.getWidth(); x += PIX_SIZE) {
+        for (int y = 0; y < src.getHeight(); y += pixSize) {
+            for (int x = 0; x < src.getWidth(); x += pixSize) {
                 double[] pixel = new double[3];
                 pixel = src.getPixel(x, y, pixel);
-                for (int yd = y; (yd < y + PIX_SIZE) && (yd < dest.getHeight()); yd++) {
-                    for (int xd = x; (xd < x + PIX_SIZE) && (xd < dest.getWidth()); xd++) {
+                for (int yd = y; (yd < y + pixSize) && (yd < dest.getHeight()); yd++) {
+                    for (int xd = x; (xd < x + pixSize) && (xd < dest.getWidth()); xd++) {
                         dest.setPixel(xd, yd, pixel);
                     }
                 }
             }
         }
-        image.setData(dest);
-        return image;
+        sourceImage.setData(dest);
+        return sourceImage;
 
     }
 }

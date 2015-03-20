@@ -1,7 +1,5 @@
 package effect;
 
-import effect.Effect;
-import effect.EffectFactory;
 import org.junit.Test;
 
 import java.awt.*;
@@ -19,8 +17,8 @@ public class BlackWhiteTest {
         image.setRGB(0, 1, new Color(211, 211, 211).getRGB());
         image.setRGB(1, 1, new Color(44, 44, 44).getRGB());
 
-        Effect effect=new EffectFactory().create("blackwhite");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("blackwhite");
+        image= effectible.getEffect(image);
 
         assertEquals(new Color(image.getRGB(0,0)),new Color(0,0,0));
         assertEquals(new Color(image.getRGB(1,0)),new Color(255,255,255));
@@ -37,8 +35,8 @@ public class BlackWhiteTest {
         image.setRGB(0, 1, new Color(211, 211, 211).getRGB());
         image.setRGB(1, 1, new Color(144, 144, 144).getRGB());
 
-        Effect effect=new EffectFactory().create("blackwhite_150");
-        image=effect.getEffect(image);
+        Effectible effectible =new EffectFactory().create("blackwhite_150");
+        image= effectible.getEffect(image);
 
         assertEquals(new Color(image.getRGB(0,0)),new Color(0,0,0));
         assertEquals(new Color(image.getRGB(1,0)),new Color(255,255,255));
