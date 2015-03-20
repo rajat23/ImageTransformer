@@ -1,6 +1,7 @@
 package utility;
 
 import helper.ImageReader;
+import org.junit.Before;
 import org.junit.Test;
 import utility.ImageCropper;
 
@@ -8,17 +9,28 @@ import java.awt.image.BufferedImage;
 
 import static org.junit.Assert.*;
 public class ImageCropperTest {
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private ImageReader imageReader;
+    private ImageCropper imageCropper;
 
+    @Before
+    public void beforeEachTest(){
+        x=10;
+        y=10;
+        width=100;
+        height=100;
+        imageReader=new ImageReader();
+        imageCropper=new ImageCropper();
+    }
     @Test
     public void testGetCroppedImageForJpg() throws Exception {
 
         String name="JpgImage.jpg";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-        int x=10,y=10;
-        int width=100,height=100;
 
-        ImageCropper imageCropper=new ImageCropper();
         BufferedImage croppedImage=imageCropper.getCroppedImage(image,x,y,width,height);
 
         assertEquals(width,croppedImage.getWidth());
@@ -29,12 +41,8 @@ public class ImageCropperTest {
     public void testGetCroppedImageForPng() throws Exception {
 
         String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-        int x=10,y=10;
-        int width=100,height=100;
 
-        ImageCropper imageCropper=new ImageCropper();
         BufferedImage croppedImage=imageCropper.getCroppedImage(image,x,y,width,height);
 
         assertEquals(width,croppedImage.getWidth());
@@ -45,12 +53,8 @@ public class ImageCropperTest {
     public void testGetCroppedImageForGif() throws Exception {
 
         String name="GifImage.gif";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
-        int x=10,y=10;
-        int width=100,height=100;
 
-        ImageCropper imageCropper=new ImageCropper();
         BufferedImage croppedImage=imageCropper.getCroppedImage(image,x,y,width,height);
 
         assertEquals(width,croppedImage.getWidth());

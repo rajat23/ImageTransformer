@@ -12,13 +12,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;
 
-public class ImageCompresser {
-    private ImageWriteParam param;
+public class ImageCompressor {
 
     public BufferedImage getCompressImage(BufferedImage inputImage, float quality) throws IOException {
         if(quality==-1.0f)
             return inputImage;
-
+        ImageWriteParam param;
         File compressedImageFile = new File("compress.jpg");
         OutputStream os = new FileOutputStream(compressedImageFile);
         Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
@@ -37,7 +36,4 @@ public class ImageCompresser {
         return compressedImage;
     }
 
-    public float getQuality() {
-        return param.getCompressionQuality();
-    }
 }
