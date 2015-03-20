@@ -2,6 +2,7 @@ package utility;
 
 
 import helper.ImageReader;
+import org.junit.Before;
 import org.junit.Test;
 import utility.ImageScaler;
 
@@ -11,15 +12,27 @@ import static org.junit.Assert.assertEquals;
 
 public class ImageScalerTest {
 
+    private int width;
+    private int height;
+    private ImageReader imageReader;
+    private ImageScaler imageScaler;
+
+    @Before
+    public void beforeEachTest() throws Exception{
+        width=800;
+        height=800;
+        imageReader=new ImageReader();
+        imageScaler=new ImageScaler();
+    }
+
     @Test
     public void testResizeImageForJpeg() throws Exception {
-        int width=800;
-        int height=800;
+
+
         String name="JpgImage.jpg";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageScaler imageScaler=new ImageScaler();
+
         BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
 
         assertEquals(resizedImage.getHeight(),height);
@@ -29,13 +42,11 @@ public class ImageScalerTest {
 
     @Test
     public void testResizeImageForPng() throws Exception {
-        int width=800;
-        int height=800;
+
+
         String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageScaler imageScaler=new ImageScaler();
         BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
 
         assertEquals(resizedImage.getHeight(),height);
@@ -44,13 +55,11 @@ public class ImageScalerTest {
     }
     @Test
     public void testResizeImageForGif() throws Exception {
-        int width=800;
-        int height=800;
+
+
         String name="GifImage.gif";
-        ImageReader imageReader=new ImageReader();
         BufferedImage image=imageReader.readImage(name);
 
-        ImageScaler imageScaler=new ImageScaler();
         BufferedImage resizedImage=imageScaler.resizeImage(image, width, height);
 
         assertEquals(resizedImage.getHeight(),height);
