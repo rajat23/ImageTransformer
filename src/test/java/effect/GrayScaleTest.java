@@ -23,6 +23,7 @@ public class GrayScaleTest {
 
         int height=grayScaleImage.getHeight();
         int width=grayScaleImage.getWidth();
+
         for (int i = 0; i <height ; i++) {
             for (int j = 0; j < width; j++) {
                 Color color=new Color(grayScaleImage.getRGB(j,i));
@@ -37,6 +38,7 @@ public class GrayScaleTest {
             }
             
         }
+
         assertTrue(isEqual);
         
 
