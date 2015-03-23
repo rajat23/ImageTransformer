@@ -1,5 +1,6 @@
 package effect;
 
+import helper.ExpectedImage;
 import helper.SampleImage;
 import org.junit.Test;
 
@@ -13,18 +14,11 @@ public class NegateTest {
     @Test
     public void testGetEffect() throws Exception {
         BufferedImage image=new SampleImage().get10by10(100);
-        Color expectedColor=new Color(155,155,155);
 
         Effectible effectible =new EffectFactory().create("negate");
         image= effectible.getEffect(image);
+        Color expectedColor=new Color(155,155,155);
 
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                Color color=new Color(image.getRGB(x,y));
-                assertEquals(color,expectedColor);
-            }
-        }
-
-
+        assertTrue(new ExpectedImage().hasExpectedColor(image,expectedColor));
     }
 }
