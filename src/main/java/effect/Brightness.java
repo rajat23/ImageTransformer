@@ -7,7 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class Brightness implements Effectible {
     private int increasingFactor;
-
+    private int maxColor=255;
+    private int minColor=0;
     public Brightness(String increasingFactor)
     {
             this.increasingFactor=Integer.parseInt(increasingFactor);
@@ -15,38 +16,38 @@ public class Brightness implements Effectible {
 
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
-        int w = sourceImage.getWidth();
-        int h = sourceImage.getHeight();
+        int width = sourceImage.getWidth();
+        int height = sourceImage.getHeight();
+        int red=0,green=0,blue=0;
+        BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
-        BufferedImage outputImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        for (int widthCounter = 0; widthCounter < width; widthCounter++) {
+            for (int heightCounter = 0; heightCounter < height; heightCounter++) {
+                Color color = new Color(sourceImage.getRGB(widthCounter, heightCounter));
 
-        for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
-                Color color = new Color(sourceImage.getRGB(i, j));
-                int r, g, b;
 
-                r = color.getRed() + increasingFactor;
-                g = color.getGreen() + increasingFactor;
-                b = color.getBlue() + increasingFactor;
+                red = color.getRed() + increasingFactor;
+                green = color.getGreen() + increasingFactor;
+                blue = color.getBlue() + increasingFactor;
 
-                if (r >= 256) {
-                    r = 255;
-                } else if (r < 0) {
-                    r = 0;
+                if (red >= maxColor+1) {
+                    red = maxColor;
+                } else if (red < minColor) {
+                    red = minColor;
                 }
 
-                if (g >= 256) {
-                    g = 255;
-                } else if (g < 0) {
-                    g = 0;
+                if (green >= maxColor+1) {
+                    green = maxColor;
+                } else if (green < minColor) {
+                    green = minColor;
                 }
 
-                if (b >= 256) {
-                    b = 255;
-                } else if (b < 0) {
-                    b = 0;
+                if (blue >= maxColor+1) {
+                    blue = maxColor;
+                } else if (blue < minColor) {
+                    blue = minColor;
                 }
-                outputImage.setRGB(i, j, new Color(r, g, b).getRGB());
+                outputImage.setRGB(widthCounter, heightCounter, new Color(red, green, blue).getRGB());
 
             }
         }
