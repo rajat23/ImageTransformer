@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 public class CropModeTest {
 
-    private String name;
     private ImageReader imageReader;
     private BufferedImage image;
     private RequestStructure requestStructure;
@@ -23,10 +22,9 @@ public class CropModeTest {
 
     @Before
     public void beforeEachTest(){
-        name = "PngImage.png";
         imageReader = new ImageReader();
         try {
-            image = imageReader.readImage(name);
+            image = imageReader.readImage("PngImage.png");
         }
         catch (Exception exception){
             System.out.println("Error Reading image");

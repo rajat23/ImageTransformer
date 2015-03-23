@@ -4,6 +4,7 @@ import helper.ImageReader;
 import helper.RequestStructure;
 import mode.Mode;
 import mode.ModeFactory;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.image.BufferedImage;
@@ -14,23 +15,38 @@ import static org.junit.Assert.*;
 
 public class FitModeTest {
 
+    private ImageReader imageReader;
+    private BufferedImage image;
+    private RequestStructure requestStructure;
+    private Map<String,String[]> map;
+
+    @Before
+    public void beforeEachTest(){
+        imageReader = new ImageReader();
+        try {
+            image = imageReader.readImage("PngImage.png");
+        }
+        catch (Exception exception){
+            System.out.println("Error Reading image");
+            return;
+        }
+        requestStructure = new RequestStructure();
+        map = new HashMap<String, String[]>();
+    }
+
+
     @Test
     public void testGetDimensionsForBoth() throws Exception {
-        String name="JpgImage.jpg";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
-        map.put("height",new String[]{"200"});
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"jpg"});
+        map.put("height",new String[]{"600"});
+        map.put("width",new String[]{"900"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
-        assertEquals(300, scaledImage.getWidth());
+        assertEquals(800, scaledImage.getWidth());
     }
 
 
@@ -38,20 +54,15 @@ public class FitModeTest {
 
     @Test
     public void testGetDimensionsForWidth() throws Exception {
-        String name="JpgImage.jpg";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
 
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
         map.put("height",new String[]{"300"});
-        map.put("format",new String[]{"jpg"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
-        assertEquals(450, scaledImage.getWidth());
+        assertEquals(400, scaledImage.getWidth());
 
     }
 
@@ -61,13 +72,9 @@ public class FitModeTest {
 
     @Test
     public void testGetDimensionsForHeight() throws Exception {
-        String name="JpgImage.jpg";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"jpg"});
+        map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -75,7 +82,7 @@ public class FitModeTest {
 
         BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
 
-        assertEquals(266, scaledImage.getHeight());
+        assertEquals(300, scaledImage.getHeight());
     }
 
 
