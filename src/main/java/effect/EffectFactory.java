@@ -24,8 +24,6 @@ public class EffectFactory {
             String[] tmp=effect.split("_");
             return new Pixelate(tmp[1]);}
 
-     
-
         if (effect.equals("negate"))
             return new Negate();
 
