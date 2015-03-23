@@ -1,26 +1,17 @@
 package mode;
 
-import helper.ImageReader;
-import helper.RequestStructure;
-import mode.Mode;
-import mode.ModeFactory;
+
 import org.junit.Test;
-
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.Assert.*;
 
-public class CropModeTest {
+public class CropModeTest extends ModeTest {
+
+
 
     @Test
     public void testGetScaledImageForBoth() throws Exception {
-        String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("height",new String[]{"450"});
         map.put("width",new String[]{"400"});
         map.put("format",new String[]{"png"});
@@ -41,11 +32,7 @@ public class CropModeTest {
 
     @Test
     public void testGetScaledImageForLargerHeightWidth() throws Exception {
-        String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("height",new String[]{"750"});
         map.put("width",new String[]{"900"});
         map.put("format",new String[]{"png"});
@@ -64,11 +51,7 @@ public class CropModeTest {
 
     @Test
     public void testGetScaledImageForNullHeight() throws Exception {
-        String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("width",new String[]{"400"});
         map.put("format",new String[]{"png"});
         requestStructure.setImage(image);
@@ -87,11 +70,7 @@ public class CropModeTest {
 
     @Test
     public void testGetScaledImageForFixedCoordinates() throws Exception {
-        String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("width",new String[]{"500"});
         map.put("x",new String[]{"400"});
         map.put("format",new String[]{"png"});
@@ -110,11 +89,7 @@ public class CropModeTest {
 
     @Test
     public void testGetScaledImageForBigHW() throws Exception {
-        String name="PngImage.png";
-        ImageReader imageReader=new ImageReader();
-        BufferedImage image=imageReader.readImage(name);
-        RequestStructure requestStructure =new RequestStructure();
-        Map<String,String[]> map=new HashMap<String, String[]>();
+
         map.put("width",new String[]{"600"});
         map.put("height",new String[]{"600"});
         map.put("x",new String[]{"300"});
