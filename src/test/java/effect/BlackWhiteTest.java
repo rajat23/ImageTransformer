@@ -15,7 +15,7 @@ public class BlackWhiteTest {
 
     @Before
     public void beforeEachTest(){
-        image=new SampleImage().get2by2();
+        image=new SampleImage().getImage(2, 2);
     }
 
     @Test
