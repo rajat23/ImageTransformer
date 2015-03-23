@@ -9,7 +9,7 @@ public class Context {
         this.aspectRatioStrategy = aspectRatioStrategy;
     }
 
-    public Dimension executeStrategy(Dimension dimension,float aspectRatio){
+    public Dimension changeDimension(Dimension dimension, float aspectRatio){
         return aspectRatioStrategy.changeDimension(dimension, aspectRatio);
     }
 }

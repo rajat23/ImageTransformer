@@ -1,6 +1,8 @@
 package helper;
 
 public class CoordinateCalculator {
+
+
     public Coordinates getCoordinates(int imageWidth, int imageHeight, int width, int height, String orientation) {
         if (orientation.equals("top_left"))
             return new Coordinates(0, 0);

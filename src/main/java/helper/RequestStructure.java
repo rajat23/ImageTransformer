@@ -26,13 +26,13 @@ public class RequestStructure {
         color = Color.WHITE;
         mode = "pad";
         orientation = "center";
-        coordinates=new Coordinates(0,0);
-        isCoordinatesSet=false;
-        radius=0;
-        effect="NoEffect";
-        angle="0";
-        format="";
-        quality=-1.0f;
+        coordinates = new Coordinates(0, 0);
+        isCoordinatesSet = false;
+        radius = 0;
+        effect = "NoEffect";
+        angle = "0";
+        format = "";
+        quality = -1.0f;
     }
 
     public BufferedImage getImage() {
@@ -74,7 +74,10 @@ public class RequestStructure {
     public boolean isCoordinatesSet() {
         return isCoordinatesSet;
     }
-    public String getEffect() { return effect;}
+
+    public String getEffect() {
+        return effect;
+    }
 
 
     public String getAngle() {
@@ -88,9 +91,9 @@ public class RequestStructure {
     public void setParameters(Map map) {
 
         if (map.containsKey("width"))
-            width = getWidth(((String[]) map.get("width"))[0],image.getWidth());
+            width = getWidth(((String[]) map.get("width"))[0], image.getWidth());
         if (map.containsKey("height"))
-            height = getHeight(((String[]) map.get("height"))[0],image.getHeight());
+            height = getHeight(((String[]) map.get("height"))[0], image.getHeight());
 
         if (height == 0)
             height = getProportionalHeight(width, getAspectRatio());
@@ -102,43 +105,42 @@ public class RequestStructure {
             mode = ((String[]) map.get("mode"))[0];
         if (map.containsKey("orientation"))
             orientation = ((String[]) map.get("orientation"))[0];
-        int x=0,y=0;
+        int x = 0, y = 0;
         if (map.containsKey("x")) {
             x = Integer.parseInt(((String[]) map.get("x"))[0]);
-            isCoordinatesSet=true;
+            isCoordinatesSet = true;
         }
         if (map.containsKey("y")) {
             y = Integer.parseInt(((String[]) map.get("y"))[0]);
-            isCoordinatesSet=true;
+            isCoordinatesSet = true;
 
         }
-        if(map.containsKey("effect")) {
-            effect=((String[]) map.get("effect"))[0];
+        if (map.containsKey("effect")) {
+            effect = ((String[]) map.get("effect"))[0];
         }
 
-        coordinates=new Coordinates(x,y);
+        coordinates = new Coordinates(x, y);
 
-        if(map.containsKey("radius"))
-            radius=Integer.parseInt(((String[]) map.get("radius"))[0]);
+        if (map.containsKey("radius"))
+            radius = Integer.parseInt(((String[]) map.get("radius"))[0]);
 
-        if(map.containsKey("angle"))
-            angle=((String[]) map.get("angle"))[0];
-        if(map.containsKey("format"))
-            format=((String[]) map.get("format"))[0];
-        else
-        {
-            format=new FileUrl().getFileExtension(((String[]) map.get("path"))[0]);
+        if (map.containsKey("angle"))
+            angle = ((String[]) map.get("angle"))[0];
+        if (map.containsKey("format"))
+            format = ((String[]) map.get("format"))[0];
+        else {
+            format = new FileUrl().getFileExtension(((String[]) map.get("path"))[0]);
         }
-        if(map.containsKey("quality"))
-            quality= Float.parseFloat(((String[]) map.get("quality"))[0]);
+        if (map.containsKey("quality"))
+            quality = Float.parseFloat(((String[]) map.get("quality"))[0]);
 
 
     }
 
-    public int getHeight(String height,int imageHeight) {
-        if(height.contains(".")) {
+    public int getHeight(String height, int imageHeight) {
+        if (height.contains(".")) {
             Double percentage = Double.parseDouble(height);
-            return (int) (percentage*(double)imageHeight);
+            return (int) (percentage * (double) imageHeight);
         }
         return Integer.parseInt(height);
     }
@@ -147,10 +149,10 @@ public class RequestStructure {
         return quality;
     }
 
-    public int getWidth(String width,int imageWidth) {
-        if(width.contains(".")) {
+    public int getWidth(String width, int imageWidth) {
+        if (width.contains(".")) {
             Double percentage = Double.parseDouble(width);
-            return (int) (percentage*(double)imageWidth);
+            return (int) (percentage * (double) imageWidth);
         }
         return Integer.parseInt(width);
     }
