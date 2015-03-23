@@ -1,5 +1,6 @@
 package effect;
 
+import helper.SampleImage;
 import org.junit.Test;
 
 import java.awt.*;
@@ -11,12 +12,7 @@ public class SepiaTest {
 
     @Test
     public void testGetEffect() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(100, 100, 100).getRGB());
-            }
-        }
+        BufferedImage image=new SampleImage().get10by10(100);
         Color expectedColor=new Color(140,120,70);
 
         Effectible effectible =new EffectFactory().create("sepia");
@@ -32,12 +28,7 @@ public class SepiaTest {
     }
     @Test
     public void testGetEffectLargerValues() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(255, 255, 255).getRGB());
-            }
-        }
+        BufferedImage image=new SampleImage().get10by10(255);
         Color expectedColor=new Color(255,255,225);
 
         Effectible effectible =new EffectFactory().create("sepia");
@@ -53,12 +44,7 @@ public class SepiaTest {
     }
     @Test
     public void testGetEffectLesserValues() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(0, 0, 0).getRGB());
-            }
-        }
+        BufferedImage image=new SampleImage().get10by10(0);
         Color expectedColor=new Color(40,20,0);
 
         Effectible effectible =new EffectFactory().create("sepia");
@@ -75,12 +61,7 @@ public class SepiaTest {
 
     @Test
     public void testGetEffectForParameter() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(100, 100, 100).getRGB());
-            }
-        }
+        BufferedImage image=new SampleImage().get10by10(100);
         Color expectedColor=new Color(140,120,40);
 
         Effectible effectible =new EffectFactory().create("sepia_60");

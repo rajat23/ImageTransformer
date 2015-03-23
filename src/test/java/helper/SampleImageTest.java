@@ -26,7 +26,7 @@ public class SampleImageTest {
 
     @Test
     public void get10by10ImageTest(){
-        BufferedImage image=new SampleImage().get10by10();
+        BufferedImage image=new SampleImage().get10by10(100);
 
         assertEquals(image.getWidth(),10);
         assertEquals(image.getHeight(),10);

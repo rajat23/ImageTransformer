@@ -25,11 +25,11 @@ public class SampleImage {
         return image;
     }
 
-    public BufferedImage get10by10(){
+    public BufferedImage get10by10(int value){
         BufferedImage image = new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
         for(int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(100, 100, 100).getRGB());
+                image.setRGB(x, y, new Color(value, value, value).getRGB());
             }
         }
         return image;

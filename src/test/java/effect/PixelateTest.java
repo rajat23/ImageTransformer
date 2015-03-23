@@ -1,5 +1,6 @@
 package effect;
 
+import helper.SampleImage;
 import org.junit.Test;
 
 import java.awt.*;
@@ -10,13 +11,8 @@ import static org.junit.Assert.*;
 public class PixelateTest {
     @Test
     public void testGetEffectDefault() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(123, 45, 65).getRGB());
-            }
-        }
-        Color color=new Color(122,23,231);
+        BufferedImage image=new SampleImage().get10by10(100);
+        Color color=new Color(123,200,250);
         image.setRGB(0,0,color.getRGB());
 
         Effectible effectible =new EffectFactory().create("pixelate");
@@ -35,13 +31,8 @@ public class PixelateTest {
 
     @Test
     public void testGetEffect() throws Exception {
-        BufferedImage image=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(123, 45, 65).getRGB());
-            }
-        }
-        Color color=new Color(122,23,231);
+        BufferedImage image=new SampleImage().get10by10(100);
+        Color color=new Color(123,200,250);
         image.setRGB(0,0,color.getRGB());
 
         Effectible effectible =new EffectFactory().create("pixelate_10");

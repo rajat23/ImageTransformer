@@ -1,5 +1,6 @@
 package effect;
 
+import helper.SampleImage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,12 +15,7 @@ public class BrightnessTest {
 
     @Before
     public void beforeEachTest(){
-        image = new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
-        for(int y = 0; y < image.getHeight(); y++) {
-            for (int x = 0; x < image.getWidth(); x++) {
-                image.setRGB(x, y, new Color(100, 100, 100).getRGB());
-            }
-        }
+        image = new SampleImage().get10by10(100);
     }
 
     @Test
