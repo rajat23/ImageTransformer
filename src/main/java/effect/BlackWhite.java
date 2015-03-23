@@ -5,7 +5,7 @@ import java.awt.image.WritableRaster;
 
 public class BlackWhite implements Effectible {
     private int threshold;
-
+    private int maxColor=255;
     public BlackWhite(String threshold){
         this.threshold=Integer.parseInt(threshold);
     }
@@ -15,13 +15,13 @@ public class BlackWhite implements Effectible {
         outputImage.getGraphics().drawImage(sourceImage, 0, 0, null);
         WritableRaster raster = outputImage.getRaster();
         int[] pixels = new int[sourceImage.getWidth()];
-        for (int y = 0; y < sourceImage.getHeight(); y++) {
-            raster.getPixels(0, y, sourceImage.getWidth(), 1, pixels);
-            for (int i = 0; i < pixels.length; i++) {
-                if (pixels[i] < threshold) pixels[i] = 0;
-                else pixels[i] = 255;
+        for (int heightCounter = 0; heightCounter < sourceImage.getHeight(); heightCounter++) {
+            raster.getPixels(0, heightCounter, sourceImage.getWidth(), 1, pixels);
+            for (int pixelCounter = 0; pixelCounter < pixels.length; pixelCounter++) {
+                if (pixels[pixelCounter] < threshold) pixels[pixelCounter] = 0;
+                else pixels[pixelCounter] = maxColor;
             }
-            raster.setPixels(0, y, sourceImage.getWidth(), 1, pixels);
+            raster.setPixels(0, heightCounter, sourceImage.getWidth(), 1, pixels);
         }
         return outputImage;
 
