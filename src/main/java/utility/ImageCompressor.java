@@ -14,15 +14,26 @@ import java.util.Iterator;
 
 public class ImageCompressor {
 
+    private ImageWriteParam param;
+    private File compressedImageFile;
+    private OutputStream os;
+    private Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
+    private ImageWriter writer;
+    private ImageOutputStream ios;
+
+    public ImageCompressor() {
+
+        compressedImageFile = new File("compress.jpg");
+        writers = ImageIO.getImageWritersByFormatName("jpg");
+        writer = writers.next();
+
+    }
+
     public BufferedImage getCompressImage(BufferedImage inputImage, float quality) throws IOException {
         if(quality==-1.0f)
             return inputImage;
-        ImageWriteParam param;
-        File compressedImageFile = new File("compress.jpg");
-        OutputStream os = new FileOutputStream(compressedImageFile);
-        Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
-        ImageWriter writer = (ImageWriter) writers.next();
-        ImageOutputStream ios = ImageIO.createImageOutputStream(os);
+        os = new FileOutputStream(compressedImageFile);
+        ios = ImageIO.createImageOutputStream(os);
         writer.setOutput(ios);
         param = writer.getDefaultWriteParam();
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
@@ -30,10 +41,14 @@ public class ImageCompressor {
         writer.write(null, new IIOImage(inputImage, null, null), param);
         BufferedImage compressedImage = ImageIO.read(compressedImageFile);
         compressedImageFile.delete();
+        closeStreams();
+        return compressedImage;
+    }
+
+    private void closeStreams() throws IOException {
         os.close();
         ios.close();
         writer.dispose();
-        return compressedImage;
     }
 
 }
