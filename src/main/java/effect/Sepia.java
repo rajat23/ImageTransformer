@@ -5,6 +5,9 @@ import java.awt.image.WritableRaster;
 
 public class Sepia implements Effectible {
     private int sepiaIntensity;
+    private int maxColorValue=255;
+    private int minColorValue=0;
+    private int gridSize=3;
 
     public Sepia(String sepiaIntensity){
         this.sepiaIntensity=Integer.parseInt(sepiaIntensity);
@@ -13,33 +16,33 @@ public class Sepia implements Effectible {
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int sepiaDepth = 20;
-        int w = sourceImage.getWidth();
-        int h = sourceImage.getHeight();
+        int width = sourceImage.getWidth();
+        int height = sourceImage.getHeight();
         WritableRaster raster = sourceImage.getRaster();
-        int[] pixels = new int[w * h * 3];
-        raster.getPixels(0, 0, w, h, pixels);
-        for (int i = 0; i < pixels.length; i += 3) {
-            int r = pixels[i];
-            int g = pixels[i + 1];
-            int b = pixels[i + 2];
+        int[] pixels = new int[width * height * gridSize];
+        raster.getPixels(0, 0, width, height, pixels);
+        for (int pixelCounter = 0; pixelCounter < pixels.length; pixelCounter += 3) {
+            int red = pixels[pixelCounter];
+            int green = pixels[pixelCounter + 1];
+            int blue = pixels[pixelCounter + 2];
 
-            int gry = (r + g + b) / 3;
-            r = g = b = gry;
-            r = r + (sepiaDepth * 2);
-            g = g + sepiaDepth;
+            int gray = (red + green + blue) / gridSize;
+            red = green = blue = gray;
+            red = red + (sepiaDepth * 2);
+            green = green + sepiaDepth;
 
-            if (r > 255) r = 255;
-            if (g > 255) g = 255;
-            if (b > 255) b = 255;
-            b -= sepiaIntensity;
-            if (b < 0) b = 0;
-            if (b > 255) b = 255;
+            if (red > maxColorValue) red = maxColorValue;
+            if (green > maxColorValue) green = maxColorValue;
+            if (blue > maxColorValue) blue = maxColorValue;
+            blue -= sepiaIntensity;
+            if (blue < minColorValue) blue = minColorValue;
+            if (blue > maxColorValue) blue = maxColorValue;
 
-            pixels[i] = r;
-            pixels[i + 1] = g;
-            pixels[i + 2] = b;
+            pixels[pixelCounter] = red;
+            pixels[pixelCounter + 1] = green;
+            pixels[pixelCounter + 2] = blue;
         }
-        raster.setPixels(0, 0, w, h, pixels);
+        raster.setPixels(0, 0, width, height, pixels);
         return sourceImage;
     }
 

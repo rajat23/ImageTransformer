@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class Brightness implements Effectible {
     private int increasingFactor;
-    private int maxColor=255;
-    private int minColor=0;
+    private int maxColorValue =255;
+    private int minColorValue =0;
     public Brightness(String increasingFactor)
     {
             this.increasingFactor=Integer.parseInt(increasingFactor);
@@ -30,22 +30,22 @@ public class Brightness implements Effectible {
                 green = color.getGreen() + increasingFactor;
                 blue = color.getBlue() + increasingFactor;
 
-                if (red >= maxColor+1) {
-                    red = maxColor;
-                } else if (red < minColor) {
-                    red = minColor;
+                if (red >= maxColorValue +1) {
+                    red = maxColorValue;
+                } else if (red < minColorValue) {
+                    red = minColorValue;
                 }
 
-                if (green >= maxColor+1) {
-                    green = maxColor;
-                } else if (green < minColor) {
-                    green = minColor;
+                if (green >= maxColorValue +1) {
+                    green = maxColorValue;
+                } else if (green < minColorValue) {
+                    green = minColorValue;
                 }
 
-                if (blue >= maxColor+1) {
-                    blue = maxColor;
-                } else if (blue < minColor) {
-                    blue = minColor;
+                if (blue >= maxColorValue +1) {
+                    blue = maxColorValue;
+                } else if (blue < minColorValue) {
+                    blue = minColorValue;
                 }
                 outputImage.setRGB(widthCounter, heightCounter, new Color(red, green, blue).getRGB());
 
