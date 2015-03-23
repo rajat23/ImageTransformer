@@ -5,28 +5,28 @@ import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
 public class Pixelate implements Effectible {
-    private int pixSize;
+    private int pixelSize;
 
-    public Pixelate(String pix_size){
-        this.pixSize =Integer.parseInt(pix_size);
+    public Pixelate(String pixelSize){
+        this.pixelSize =Integer.parseInt(pixelSize);
     }
 
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
-        Raster src = sourceImage.getData();
-        WritableRaster dest = src.createCompatibleWritableRaster();
-        for (int y = 0; y < src.getHeight(); y += pixSize) {
-            for (int x = 0; x < src.getWidth(); x += pixSize) {
+        Raster sourceImageData = sourceImage.getData();
+        WritableRaster destination = sourceImageData.createCompatibleWritableRaster();
+        for (int heightCounter = 0; heightCounter < sourceImageData.getHeight(); heightCounter += pixelSize) {
+            for (int widthCounter = 0; widthCounter < sourceImageData.getWidth(); widthCounter += pixelSize) {
                 double[] pixel = new double[3];
-                pixel = src.getPixel(x, y, pixel);
-                for (int yd = y; (yd < y + pixSize) && (yd < dest.getHeight()); yd++) {
-                    for (int xd = x; (xd < x + pixSize) && (xd < dest.getWidth()); xd++) {
-                        dest.setPixel(xd, yd, pixel);
+                pixel = sourceImageData.getPixel(widthCounter, heightCounter, pixel);
+                for (int vertical = heightCounter; (vertical < heightCounter + pixelSize) && (vertical < destination.getHeight()); vertical++) {
+                    for (int horizontal = widthCounter; (horizontal < widthCounter + pixelSize) && (horizontal < destination.getWidth()); horizontal++) {
+                        destination.setPixel(horizontal, vertical, pixel);
                     }
                 }
             }
         }
-        sourceImage.setData(dest);
+        sourceImage.setData(destination);
         return sourceImage;
 
     }
