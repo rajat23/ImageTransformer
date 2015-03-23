@@ -9,16 +9,18 @@ import java.net.URL;
 public class ImageReader {
     public BufferedImage readImage(String path) throws IOException {
 
-        BufferedImage returnImage;
         try {
             URL url = new URL(path);
-            returnImage = ImageIO.read(url.openStream());
-            return returnImage;
+
+            return ImageIO.read(url.openStream());
+
         } catch (Exception exception) {
+
+            System.out.println("Not a remote image");
 
         }
 
-        returnImage = ImageIO.read(new File(System.getProperty("user.dir") + "/upload/" + path));
-        return returnImage;
+        return ImageIO.read(new File(System.getProperty("user.dir") + "/upload/" + path));
+
     }
 }

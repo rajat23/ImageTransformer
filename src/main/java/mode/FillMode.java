@@ -15,7 +15,7 @@ public class FillMode implements Mode {
     public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
         BufferedImage image=requestStructure.getImage();
         Context context=new Context(new ExpandDimension());
-        Dimension dimension=context.executeStrategy(requestStructure.getDimension(),requestStructure.getAspectRatio());
+        Dimension dimension=context.changeDimension(requestStructure.getDimension(), requestStructure.getAspectRatio());
         image= new ImageScaler().resizeImage(image,(int)dimension.getWidth(),(int)dimension.getHeight());
         Coordinates coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),requestStructure.getWidth(), requestStructure.getHeight(), requestStructure.getOrientation());
         ImageCropper imageCropper = new ImageCropper();
