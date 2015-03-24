@@ -1,6 +1,7 @@
 package utility;
 
 import helper.ImageReader;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,9 +37,6 @@ public class ImageCompressorTest {
         BufferedImage compressedImage = imageCompressor.getCompressImage(image, 0.05f);
         ImageIO.write(compressedImage,"jpg",commpressedImageFile);
 
-        assertTrue(commpressedImageFile.length()<=originalImageFile.length());
-        commpressedImageFile.delete();
-
     }
     @Test
     public void testgetCompressImagePng() throws Exception {
@@ -51,12 +49,10 @@ public class ImageCompressorTest {
         BufferedImage compressedImage = imageCompressor.getCompressImage(image, 0.05f);
         ImageIO.write(compressedImage,"jpg",commpressedImageFile);
 
-        assertTrue(commpressedImageFile.length()<=originalImageFile.length());
-        commpressedImageFile.delete();
-
     }
     @Test
     public void testgetCompressImageGif() throws Exception {
+
         String name = "GifImage.gif";
         BufferedImage image = imageReader.readImage(name);
         originalImageFile=new File(System.getProperty("user.dir")+"/upload/"+name);
@@ -64,6 +60,11 @@ public class ImageCompressorTest {
 
         BufferedImage compressedImage = imageCompressor.getCompressImage(image, 0.05f);
         ImageIO.write(compressedImage,"jpg",commpressedImageFile);
+
+    }
+
+    @After
+    public void afterEachTest(){
 
         assertTrue(commpressedImageFile.length()<=originalImageFile.length());
         commpressedImageFile.delete();
