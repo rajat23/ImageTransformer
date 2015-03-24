@@ -10,6 +10,8 @@ public class EffectFactory {
             if(!effect.contains("_"))
                 return new BlackWhite("60");
             String[] tmp=effect.split("_");
+            if(tmp.length==1)
+               return new BlackWhite("60");
             return new BlackWhite(tmp[1]);}
 
         if(effect.contains("sepia")){
