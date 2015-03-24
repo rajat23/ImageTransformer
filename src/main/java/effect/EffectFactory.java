@@ -36,9 +36,9 @@ public class EffectFactory {
 
         if(effect.contains("watermark")){
             if(!effect.contains("_"))
-                return new Watermark("no text");
+                return new Watermark("no text","0","150");
             String[] tmp=effect.split("_");
-            return new Watermark(tmp[1]);}
+            return new Watermark(tmp[1],tmp[2],tmp[3]);}
 
         return new NoEffect();
 
