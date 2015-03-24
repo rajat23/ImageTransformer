@@ -32,12 +32,12 @@ public class Sepia implements Effectible {
             red = red + (sepiaDepth * 2);
             green = green + sepiaDepth;
 
-            if (red > maxColorValue) red = maxColorValue;
-            if (green > maxColorValue) green = maxColorValue;
-            if (blue > maxColorValue) blue = maxColorValue;
+            red = checkBoundryValue(red);
+            green = checkBoundryValue(green);
+            blue = checkBoundryValue(blue);
             blue -= sepiaIntensity;
             if (blue < minColorValue) blue = minColorValue;
-            if (blue > maxColorValue) blue = maxColorValue;
+            blue = checkBoundryValue(blue);
 
             pixels[pixelCounter] = red;
             pixels[pixelCounter + 1] = green;
@@ -45,6 +45,11 @@ public class Sepia implements Effectible {
         }
         raster.setPixels(0, 0, width, height, pixels);
         return sourceImage;
+    }
+    public int checkBoundryValue(int value) {
+        if(value>maxColorValue)
+            return maxColorValue;
+        return value;
     }
 
 }
