@@ -19,7 +19,7 @@ public class Brightness implements Effectible {
 
         int width = sourceImage.getWidth();
         int height = sourceImage.getHeight();
-        int red=0,green=0,blue=0;
+        int red,green,blue;
         BufferedImage outputImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         for (int widthCounter = 0; widthCounter < width; widthCounter++) {
