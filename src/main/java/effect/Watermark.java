@@ -11,6 +11,7 @@ public class Watermark  implements Effectible {
         this.watermark="\u00a9"+watermark;
     }
 
+    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         Graphics graphics = sourceImage.getGraphics();

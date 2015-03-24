@@ -13,6 +13,7 @@ public class Sepia implements Effectible {
         this.sepiaIntensity=Integer.parseInt(sepiaIntensity);
     }
 
+    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int sepiaDepth = 20;

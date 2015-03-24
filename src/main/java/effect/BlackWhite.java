@@ -10,6 +10,7 @@ public class BlackWhite implements Effectible {
         this.threshold=Integer.parseInt(threshold);
     }
 
+    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
         BufferedImage outputImage = new BufferedImage(sourceImage.getWidth(), sourceImage.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
         outputImage.getGraphics().drawImage(sourceImage, 0, 0, null);
