@@ -18,12 +18,16 @@ public class EffectFactory {
             if(!effect.contains("_"))
                 return new Sepia("30");
             String[] tmp=effect.split("_");
+            if(tmp.length==1)
+                return new Sepia("30");
             return new Sepia(tmp[1]);}
 
         if(effect.contains("pixelate")) {
             if(!effect.contains("_"))
                 return new Pixelate("30");
             String[] tmp=effect.split("_");
+            if(tmp.length==1)
+                return new Pixelate("30");
             return new Pixelate(tmp[1]);}
 
 
@@ -35,6 +39,8 @@ public class EffectFactory {
             if(!effect.contains("_"))
                 return new Brightness("60");
             String[] tmp=effect.split("_");
+            if(tmp.length==1)
+                return new Brightness("60");
             return new Brightness(tmp[1]);}
 
         if(effect.contains("watermark")){
