@@ -40,16 +40,16 @@ public class MyColor {
     }
 
     public static Color getColorFormRGB(String name) {
-        int r = 0, g = 0, b = 0;
+        int red = 0, green = 0, blue = 0;
         for (String color : name.split(",")) {
             if (color.startsWith("r_"))
-                r = Integer.parseInt(color.substring(2));
+                red = Integer.parseInt(color.substring(2));
             else if (color.startsWith("g_"))
-                g = Integer.parseInt(color.substring(2));
+                green = Integer.parseInt(color.substring(2));
             else if (color.startsWith("b_"))
-                b = Integer.parseInt(color.substring(2));
+                blue = Integer.parseInt(color.substring(2));
         }
-        return new Color(r, g, b);
+        return new Color(red, green, blue);
     }
 
 }
