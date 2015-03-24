@@ -14,6 +14,7 @@ public class Brightness implements Effectible {
             this.increasingFactor=Integer.parseInt(increasingFactor);
     }
 
+    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int width = sourceImage.getWidth();

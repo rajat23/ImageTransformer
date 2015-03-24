@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 public class Negate implements Effectible {
 
     private int maxColorValue=255;
+    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int width = sourceImage.getWidth();
