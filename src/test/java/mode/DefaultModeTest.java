@@ -1,6 +1,7 @@
 package mode;
 
 
+import helper.RequestMapCreator;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
 import static org.junit.Assert.*;
@@ -11,9 +12,8 @@ public class DefaultModeTest extends ModeTest  {
     @Test
     public void testGetDimensionsForBoth() throws Exception {
 
-        map.put("height",new String[]{"450"});
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=450","width=400","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -29,8 +29,8 @@ public class DefaultModeTest extends ModeTest  {
     @Test
     public void testGetDimensionsForHeight() throws Exception {
 
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"width=400","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -45,8 +45,8 @@ public class DefaultModeTest extends ModeTest  {
     @Test
     public void testGetDimensionsForWidth() throws Exception {
 
-        map.put("height",new String[]{"300"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=300","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -61,8 +61,8 @@ public class DefaultModeTest extends ModeTest  {
     @Test
     public void testGetDimensionsForExceedingWidth() throws Exception {
 
-        map.put("width",new String[]{"900"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"width=900","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

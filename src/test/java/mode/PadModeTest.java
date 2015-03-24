@@ -1,5 +1,6 @@
 package mode;
 
+import helper.RequestMapCreator;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
 import static org.junit.Assert.*;
@@ -9,10 +10,8 @@ public class PadModeTest extends ModeTest {
     @Test
     public void testGetScaledImage() throws Exception {
 
-        map.put("height",new String[]{"300"});
-        map.put("width",new String[]{"400"});
-        map.put("orientation",new String[]{"north_west"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=300","width=400","format=png","orientation=north_west"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -28,10 +27,8 @@ public class PadModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForBigDim() throws Exception {
 
-        map.put("height",new String[]{"1000"});
-        map.put("width",new String[]{"4000"});
-        map.put("orientation",new String[]{"north_west"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=1000","width=4000","format=png","orientation=north_west"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

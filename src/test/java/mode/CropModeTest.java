@@ -1,6 +1,8 @@
 package mode;
 
 
+import helper.RequestMapCreator;
+import helper.RequestStructure;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
 import static org.junit.Assert.*;
@@ -12,9 +14,8 @@ public class CropModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForBoth() throws Exception {
 
-        map.put("height",new String[]{"450"});
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=450","width=400","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -33,9 +34,8 @@ public class CropModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForLargerHeightWidth() throws Exception {
 
-        map.put("height",new String[]{"750"});
-        map.put("width",new String[]{"900"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=750","width=900","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -52,8 +52,8 @@ public class CropModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForNullHeight() throws Exception {
 
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"width=400","format=png"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -71,9 +71,8 @@ public class CropModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForFixedCoordinates() throws Exception {
 
-        map.put("width",new String[]{"500"});
-        map.put("x",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"width=500","format=png","x=400"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -90,11 +89,8 @@ public class CropModeTest extends ModeTest {
     @Test
     public void testGetScaledImageForBigHW() throws Exception {
 
-        map.put("width",new String[]{"600"});
-        map.put("height",new String[]{"600"});
-        map.put("x",new String[]{"300"});
-        map.put("y",new String[]{"300"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"height=600","width=600","format=png","x=300","y=300"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();

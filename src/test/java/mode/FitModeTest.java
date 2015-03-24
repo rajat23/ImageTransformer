@@ -1,5 +1,6 @@
 package mode;
 
+import helper.RequestMapCreator;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
 import static org.junit.Assert.*;
@@ -9,9 +10,8 @@ public class FitModeTest extends ModeTest {
     @Test
     public void testGetDimensionsForBoth() throws Exception {
 
-        map.put("height",new String[]{"600"});
-        map.put("width",new String[]{"900"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"width=900","format=png","height=600"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -26,8 +26,8 @@ public class FitModeTest extends ModeTest {
     @Test
     public void testGetDimensionsForWidth() throws Exception {
 
-        map.put("height",new String[]{"300"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"format=png","height=300"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
@@ -44,8 +44,8 @@ public class FitModeTest extends ModeTest {
     @Test
     public void testGetDimensionsForHeight() throws Exception {
 
-        map.put("width",new String[]{"400"});
-        map.put("format",new String[]{"png"});
+        String parameters []={"format=png","width=400"};
+        map= new RequestMapCreator().createMap(parameters);
         requestStructure.setImage(image);
         requestStructure.setParameters(map);
         ModeFactory modeFactory=new ModeFactory();
