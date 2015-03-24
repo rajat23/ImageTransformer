@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class SampleImageTest {
 
    @Test
-    public void get2by2ImageTest(){
+    public void getImageTestForSquareMatrix(){
         BufferedImage image=new SampleImage().getImage(2, 2);
 
         assertEquals(image.getWidth(), 2);
@@ -17,7 +17,7 @@ public class SampleImageTest {
     }
 
     @Test
-    public void get2by2ImageTestRectangle(){
+    public void getImageTestForRectangleMatrix(){
         BufferedImage image=new SampleImage().getImage(3, 2);
 
         assertEquals(image.getWidth(), 3);
