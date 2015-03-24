@@ -25,6 +25,7 @@ public class EffectFactory {
             return new Pixelate(tmp[1]);}
 
 
+
         if (effect.equals("negate"))
             return new Negate();
 
