@@ -4,25 +4,27 @@ import org.junit.Test;
 
 import java.awt.image.BufferedImage;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SampleImageTest {
 
-    @Test
+   @Test
     public void get2by2ImageTest(){
-        BufferedImage image=new SampleImage().get2by2();
+        BufferedImage image=new SampleImage().getImage(2, 2);
 
-        assertEquals(image.getWidth(),2);
+        assertEquals(image.getWidth(), 2);
         assertEquals(image.getHeight(),2);
     }
 
     @Test
-    public void get3by2ImageTest(){
-        BufferedImage image=new SampleImage().get3by2();
+    public void get2by2ImageTestRectangle(){
+        BufferedImage image=new SampleImage().getImage(3, 2);
 
-        assertEquals(image.getWidth(),3);
+        assertEquals(image.getWidth(), 3);
         assertEquals(image.getHeight(),2);
     }
+
+
 
     @Test
     public void get10by10ImageTest(){
