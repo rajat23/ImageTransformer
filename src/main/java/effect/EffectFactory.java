@@ -37,11 +37,11 @@ public class EffectFactory {
 
         if(effect.contains("brightness")){
             if(!effect.contains("_"))
-                return new Brightness("60");
+                return new Brighten("60");
             String[] tmp=effect.split("_");
             if(tmp.length==1)
-                return new Brightness("60");
-            return new Brightness(tmp[1]);}
+                return new Brighten("60");
+            return new Brighten(tmp[1]);}
 
         if(effect.contains("watermark")){
             if(!effect.contains("_"))
