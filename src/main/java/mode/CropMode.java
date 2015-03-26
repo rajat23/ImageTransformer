@@ -12,20 +12,14 @@ public class CropMode implements Mode {
         BufferedImage image=requestStructure.getImage();
         int responseHeight=requestStructure.getHeight();
         int responseWidth=requestStructure.getWidth();
-        Coordinates coordinates=requestStructure.getCoordinates();
-        int x=coordinates.getX();
-        int y=coordinates.getY();
-
-        if(y+responseHeight>image.getHeight()) {
-            responseHeight=image.getHeight()-y;
+        if(responseHeight>image.getHeight()) {
+            responseHeight=image.getHeight();
         }
-        if(x+responseWidth>image.getWidth()) {
-            responseWidth=image.getWidth()-x;
+        if(responseWidth>image.getWidth()) {
+            responseWidth=image.getWidth();
         }
-        if(!requestStructure.isCoordinatesSet())
-            coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),responseWidth, responseHeight, requestStructure.getOrientation());
-        ImageCropper imageCropper = new ImageCropper();
-        return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(),responseWidth, responseHeight);
+        Coordinates coordinates=new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),responseWidth, responseHeight, requestStructure.getOrientation());
+        return new ImageCropper().getCroppedImage(image, coordinates.getX(), coordinates.getY(),responseWidth, responseHeight);
 
     }
 }
