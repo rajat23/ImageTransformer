@@ -14,7 +14,6 @@ public class Watermark  implements Effectible {
         this.y=Integer.parseInt(y);
     }
 
-    @Override
     public BufferedImage getEffect(BufferedImage sourceImage ) {
 
         Graphics graphics = sourceImage.getGraphics();

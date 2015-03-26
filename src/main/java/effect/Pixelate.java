@@ -11,7 +11,6 @@ public class Pixelate implements Effectible {
         this.pixelSize =Integer.parseInt(pixelSize);
     }
 
-    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         Raster sourceImageData = sourceImage.getData();

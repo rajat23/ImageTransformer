@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 
 public class GrayScale implements Effectible {
 
-    @Override
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int width = sourceImage.getWidth();

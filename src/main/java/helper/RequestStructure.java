@@ -100,7 +100,7 @@ public class RequestStructure {
         if (width == 0)
             width = getProportionalWidth(height, getAspectRatio());
         if (map.containsKey("color"))
-            color = MyColor.getColor(((String[]) map.get("color"))[0]);
+            color = ColorFactory.createColor(((String[]) map.get("color"))[0]);
         if (map.containsKey("mode"))
             mode = ((String[]) map.get("mode"))[0];
         if (map.containsKey("orientation"))

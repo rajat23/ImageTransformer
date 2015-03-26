@@ -2,14 +2,14 @@ package helper;
 
 import java.awt.*;
 
-public class MyColor {
+public class ColorFactory {
 
-    public static Color getColor(String name) {
+    public static Color createColor(String name) {
         if (name.startsWith("0x")) {
             return Color.decode(name);
         }
         if (name.startsWith("r_") || name.startsWith("g_") || name.startsWith("b_")) {
-            return getColorFormRGB(name);
+            return new RgbStringToColor().getColorFormRGB(name);
         }
         if (name.equals("black"))
             return Color.BLACK;
@@ -37,19 +37,6 @@ public class MyColor {
             return Color.YELLOW;
         return Color.WHITE;
 
-    }
-
-    public static Color getColorFormRGB(String name) {
-        int r = 0, g = 0, b = 0;
-        for (String color : name.split(",")) {
-            if (color.startsWith("r_"))
-                r = Integer.parseInt(color.substring(2));
-            else if (color.startsWith("g_"))
-                g = Integer.parseInt(color.substring(2));
-            else if (color.startsWith("b_"))
-                b = Integer.parseInt(color.substring(2));
-        }
-        return new Color(r, g, b);
     }
 
 }
