@@ -12,8 +12,7 @@ public class ModeFactory {
             return new PadMode();
         } else if (mode.equals("crop")) {
             return new CropMode();
-        }
-        else if (mode.equals("fixcrop")) {
+        } else if (mode.equals("fixcrop")) {
             return new FixCropMode();
         }
         return new PadMode();
