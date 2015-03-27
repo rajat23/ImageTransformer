@@ -1,6 +1,6 @@
 package UserRequest.request.creator;
 
-import UserRequest.OtherRequests;
+import UserRequest.requests.OtherRequests;
 import helper.FileUrl;
 
 import java.util.Map;

@@ -3,17 +3,17 @@ package mode;
 import mode.strategies.Context;
 import mode.strategies.ShrinkDimension;
 import utility.ImageScaler;
-import helper.RequestStructure;
+import UserRequest.RequestList;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class FitMode implements Mode {
 
-    public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
-        BufferedImage image=requestStructure.getImage();
+    public BufferedImage getScaledImage(RequestList requestList) throws IOException {
+        BufferedImage image= requestList.getImage();
         Context context=new Context(new ShrinkDimension());
-        Dimension dimension=context.changeDimension(requestStructure.getDimension(), requestStructure.getAspectRatio());
+        Dimension dimension=context.changeDimension(requestList.getResponseDimension(), requestList.getAspectRatio());
         return new ImageScaler().resizeImage(image,(int)dimension.getWidth(),(int)dimension.getHeight());
 
     }

@@ -1,7 +1,7 @@
 package mode;
 
 import helper.ImageReader;
-import helper.RequestStructure;
+import UserRequest.RequestList;
 import org.junit.Before;
 
 import java.awt.image.BufferedImage;
@@ -11,7 +11,7 @@ import java.util.Map;
 public class ModeTest {
     protected ImageReader imageReader;
     protected BufferedImage image;
-    protected RequestStructure requestStructure;
+    protected RequestList requestList;
     protected Map<String,String[]> map;
 
     @Before
@@ -24,7 +24,6 @@ public class ModeTest {
             System.out.println("Error Reading image");
             return;
         }
-        requestStructure = new RequestStructure();
         map = new HashMap<String, String[]>();
     }
 }

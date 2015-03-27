@@ -1,8 +1,8 @@
 package UserRequest.request.creator;
 
 
-import UserRequest.InputImage;
-import UserRequest.ScalingRequest;
+import UserRequest.requests.InputImage;
+import UserRequest.requests.ScalingRequest;
 
 import java.util.Map;
 

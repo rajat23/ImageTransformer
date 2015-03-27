@@ -1,6 +1,7 @@
 package mode;
 
 
+import UserRequest.RequestList;
 import helper.RequestMapCreator;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
@@ -14,12 +15,11 @@ public class DefaultModeTest extends ModeTest  {
 
         String parameters []={"height=450","width=400","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
-        BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=mode.getScaledImage(requestList);
 
         assertEquals(450, scaledImage.getHeight());
         assertEquals(400, scaledImage.getWidth());
@@ -31,12 +31,11 @@ public class DefaultModeTest extends ModeTest  {
 
         String parameters []={"width=400","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
-        BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=mode.getScaledImage(requestList);
 
         assertEquals(300, scaledImage.getHeight());
 
@@ -47,12 +46,11 @@ public class DefaultModeTest extends ModeTest  {
 
         String parameters []={"height=300","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
-        BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=mode.getScaledImage(requestList);
 
         assertEquals(400, scaledImage.getWidth());
 
@@ -63,12 +61,11 @@ public class DefaultModeTest extends ModeTest  {
 
         String parameters []={"width=900","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
-        BufferedImage scaledImage=mode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=mode.getScaledImage(requestList);
 
         assertEquals(900, scaledImage.getWidth());
 

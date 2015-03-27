@@ -1,4 +1,4 @@
-package UserRequest;
+package UserRequest.requests;
 
 import helper.Coordinates;
 

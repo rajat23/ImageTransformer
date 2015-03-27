@@ -8,7 +8,7 @@ import helper.Response;
 import helper.Rounder;
 import mode.Mode;
 import mode.ModeFactory;
-import helper.RequestStructure;
+import UserRequest.RequestList;
 import rotate.Rotable;
 import rotate.RotatorFactory;
 import utility.ImageCompressor;
@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
 
 public class TranformServlet extends HttpServlet {
@@ -38,28 +37,25 @@ public class TranformServlet extends HttpServlet {
             printWriter.write("<html><body>" + ioException.getStackTrace() + "</body><html>");
             return;
         }
-        RequestStructure requestStructure = new RequestStructure();
-        requestStructure.setImage(image);
-        Map<String, String[]> map = request.getParameterMap();
-        requestStructure.setParameters(map);
+        RequestList requestList = new RequestList(image,request.getParameterMap());
 
         ModeFactory modeFactory = new ModeFactory();
-        Mode mode = modeFactory.create(requestStructure.getMode());
+        Mode mode = modeFactory.create(requestList.getMode());
 
-        image = mode.getScaledImage(requestStructure);
-        image = Rounder.makeRoundedCorner(image, requestStructure.getRadius());
+        image = mode.getScaledImage(requestList);
+        image = Rounder.makeRoundedCorner(image, requestList.getRadius());
 
-        Effectible effectible =new EffectFactory().create(requestStructure.getEffect());
+        Effectible effectible =new EffectFactory().create(requestList.getEffect());
         image= effectible.getEffect(image);
 
-        Rotable rotable =new RotatorFactory().create(requestStructure.getAngle());
+        Rotable rotable =new RotatorFactory().create(requestList.getAngle());
         image= rotable.rotateImage(image);
 
         ImageCompressor imageCompresser=new ImageCompressor();
-        image=imageCompresser.getCompressImage(image,requestStructure.getQuality());
+        image=imageCompresser.getCompressImage(image, requestList.getQuality());
 
         Response servletResponse = new Response();
-        servletResponse.setResponse(response, image, requestStructure.getFormat());
+        servletResponse.setResponse(response, image, requestList.getFormat());
     }
 
 

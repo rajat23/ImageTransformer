@@ -1,5 +1,6 @@
 package mode;
 
+import UserRequest.RequestList;
 import helper.RequestMapCreator;
 import org.junit.Test;
 
@@ -14,12 +15,11 @@ public class FixCropModeTest extends ModeTest {
 
         String parameters []={"width=500","format=png","x=400"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fixcrop");
 
-        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=fitMode.getScaledImage(requestList);
 
         assertEquals(400, scaledImage.getWidth());
         assertEquals(375, scaledImage.getHeight());
@@ -32,12 +32,11 @@ public class FixCropModeTest extends ModeTest {
 
         String parameters []={"height=600","width=600","format=png","x=300","y=300"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fixcrop");
 
-        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=fitMode.getScaledImage(requestList);
 
         assertEquals(300, scaledImage.getHeight());
         assertEquals(500, scaledImage.getWidth());

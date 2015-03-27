@@ -1,4 +1,4 @@
-package UserRequest;
+package UserRequest.requests;
 
 import java.awt.image.BufferedImage;
 

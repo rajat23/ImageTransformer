@@ -1,6 +1,6 @@
 package UserRequest.request.creator;
 
-import UserRequest.OrientationRequest;
+import UserRequest.requests.OrientationRequest;
 import helper.ColorFactory;
 import helper.Coordinates;
 

@@ -1,8 +1,8 @@
 package mode;
 
 
+import UserRequest.RequestList;
 import helper.RequestMapCreator;
-import helper.RequestStructure;
 import org.junit.Test;
 import java.awt.image.BufferedImage;
 import static org.junit.Assert.*;
@@ -16,12 +16,11 @@ public class CropModeTest extends ModeTest {
 
         String parameters []={"height=450","width=400","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 
-        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=fitMode.getScaledImage(requestList);
 
         assertEquals(450, scaledImage.getHeight());
         assertEquals(400, scaledImage.getWidth());
@@ -36,12 +35,11 @@ public class CropModeTest extends ModeTest {
 
         String parameters []={"height=750","width=900","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 
-        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=fitMode.getScaledImage(requestList);
 
         assertEquals(600, scaledImage.getHeight());
         assertEquals(800, scaledImage.getWidth());
@@ -54,12 +52,11 @@ public class CropModeTest extends ModeTest {
 
         String parameters []={"width=400","format=png"};
         map= new RequestMapCreator().createMap(parameters);
-        requestStructure.setImage(image);
-        requestStructure.setParameters(map);
+        requestList = new RequestList(image,map);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 
-        BufferedImage scaledImage=fitMode.getScaledImage(requestStructure);
+        BufferedImage scaledImage=fitMode.getScaledImage(requestList);
 
         assertEquals(300, scaledImage.getHeight());
 

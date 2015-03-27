@@ -5,20 +5,20 @@ import helper.Coordinates;
 import mode.strategies.Context;
 import mode.strategies.ExpandDimension;
 import utility.ImageCropper;
-import helper.RequestStructure;
+import UserRequest.RequestList;
 import utility.ImageScaler;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class FillMode implements Mode {
-    public BufferedImage getScaledImage(RequestStructure requestStructure) throws IOException {
-        BufferedImage image=requestStructure.getImage();
+    public BufferedImage getScaledImage(RequestList requestList) throws IOException {
+        BufferedImage image= requestList.getImage();
         Context context=new Context(new ExpandDimension());
-        Dimension dimension=context.changeDimension(requestStructure.getDimension(), requestStructure.getAspectRatio());
+        Dimension dimension=context.changeDimension(requestList.getResponseDimension(), requestList.getAspectRatio());
         image= new ImageScaler().resizeImage(image,(int)dimension.getWidth(),(int)dimension.getHeight());
-        Coordinates coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(),requestStructure.getWidth(), requestStructure.getHeight(), requestStructure.getOrientation());
+        Coordinates coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(), requestList.getWidth(), requestList.getResponsHeight(), requestList.getOrientation());
         ImageCropper imageCropper = new ImageCropper();
-        return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(),requestStructure.getWidth(), requestStructure.getHeight());
+        return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(), requestList.getWidth(), requestList.getResponsHeight());
     }
 }

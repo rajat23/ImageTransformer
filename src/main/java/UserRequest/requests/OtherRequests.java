@@ -1,4 +1,4 @@
-package UserRequest;
+package UserRequest.requests;
 
 public class OtherRequests {
     private int radius;
