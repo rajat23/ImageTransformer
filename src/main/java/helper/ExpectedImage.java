@@ -7,9 +7,9 @@ public class ExpectedImage {
 
     public boolean hasExpectedColor(BufferedImage outputImage,Color expectedColor){
 
-        for(int y = 0; y < outputImage.getHeight(); y++) {
-            for (int x = 0; x < outputImage.getWidth(); x++) {
-                Color color=new Color(outputImage.getRGB(x,y));
+        for(int heightCOunter = 0; heightCOunter < outputImage.getHeight(); heightCOunter++) {
+            for (int WidhtCounter = 0; WidhtCounter < outputImage.getWidth(); WidhtCounter++) {
+                Color color=new Color(outputImage.getRGB(WidhtCounter,heightCOunter));
                 if(!color.equals(expectedColor))
                     return false;
             }

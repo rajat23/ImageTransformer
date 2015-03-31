@@ -18,16 +18,20 @@ public class OtherRequestCreator {
         int radius =0;
         float quality = -1.0f;
 
-        if (parameterMap.containsKey("effect"))
+        if (parameterMap.containsKey("effect")) {
             effect = ((String[]) parameterMap.get("effect"))[0];
+        }
 
-        if (parameterMap.containsKey("radius"))
+        if (parameterMap.containsKey("radius")) {
             radius = Integer.parseInt(((String[]) parameterMap.get("radius"))[0]);
+        }
 
-        if (parameterMap.containsKey("angle"))
+        if (parameterMap.containsKey("angle")) {
             angle = ((String[]) parameterMap.get("angle"))[0];
-        if (parameterMap.containsKey("format"))
+        }
+        if (parameterMap.containsKey("format")) {
             format = ((String[]) parameterMap.get("format"))[0];
+        }
         else {
             format = new FileUrl().getFileExtension(((String[]) parameterMap.get("path"))[0]);
         }

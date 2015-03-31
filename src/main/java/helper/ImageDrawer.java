@@ -20,8 +20,8 @@ public class ImageDrawer {
         Graphics graphics = paddedImage.getGraphics();
         graphics.setColor(requestList.getColor());
         graphics.fillRect(0, 0, requestList.getResponseWidth(), requestList.getResponsHeight());
-        originalImage=new ImageScaler().resizeImage(originalImage,shrinkedWidth,shrinkedHeight);
-        graphics.drawImage(originalImage, cropCoordinates.getX(), cropCoordinates.getY(), null);
+        BufferedImage scaledImage=new ImageScaler().resizeImage(originalImage,shrinkedWidth,shrinkedHeight);
+        graphics.drawImage(scaledImage, cropCoordinates.getX(), cropCoordinates.getY(), null);
         graphics.dispose();
         return paddedImage;
     }
