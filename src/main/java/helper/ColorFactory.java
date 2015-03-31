@@ -4,36 +4,36 @@ import java.awt.*;
 
 public class ColorFactory {
 
-    public static Color createColor(String name) {
-        if (name.startsWith("0x")) {
-            return Color.decode(name);
+    public static Color createColor(String colorString) {
+        if (colorString.startsWith("0x")) {
+            return Color.decode(colorString);
         }
-        if (name.startsWith("r_") || name.startsWith("g_") || name.startsWith("b_")) {
-            return new RgbStringToColor().getColorFormRGB(name);
+        if (colorString.startsWith("r_") || colorString.startsWith("g_") || colorString.startsWith("b_")) {
+            return new RgbStringToColor().getColorFormRGB(colorString);
         }
-        if (name.equals("black"))
+        if (colorString.equals("black"))
             return Color.BLACK;
-        if (name.equals("blue"))
+        if (colorString.equals("blue"))
             return Color.BLUE;
-        if (name.equals("cyan"))
+        if (colorString.equals("cyan"))
             return Color.CYAN;
-        if (name.equals("darkgray"))
+        if (colorString.equals("darkgray"))
             return Color.DARK_GRAY;
-        if (name.equals("gray"))
+        if (colorString.equals("gray"))
             return Color.GRAY;
-        if (name.equals("lightgray"))
+        if (colorString.equals("lightgray"))
             return Color.LIGHT_GRAY;
-        if (name.equals("green"))
+        if (colorString.equals("green"))
             return Color.GREEN;
-        if (name.equals("magenta"))
+        if (colorString.equals("magenta"))
             return Color.MAGENTA;
-        if (name.equals("orange"))
+        if (colorString.equals("orange"))
             return Color.ORANGE;
-        if (name.equals("pink"))
+        if (colorString.equals("pink"))
             return Color.PINK;
-        if (name.equals("red"))
+        if (colorString.equals("red"))
             return Color.RED;
-        if (name.equals("yellow"))
+        if (colorString.equals("yellow"))
             return Color.YELLOW;
         return Color.WHITE;
 

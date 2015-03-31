@@ -11,7 +11,7 @@ public class FixCropMode implements Mode {
     public BufferedImage getScaledImage(RequestList requestList) throws IOException {
         BufferedImage image= requestList.getImage();
         int responseHeight= requestList.getResponsHeight();
-        int responseWidth= requestList.getWidth();
+        int responseWidth= requestList.getResponseWidth();
         Coordinates coordinates= requestList.getCoordinates();
         int x=coordinates.getX();
         int y=coordinates.getY();

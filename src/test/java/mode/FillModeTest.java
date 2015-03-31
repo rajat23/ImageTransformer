@@ -12,8 +12,8 @@ public class FillModeTest extends ModeTest {
     public void testGetScaledImage() throws Exception {
 
         String parameters []={"width=400","format=png","height=300","orientation=north_west"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("fill");
 
@@ -28,8 +28,8 @@ public class FillModeTest extends ModeTest {
     public void testGetScaledImageForBigDim() throws Exception {
 
         String parameters []={"width=4000","format=png","height=1000","orientation=north_west"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("fill");
 

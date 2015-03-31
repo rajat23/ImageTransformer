@@ -12,8 +12,8 @@ public class FitModeTest extends ModeTest {
     public void testGetDimensionsForBoth() throws Exception {
 
         String parameters []={"width=900","format=png","height=600"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestList);
@@ -27,8 +27,8 @@ public class FitModeTest extends ModeTest {
     public void testGetDimensionsForWidth() throws Exception {
 
         String parameters []={"format=png","height=300"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
         BufferedImage scaledImage=fitMode.getScaledImage(requestList);
@@ -44,8 +44,8 @@ public class FitModeTest extends ModeTest {
     public void testGetDimensionsForHeight() throws Exception {
 
         String parameters []={"format=png","width=400"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fit");
 

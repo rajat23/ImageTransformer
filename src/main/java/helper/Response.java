@@ -6,11 +6,11 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Response {
-    public void setResponse(HttpServletResponse response, BufferedImage image, String extension) {
+    public void setResponse(HttpServletResponse response, BufferedImage image, String format) {
 
-        response.setContentType("image/" + extension);
+        response.setContentType("image/" + format);
         try {
-            ImageIO.write(image, extension, response.getOutputStream());
+            ImageIO.write(image, format, response.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }

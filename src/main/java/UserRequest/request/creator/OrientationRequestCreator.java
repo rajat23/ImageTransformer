@@ -16,7 +16,7 @@ public class OrientationRequestCreator {
 
     public OrientationRequest create(){
         String orientation = "";
-        Coordinates cropCoordinates = new Coordinates(0,0);
+        Coordinates cropCoordinates;
         Color color = Color.white;
 
         if (parameterMap.containsKey("orientation"))

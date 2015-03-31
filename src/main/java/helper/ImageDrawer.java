@@ -1,6 +1,8 @@
 package helper;
 
 import UserRequest.RequestList;
+import helper.crop.coordinates.CropFactory;
+import helper.crop.coordinates.Cropable;
 import utility.ImageScaler;
 
 import java.awt.*;
@@ -9,16 +11,17 @@ import java.io.IOException;
 
 public class ImageDrawer {
 
-    public BufferedImage drawImageWithPad(RequestList requestList, BufferedImage image, int height, int width) throws IOException {
-        if(height==0&&width==0)
-            return image;
-        Coordinates coordinates = new CoordinateCalculator().getCoordinates(requestList.getWidth(), requestList.getResponsHeight(), width,height, requestList.getOrientation());
-        BufferedImage paddedImage = new BufferedImage(requestList.getWidth(), requestList.getResponsHeight(), image.getType());
+    public BufferedImage drawImageWithPad(RequestList requestList, BufferedImage originalImage, int shrinkedHeight, int shrinkedWidth) throws IOException {
+        if(shrinkedHeight==0&&shrinkedWidth==0)
+            return originalImage;
+
+        Coordinates cropCoordinates = new CropFactory().create(requestList.getOrientation()).getCoordinates(requestList.getResponseWidth(), requestList.getResponsHeight(), shrinkedWidth, shrinkedHeight);
+        BufferedImage paddedImage = new BufferedImage(requestList.getResponseWidth(), requestList.getResponsHeight(), originalImage.getType());
         Graphics graphics = paddedImage.getGraphics();
         graphics.setColor(requestList.getColor());
-        graphics.fillRect(0, 0, requestList.getWidth(), requestList.getResponsHeight());
-        image=new ImageScaler().resizeImage(image,width,height);
-        graphics.drawImage(image, coordinates.getX(), coordinates.getY(), null);
+        graphics.fillRect(0, 0, requestList.getResponseWidth(), requestList.getResponsHeight());
+        originalImage=new ImageScaler().resizeImage(originalImage,shrinkedWidth,shrinkedHeight);
+        graphics.drawImage(originalImage, cropCoordinates.getX(), cropCoordinates.getY(), null);
         graphics.dispose();
         return paddedImage;
     }

@@ -14,8 +14,8 @@ public class FixCropModeTest extends ModeTest {
     public void testGetScaledImageForFixedCoordinates() throws Exception {
 
         String parameters []={"width=500","format=png","x=400"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fixcrop");
 
@@ -31,8 +31,8 @@ public class FixCropModeTest extends ModeTest {
     public void testGetScaledImageForBigHW() throws Exception {
 
         String parameters []={"height=600","width=600","format=png","x=300","y=300"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("fixcrop");
 

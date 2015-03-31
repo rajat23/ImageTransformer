@@ -14,8 +14,8 @@ public class DefaultModeTest extends ModeTest  {
     public void testGetDimensionsForBoth() throws Exception {
 
         String parameters []={"height=450","width=400","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
@@ -30,8 +30,8 @@ public class DefaultModeTest extends ModeTest  {
     public void testGetDimensionsForHeight() throws Exception {
 
         String parameters []={"width=400","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
@@ -45,8 +45,8 @@ public class DefaultModeTest extends ModeTest  {
     public void testGetDimensionsForWidth() throws Exception {
 
         String parameters []={"height=300","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 
@@ -60,8 +60,8 @@ public class DefaultModeTest extends ModeTest  {
     public void testGetDimensionsForExceedingWidth() throws Exception {
 
         String parameters []={"width=900","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode mode=modeFactory.create("default");
 

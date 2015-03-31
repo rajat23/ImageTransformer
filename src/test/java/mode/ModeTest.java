@@ -12,7 +12,7 @@ public class ModeTest {
     protected ImageReader imageReader;
     protected BufferedImage image;
     protected RequestList requestList;
-    protected Map<String,String[]> map;
+    protected Map<String,String[]> parameterMap;
 
     @Before
     public void beforeEachTest(){
@@ -24,6 +24,6 @@ public class ModeTest {
             System.out.println("Error Reading image");
             return;
         }
-        map = new HashMap<String, String[]>();
+        parameterMap = new HashMap<String, String[]>();
     }
 }

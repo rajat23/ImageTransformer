@@ -1,6 +1,7 @@
 package mode;
 
-import helper.CoordinateCalculator;
+import helper.crop.coordinates.CropFactory;
+import helper.crop.coordinates.Cropable;
 import helper.Coordinates;
 import mode.strategies.Context;
 import mode.strategies.ExpandDimension;
@@ -17,8 +18,8 @@ public class FillMode implements Mode {
         Context context=new Context(new ExpandDimension());
         Dimension dimension=context.changeDimension(requestList.getResponseDimension(), requestList.getAspectRatio());
         image= new ImageScaler().resizeImage(image,(int)dimension.getWidth(),(int)dimension.getHeight());
-        Coordinates coordinates = new CoordinateCalculator().getCoordinates(image.getWidth(), image.getHeight(), requestList.getWidth(), requestList.getResponsHeight(), requestList.getOrientation());
+        Coordinates coordinates = new CropFactory().create(requestList.getOrientation()).getCoordinates(image.getWidth(), image.getHeight(), requestList.getResponseWidth(), requestList.getResponsHeight());
         ImageCropper imageCropper = new ImageCropper();
-        return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(), requestList.getWidth(), requestList.getResponsHeight());
+        return imageCropper.getCroppedImage(image, coordinates.getX(), coordinates.getY(), requestList.getResponseWidth(), requestList.getResponsHeight());
     }
 }

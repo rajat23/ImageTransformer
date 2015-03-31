@@ -15,8 +15,8 @@ public class CropModeTest extends ModeTest {
     public void testGetScaledImageForBoth() throws Exception {
 
         String parameters []={"height=450","width=400","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 
@@ -34,8 +34,8 @@ public class CropModeTest extends ModeTest {
     public void testGetScaledImageForLargerHeightWidth() throws Exception {
 
         String parameters []={"height=750","width=900","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 
@@ -51,8 +51,8 @@ public class CropModeTest extends ModeTest {
     public void testGetScaledImageForNullHeight() throws Exception {
 
         String parameters []={"width=400","format=png"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("crop");
 

@@ -33,7 +33,7 @@ public class RequestList {
         return scalingRequest.getResponseHeight();
     }
 
-    public int getWidth() {
+    public int getResponseWidth() {
         return scalingRequest.getResponseWidth();
     }
 

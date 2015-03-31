@@ -12,8 +12,8 @@ public class PadModeTest extends ModeTest {
     public void testGetScaledImage() throws Exception {
 
         String parameters []={"height=300","width=400","format=png","orientation=north_west"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("pad");
 
@@ -28,8 +28,8 @@ public class PadModeTest extends ModeTest {
     public void testGetScaledImageForBigDim() throws Exception {
 
         String parameters []={"height=1000","width=4000","format=png","orientation=north_west"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fillMode=modeFactory.create("pad");
 

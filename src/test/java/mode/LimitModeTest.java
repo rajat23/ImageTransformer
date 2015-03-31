@@ -12,8 +12,8 @@ public class LimitModeTest extends ModeTest {
     public void testGetDimensionsForBoth() throws Exception {
 
         String parameters []={"format=png","height=450","width=400"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode fitMode=modeFactory.create("limit");
 
@@ -27,8 +27,8 @@ public class LimitModeTest extends ModeTest {
     public void testGetDimensionsForHeight() throws Exception {
 
         String parameters []={"format=png","width=400"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode limitMode=modeFactory.create("limit");
 
@@ -42,8 +42,8 @@ public class LimitModeTest extends ModeTest {
     public void testGetDimensionsForExceedingWidth() throws Exception {
 
         String parameters []={"format=png","width=900"};
-        map= new RequestMapCreator().createMap(parameters);
-        requestList = new RequestList(image,map);
+        parameterMap = new RequestMapCreator().createMap(parameters);
+        requestList = new RequestList(image, parameterMap);
         ModeFactory modeFactory=new ModeFactory();
         Mode limitMode=modeFactory.create("limit");
 

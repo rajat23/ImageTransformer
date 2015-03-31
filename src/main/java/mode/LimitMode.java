@@ -12,7 +12,7 @@ public class LimitMode implements Mode {
 
     public BufferedImage getScaledImage(RequestList requestList) throws IOException {
         BufferedImage image = requestList.getImage();
-        if (requestList.getResponsHeight() > image.getHeight() || requestList.getWidth() > image.getWidth())
+        if (requestList.getResponsHeight() > image.getHeight() || requestList.getResponseWidth() > image.getWidth())
             return image;
         Context context=new Context(new ShrinkDimension());
         Dimension dimension=context.changeDimension(requestList.getResponseDimension(), requestList.getAspectRatio());
