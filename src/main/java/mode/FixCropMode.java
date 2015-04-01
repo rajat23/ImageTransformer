@@ -12,14 +12,11 @@ public class FixCropMode implements Mode {
         BufferedImage image= requestList.getImage();
         int responseHeight= requestList.getResponsHeight();
         int responseWidth= requestList.getResponseWidth();
-        Coordinates coordinates= requestList.getCoordinates();
-        int x=coordinates.getX();
-        int y=coordinates.getY();
 
-        responseHeight=getCheckedValues(responseHeight,image.getHeight(),y);
-        responseWidth=getCheckedValues(responseWidth,image.getWidth(),x);
+        responseHeight=getCheckedValues(responseHeight,image.getHeight(),requestList.getCoordinates().getY());
+        responseWidth=getCheckedValues(responseWidth,image.getWidth(),requestList.getCoordinates().getX());
 
-        return new ImageCropper().getCroppedImage(image, coordinates.getX(), coordinates.getY(),responseWidth, responseHeight);
+        return new ImageCropper().getCroppedImage(image, requestList.getCoordinates().getX(), requestList.getCoordinates().getY(), responseWidth, responseHeight);
     }
 
     public int getCheckedValues(int responseValue,int imageValue,int coordinateValue) {
