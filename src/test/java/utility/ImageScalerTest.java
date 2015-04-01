@@ -4,7 +4,7 @@ package utility;
 import helper.ImageReader;
 import org.junit.Before;
 import org.junit.Test;
-import utility.ImageScaler;
+
 
 import java.awt.image.BufferedImage;
 
