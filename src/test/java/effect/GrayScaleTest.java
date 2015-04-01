@@ -1,6 +1,5 @@
 package effect;
 
-import effect.GrayScale;
 import helper.ImageReader;
 import org.junit.Test;
 
