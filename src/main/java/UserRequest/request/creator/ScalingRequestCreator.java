@@ -1,39 +1,33 @@
 package UserRequest.request.creator;
 
 
+import UserRequest.reader.MapReader;
 import UserRequest.requests.InputImage;
 import UserRequest.requests.ScalingRequest;
 
-import java.util.Map;
-
 public class ScalingRequestCreator {
 
-    private Map<String, String[]> parameterMap;
+    private MapReader mapReader;
     private InputImage inputImage;
-    private static final int MIN_HEIGHT = 0;
-    private static final int MIN_WIDTH = 0;
 
-    public ScalingRequestCreator(Map<String, String[]> parameterMap, InputImage inputImage) {
-        this.parameterMap = parameterMap;
+
+    public ScalingRequestCreator(MapReader mapReader, InputImage inputImage) {
+        this.mapReader=mapReader;
         this.inputImage = inputImage;
     }
 
     public ScalingRequest create() {
 
-        int responseWidth = MIN_WIDTH, responseHeight = MIN_HEIGHT;
-        String mpde = "";
+        String mode = mapReader.readString("mode");
+        int responseWidth = getWidth(mapReader.readString("width"));
+        int responseHeight = getHeight(mapReader.readString("height"));
 
-        if (parameterMap.containsKey("width"))
-            responseWidth = getWidth(parameterMap.get("width")[0]);
-        if (parameterMap.containsKey("height"))
-            responseHeight = getHeight(parameterMap.get("height")[0]);
-
-        if (responseHeight == MIN_HEIGHT)
+        if (responseHeight == 0)
             responseHeight = getProportionalHeight(responseWidth);
-        if (responseWidth == MIN_WIDTH)
+        if (responseWidth == 0)
             responseWidth = getProportionalWidth(responseHeight);
 
-        return new ScalingRequest(responseWidth, responseHeight, mpde);
+        return new ScalingRequest(responseWidth,responseHeight,mode);
 
     }
 

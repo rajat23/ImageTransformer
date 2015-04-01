@@ -1,5 +1,6 @@
 package UserRequest;
 
+import UserRequest.reader.MapReader;
 import UserRequest.request.creator.OrientationRequestCreator;
 import UserRequest.request.creator.OtherRequestCreator;
 import UserRequest.request.creator.ScalingRequestCreator;
@@ -18,11 +19,14 @@ public class RequestList {
     OrientationRequest orientationRequest;
     OtherRequests otherRequests;
 
-    public RequestList(BufferedImage image, Map<String, String[]> parameterMap) {
+    public RequestList(BufferedImage image, Map<String,String[]> parameterMap) {
+
+        MapReader mapReader = new MapReader(parameterMap);
+
         inputImage =new InputImage(image);
-        scalingRequest =new ScalingRequestCreator(parameterMap,inputImage).create();
-        orientationRequest =new OrientationRequestCreator(parameterMap).create();
-        otherRequests = new OtherRequestCreator(parameterMap).create();
+        scalingRequest =new ScalingRequestCreator(mapReader,inputImage).create();
+        orientationRequest =new OrientationRequestCreator(mapReader).create();
+        otherRequests = new OtherRequestCreator(mapReader).create();
     }
 
     public BufferedImage getImage() {
