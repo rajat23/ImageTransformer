@@ -13,11 +13,10 @@ public class CropMode implements Mode {
         BufferedImage image= requestList.getImage();
         int responseHeight= requestList.getResponsHeight();
         int responseWidth= requestList.getResponseWidth();
-        int height=image.getHeight();
-        int width=image.getWidth();
+      ;
 
-        responseHeight=getCheckedValues(responseHeight,height);
-        responseWidth=getCheckedValues(responseWidth,width);
+        responseHeight=getCheckedValues(responseHeight,image.getHeight());
+        responseWidth=getCheckedValues(responseWidth,image.getWidth());
 
         Coordinates cropCoordinates=new CropFactory().create(requestList.getOrientation()).getCoordinates(image.getWidth(), image.getHeight(), responseWidth, responseHeight);
         return new ImageCropper().getCroppedImage(image, cropCoordinates.getX(), cropCoordinates.getY(), responseWidth, responseHeight);
