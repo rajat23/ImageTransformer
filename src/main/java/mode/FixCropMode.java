@@ -16,13 +16,15 @@ public class FixCropMode implements Mode {
         int x=coordinates.getX();
         int y=coordinates.getY();
 
-        if(y+responseHeight>image.getHeight()) {
-            responseHeight=image.getHeight()-y;
-        }
-        if(x+responseWidth>image.getWidth()) {
-            responseWidth=image.getWidth()-x;
-        }
+        responseHeight=getCheckedValues(responseHeight,image.getHeight(),y);
+        responseWidth=getCheckedValues(responseWidth,image.getWidth(),x);
 
         return new ImageCropper().getCroppedImage(image, coordinates.getX(), coordinates.getY(),responseWidth, responseHeight);
+    }
+
+    public int getCheckedValues(int responseValue,int imageValue,int coordinateValue) {
+        if(coordinateValue+responseValue>imageValue)
+            return imageValue-coordinateValue;
+        return responseValue;
     }
 }
