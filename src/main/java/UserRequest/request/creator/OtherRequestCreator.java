@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class OtherRequestCreator {
     Map<String, String[]> parameterMap;
-    private static final int DEFUALT_REDIUS =0;
-    private static final float DEFAULT_QUALITY= -1.0f;
-    private static final String DEFAULT_VALUE= "";
+    private static final int DEFUALT_REDIUS = 0;
+    private static final float DEFAULT_QUALITY = -1.0f;
+    private static final String DEFAULT_VALUE = "";
 
-    private String effect,angle,format;
+    private String effect, angle, format;
     private int radius;
     private float quality;
 
@@ -22,12 +22,11 @@ public class OtherRequestCreator {
 
     public OtherRequests create() {
 
-        effect=getEffect();
-        angle=getAngle();
-        format=getFormat();
-        radius=getRadius();
-        quality=getQuality();
-
+        effect = getEffect();
+        angle = getAngle();
+        format = getFormat();
+        radius = getRadius();
+        quality = getQuality();
 
         return new OtherRequests(radius, effect, angle, format, quality);
 
@@ -71,7 +70,6 @@ public class OtherRequestCreator {
         if (parameterMap.containsKey("quality"))
             return Float.parseFloat(parameterMap.get("quality")[0]);
         return DEFAULT_QUALITY;
-
 
 
     }

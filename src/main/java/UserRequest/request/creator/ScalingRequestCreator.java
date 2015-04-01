@@ -10,17 +10,17 @@ public class ScalingRequestCreator {
 
     private Map<String, String[]> parameterMap;
     private InputImage inputImage;
-    private static final int MIN_HEIGHT=0;
-    private static final int MIN_WIDTH=0;
+    private static final int MIN_HEIGHT = 0;
+    private static final int MIN_WIDTH = 0;
 
     public ScalingRequestCreator(Map<String, String[]> parameterMap, InputImage inputImage) {
         this.parameterMap = parameterMap;
         this.inputImage = inputImage;
     }
 
-    public ScalingRequest create(){
+    public ScalingRequest create() {
 
-        int responseWidth=MIN_WIDTH,responseHeight=MIN_HEIGHT;
+        int responseWidth = MIN_WIDTH, responseHeight = MIN_HEIGHT;
         String mpde = "";
 
         if (parameterMap.containsKey("width"))
@@ -33,7 +33,7 @@ public class ScalingRequestCreator {
         if (responseWidth == MIN_WIDTH)
             responseWidth = getProportionalWidth(responseHeight);
 
-        return new ScalingRequest(responseWidth,responseHeight,mpde);
+        return new ScalingRequest(responseWidth, responseHeight, mpde);
 
     }
 

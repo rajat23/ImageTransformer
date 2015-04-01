@@ -6,8 +6,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Rounder {
+    private static int MIN_CORNER_RADIUS=0;
     public static BufferedImage makeRoundedCorner(BufferedImage originalImage, int cornerRadius) throws IOException {
-        if (cornerRadius == 0)
+        if (cornerRadius == MIN_CORNER_RADIUS)
             return originalImage;
 
         int width = originalImage.getWidth();
