@@ -1,4 +1,4 @@
-package helper.crop.coordinates;
+package helper.crop.orientation;
 
 public class CropFactory {
     public Cropable create(String orientation){

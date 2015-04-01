@@ -1,4 +1,4 @@
-package helper.crop.coordinates;
+package helper.crop.orientation;
 
 import helper.Coordinates;
 import org.junit.Before;

@@ -1,8 +1,7 @@
 package helper;
 
 import UserRequest.RequestList;
-import helper.crop.coordinates.CropFactory;
-import helper.crop.coordinates.Cropable;
+import helper.crop.orientation.CropFactory;
 import utility.ImageScaler;
 
 import java.awt.*;

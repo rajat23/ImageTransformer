@@ -1,4 +1,4 @@
-package helper.crop.coordinates;
+package helper.crop.orientation;
 
 import helper.Coordinates;
 import org.junit.Before;
@@ -6,20 +6,21 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LeftTest {
+public class TopTest {
+
     private int expectedXCoordinate;
     private int expectedYCoordinate;
     private Cropable cropable;
 
     @Before
     public void beforeEachTest(){
-        cropable=new CropFactory().create("left");
+        cropable=new CropFactory().create("top");
     }
 
     @Test
     public void testGetCoordinates() throws Exception {
-        expectedXCoordinate=0;
-        expectedYCoordinate=400;
+        expectedXCoordinate=350;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=cropable.getCoordinates(1000,1000,300,200);
 
@@ -29,7 +30,7 @@ public class LeftTest {
     @Test
     public void testGetCoordinatesForFullWidtht() throws Exception {
         expectedXCoordinate=0;
-        expectedYCoordinate=400;
+        expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=cropable.getCoordinates(1000,1000,1000,200);
 
@@ -39,7 +40,7 @@ public class LeftTest {
 
     @Test
     public void testGetCoordinatesForFullHeight() throws Exception {
-        expectedXCoordinate=0;
+        expectedXCoordinate=400;
         expectedYCoordinate=0;
 
         Coordinates returnedCoordinates=cropable.getCoordinates(1000,1000,200,1000);

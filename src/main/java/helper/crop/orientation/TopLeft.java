@@ -1,9 +1,9 @@
-package helper.crop.coordinates;
+package helper.crop.orientation;
 
 import helper.Coordinates;
 
-public class BottomLeft implements Cropable {
+public class TopLeft implements Cropable {
     public Coordinates getCoordinates(int imageWidth, int imageHeight, int responseWidth, int responseHeight) {
-        return new Coordinates(0, imageHeight - responseHeight);
+        return new Coordinates(0, 0);
     }
 }

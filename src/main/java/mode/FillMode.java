@@ -1,7 +1,6 @@
 package mode;
 
-import helper.crop.coordinates.CropFactory;
-import helper.crop.coordinates.Cropable;
+import helper.crop.orientation.CropFactory;
 import helper.Coordinates;
 import mode.strategies.Context;
 import mode.strategies.ExpandDimension;
