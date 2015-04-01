@@ -23,9 +23,9 @@ public class ScalingRequestCreator {
         int responseHeight = getHeight(mapReader.readString("height"));
 
         if (responseHeight == 0)
-            responseHeight = getProportionalHeight(responseWidth);
+            responseHeight = inputImage.getProportionalHeight(responseWidth);
         if (responseWidth == 0)
-            responseWidth = getProportionalWidth(responseHeight);
+            responseWidth = inputImage.getProportionalWidth(responseHeight);
 
         return new ScalingRequest(responseWidth,responseHeight,mode);
 
@@ -48,12 +48,5 @@ public class ScalingRequestCreator {
     }
 
 
-    public int getProportionalHeight(int width) {
-        return (int) (width / inputImage.getAspectRatio());
 
-    }
-
-    public int getProportionalWidth(int height) {
-        return (int) (height * inputImage.getAspectRatio());
-    }
 }

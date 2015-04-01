@@ -31,4 +31,13 @@ public class InputImage {
     public float getAspectRatio() {
         return aspectRatio;
     }
+
+    public int getProportionalHeight(int width) {
+        return (int) (width / aspectRatio);
+
+    }
+
+    public int getProportionalWidth(int height) {
+        return (int) (height * aspectRatio);
+    }
 }
