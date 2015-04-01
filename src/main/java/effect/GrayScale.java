@@ -5,6 +5,10 @@ import java.awt.image.BufferedImage;
 
 public class GrayScale implements Effectible {
 
+    private float RED_CONSTANT=0.299f;
+    private float GREEN_CONSTANT=0.587f;
+    private float BLUE_CONSTANT=0.114f;
+
     public BufferedImage getEffect(BufferedImage sourceImage) {
 
         int width = sourceImage.getWidth();
@@ -15,9 +19,9 @@ public class GrayScale implements Effectible {
             for (int widthCounter = 0; widthCounter < width; widthCounter++) {
 
                 Color color = new Color(sourceImage.getRGB(widthCounter, heightCounter));
-                int red = (int) (color.getRed() * 0.299);
-                int green = (int) (color.getGreen() * 0.587);
-                int blue = (int) (color.getBlue() * 0.114);
+                int red = (int) (color.getRed() * RED_CONSTANT);
+                int green = (int) (color.getGreen() * GREEN_CONSTANT);
+                int blue = (int) (color.getBlue() * BLUE_CONSTANT);
                 Color newColor = new Color(red + green + blue, red + green + blue, red + green + blue);
                 sourceImage.setRGB(widthCounter, heightCounter, newColor.getRGB());
 
