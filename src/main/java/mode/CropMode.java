@@ -12,7 +12,6 @@ public class CropMode implements Mode {
         BufferedImage image= requestList.getImage();
         int responseHeight= requestList.getResponsHeight();
         int responseWidth= requestList.getResponseWidth();
-      
 
         responseHeight=getCheckedValues(responseHeight,image.getHeight());
         responseWidth=getCheckedValues(responseWidth,image.getWidth());

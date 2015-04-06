@@ -1,7 +1,7 @@
 package servlet;
 
 
-import UserRequest.reader.MapReader;
+
 import effect.Effectible;
 import effect.EffectFactory;
 import helper.ImageReader;
