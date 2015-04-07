@@ -9,7 +9,8 @@ public class ScalingRequestCreator {
 
     private MapReader mapReader;
     private InputImage inputImage;
-
+    private static final int MIN_HEIGHT=0;
+    private static final int MIN_WIDTH=0;
 
     public ScalingRequestCreator(MapReader mapReader, InputImage inputImage) {
         this.mapReader=mapReader;
@@ -22,9 +23,9 @@ public class ScalingRequestCreator {
         int responseWidth = getWidth(mapReader.readString("width"));
         int responseHeight = getHeight(mapReader.readString("height"));
 
-        if (responseHeight == 0)
+        if (responseHeight == MIN_HEIGHT)
             responseHeight = inputImage.getProportionalHeight(responseWidth);
-        if (responseWidth == 0)
+        if (responseWidth == MIN_WIDTH)
             responseWidth = inputImage.getProportionalWidth(responseHeight);
 
         return new ScalingRequest(responseWidth,responseHeight,mode);
