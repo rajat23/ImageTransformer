@@ -1,5 +1,6 @@
 package servlet;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 import javax.servlet.ServletConfig;
@@ -22,6 +23,7 @@ public class UploadServlet extends HttpServlet {
     private int maxMemSize = 4 * 1024;
     private File file ;
     private String directory;
+    private static final String NOSUCHDIRECTORY="";
 
     public void init( ){
 
@@ -31,14 +33,15 @@ public class UploadServlet extends HttpServlet {
                        HttpServletResponse response)
             throws ServletException, java.io.IOException {
         directory=request.getParameter("directory");
+        filePath =System.getProperty("user.dir")+"/upload/"+directory+"/";
+        File f = new File(filePath);
+        if(!f.exists()) {
+            new File(System.getProperty("user.dir") + "/upload/" + directory + "/").mkdir();
+            filePath = System.getProperty("user.dir") + "/upload/" + directory;
+        }
 
-        try{
-            filePath = System.getProperty("user.dir")+"/upload/"+directory+"/";
-        }
-        catch (Exception e){
-            new File(System.getProperty("user.dir")+"/upload/"+directory+"/").mkdir();
-            filePath = System.getProperty("user.dir")+"/upload/"+directory;
-        }
+        System.out.println(filePath);
+
 
         isMultipart = ServletFileUpload.isMultipartContent(request);
         response.setContentType("text/html");
