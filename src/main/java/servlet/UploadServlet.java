@@ -21,15 +21,24 @@ public class UploadServlet extends HttpServlet {
     private int maxFileSize = 1024*10*1024;
     private int maxMemSize = 4 * 1024;
     private File file ;
+    private String directory;
 
     public void init( ){
 
-        filePath = System.getProperty("user.dir")+"/upload/";
+
     }
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, java.io.IOException {
+        directory=request.getParameter("directory");
 
+        try{
+            filePath = System.getProperty("user.dir")+"/upload/"+directory;
+        }
+        catch (Exception e){
+            new File(System.getProperty("user.dir")+"/upload/"+directory).mkdir();
+            filePath = System.getProperty("user.dir")+"/upload/"+directory;
+        }
 
         isMultipart = ServletFileUpload.isMultipartContent(request);
         response.setContentType("text/html");

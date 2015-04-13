@@ -17,7 +17,7 @@ public class Images extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String directory=req.getParameter("directory");
         List<String> results = new ArrayList<String>();
-        
+
         File[] files = new File(System.getProperty("user.dir")+"/upload/"+directory).listFiles();
 
         for (File file : files) {
