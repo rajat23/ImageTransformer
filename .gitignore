@@ -10,3 +10,4 @@ out/
 build/
 src/main/java/com/servlet/IndexServlet.java
 website/
+upload/.DS_Store
