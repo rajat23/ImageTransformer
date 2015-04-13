@@ -33,10 +33,10 @@ public class UploadServlet extends HttpServlet {
         directory=request.getParameter("directory");
 
         try{
-            filePath = System.getProperty("user.dir")+"/upload/"+directory;
+            filePath = System.getProperty("user.dir")+"/upload/"+directory+"/";
         }
         catch (Exception e){
-            new File(System.getProperty("user.dir")+"/upload/"+directory).mkdir();
+            new File(System.getProperty("user.dir")+"/upload/"+directory+"/").mkdir();
             filePath = System.getProperty("user.dir")+"/upload/"+directory;
         }
 
