@@ -37,7 +37,7 @@ public class UploadServlet extends HttpServlet {
         File f = new File(filePath);
         if(!f.exists()) {
             new File(System.getProperty("user.dir") + "/upload/" + directory + "/").mkdir();
-            filePath = System.getProperty("user.dir") + "/upload/" + directory;
+            filePath = System.getProperty("user.dir") + "/upload/" + directory+"/";
         }
 
         System.out.println(filePath);
@@ -108,7 +108,7 @@ public class UploadServlet extends HttpServlet {
         }catch(Exception ex) {
             System.out.println(ex);
         }
-        response.sendRedirect("http://localhost:3000/dashboard");
+        response.sendRedirect("http://imagetransformer.herokuapp.com/homes/dashboard");
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
