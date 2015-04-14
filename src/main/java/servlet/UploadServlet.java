@@ -108,7 +108,7 @@ public class UploadServlet extends HttpServlet {
         }catch(Exception ex) {
             System.out.println(ex);
         }
-        response.sendRedirect("http://imagetransformer.herokuapp.com/homes/dashboard");
+        response.sendRedirect("http://imsite.herokuapp.com/homes/dashboard");
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
