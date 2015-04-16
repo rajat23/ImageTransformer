@@ -17,21 +17,23 @@ public class Images extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String directory=req.getParameter("directory");
         List<String> results = new ArrayList<String>();
-
-        File[] files = new File(System.getProperty("user.dir")+"/upload/"+directory).listFiles();
-
-        for (File file : files) {
-            if (file.isFile()) {
-                results.add(file.getName());
-            }
-        }
         JSONObject imageNames = new JSONObject();
-
-        imageNames.put("names", results);
-
+        File[] files = new File(System.getProperty("user.dir")+"/upload/"+directory).listFiles();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("utf-8");
         PrintWriter out = resp.getWriter();
+        try {
+            for (File file : files) {
+                if (file.isFile()) {
+                    results.add(file.getName());
+                }
+            }
+        }
+        catch (Exception e){
+
+        }
+
+        imageNames.put("names", results);
         out.print(""+imageNames);
         out.flush();
 
