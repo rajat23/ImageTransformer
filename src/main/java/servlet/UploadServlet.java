@@ -1,14 +1,11 @@
 package servlet;
-import java.io.*;
-import java.nio.file.Files;
-import java.util.*;
 
-import javax.servlet.ServletConfig;
+import java.io.*;
+import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -19,19 +16,17 @@ public class UploadServlet extends HttpServlet {
 
     private boolean isMultipart;
     private String filePath;
-    private int maxFileSize = 1024*10*1024;
-    private int maxMemSize = 4 * 1024;
+    private final int MAXFILESIZE = 1024*10*1024;
+    private final int MAXMEMSIZE = 4 * 1024;
     private File file ;
     private String directory;
-    private static final String NOSUCHDIRECTORY="";
-
-    public void init( ){
+    private final String UPLOADHOME = "http://imsite.herokuapp.com/homes/dashboard";
 
 
-    }
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
-            throws ServletException, java.io.IOException {
+                        throws ServletException, java.io.IOException {
+
         directory=request.getParameter("directory");
         filePath =System.getProperty("user.dir")+"/upload/"+directory+"/";
         File f = new File(filePath);
@@ -59,14 +54,14 @@ public class UploadServlet extends HttpServlet {
         }
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
-        factory.setSizeThreshold(maxMemSize);
+        factory.setSizeThreshold(MAXMEMSIZE);
 
         factory.setRepository(new File(System.getProperty("user.dir")+"/upload/"));
 
 
         ServletFileUpload upload = new ServletFileUpload(factory);
 
-        upload.setSizeMax( maxFileSize );
+        upload.setSizeMax(MAXFILESIZE);
 
         try{
 
@@ -85,19 +80,11 @@ public class UploadServlet extends HttpServlet {
                 FileItem fi = (FileItem)i.next();
                 if ( !fi.isFormField () )
                 {
-                    // Get the uploaded file parameters
-                    String fieldName = fi.getFieldName();
                     String fileName = fi.getName();
-                    String contentType = fi.getContentType();
-                    boolean isInMemory = fi.isInMemory();
-                    long sizeInBytes = fi.getSize();
-                    // Write the file
                     if( fileName.lastIndexOf("\\") >= 0 ){
-                        file = new File( filePath +
-                                fileName.substring( fileName.lastIndexOf("\\"))) ;
+                        file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
                     }else{
-                        file = new File( filePath +
-                                fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+                        file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
                     }
                     fi.write( file ) ;
                     out.println("Uploaded Filename: " + fileName + "<br>");
@@ -108,13 +95,7 @@ public class UploadServlet extends HttpServlet {
         }catch(Exception ex) {
             System.out.println(ex);
         }
-        response.sendRedirect("http://imsite.herokuapp.com/homes/dashboard");
+        response.sendRedirect(UPLOADHOME);
     }
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, java.io.IOException {
 
-        throw new ServletException("GET method used with " +
-                getClass( ).getName( )+": POST method required.");
-    }
 }

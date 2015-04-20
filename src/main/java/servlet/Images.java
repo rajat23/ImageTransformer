@@ -15,10 +15,10 @@ import org.json.simple.JSONObject;
 public class Images extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String directory=req.getParameter("directory");
+        String userDirectory=req.getParameter("directory");
         List<String> results = new ArrayList<String>();
         JSONObject imageNames = new JSONObject();
-        File[] files = new File(System.getProperty("user.dir")+"/upload/"+directory).listFiles();
+        File[] files = new File(System.getProperty("user.dir")+"/upload/"+userDirectory).listFiles();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("utf-8");
         PrintWriter out = resp.getWriter();

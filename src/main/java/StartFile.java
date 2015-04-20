@@ -1,4 +1,3 @@
-import servlet.DirectoryCreator;
 import servlet.Images;
 import servlet.TranformServlet;
 import org.eclipse.jetty.server.Server;
@@ -15,7 +14,6 @@ public class StartFile  {
         server.setHandler(context);
         context.addServlet(new ServletHolder(new TranformServlet()), "/image/transform/*");
         context.addServlet(new ServletHolder(new Images()),"/images/*");
-        context.addServlet(new ServletHolder(new DirectoryCreator()),"/directory/*");
         context.addServlet(new ServletHolder(new UploadServlet()),"/upload/*");
         server.start();
         server.join();   
